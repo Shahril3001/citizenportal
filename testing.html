@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  #wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .abstract-box{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #FEFEFE;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.25);
+  }
+
+  .abstract-box:nth-child(3n + 2){
+    background:#444444;
+  }
+
+  .abstract-box:nth-child(3n + 3){
+    background:#FD9319;
+  }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+<script src="js/anime.min.js"></script>
+<script>
+  document.querySelector("#wrapper").addEventListener("wheel", generate);
+  const wrapper = document.querySelector('#wrapper');
+  for ( var i = 1; i<=100; i++){
+    const blocks = document.createElement('div')
+    blocks.classList.add('abstract-box');
+    wrapper.appendChild(blocks);
+  }
+
+  function generate(){
+    anime({
+      targets: '.abstract-box',
+      translateX : function(){
+        return anime.random(-700,700)
+      },
+      translateY : function(){
+        return anime.random(-700,700)
+      },
+      scale: function(){
+        return anime.random(1,10)
+      }
+    })
+  }
+  generate()
+</script>
+<div class="abstract-box"></div>
+<div class="abstract-box"></div>
+<div class="abstract-box"></div>
+</div>
+</body>
+</html>
