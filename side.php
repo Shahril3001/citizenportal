@@ -5,6 +5,7 @@
 			$adminEmail=$_GET['adminEmail'];
 			echo"
 			<a href='admin-index.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-home-48.png' class='side-nav-icon' />Home</a>
+			<a href='admin-slideshowlist.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-slideshow-64.png' class='side-nav-icon' />Slideshow</a>
 			<a href='admin-stafflist.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-staff-96.png' class='side-nav-icon' />Staff</a>
 			<a href='admin-citizenlist.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-citizen-64.png' class='side-nav-icon' />Citizen</a>
 			<a href='admin-departmentlist.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-department-48.png' class='side-nav-icon' />Department</a>
@@ -13,7 +14,15 @@
 			<a href='logout-admin.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-logout-96.png' class='side-nav-icon' />Log Out</a>
 			";
 		}else{
-
+			$citizenIC=$_GET['citizenIC'];
+			echo"
+			<a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-home-48.png' class='side-nav-icon' />Home</a>
+			<a href='citizen-profile.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-test-account-96.png' class='side-nav-icon' />My Profile</a>
+			<a href='citizen-service.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-services-64.png' class='side-nav-icon' />Service</a>
+			<a href='citizen-history.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-history-64.png' class='side-nav-icon' />History</a>
+			<a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-mailboxes-64.png' class='side-nav-icon' />Contact</a>
+			<a href='logout-citizen.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-logout-96.png' class='side-nav-icon' />Log Out</a>
+			";
 		}
 	}
 	else{

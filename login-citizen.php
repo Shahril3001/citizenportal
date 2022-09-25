@@ -50,7 +50,7 @@ if(isset($_POST['Submit1'])){
 				$role = $citizen->role;
 			}
 		$_SESSION['user-valid']=0;
-    header("location:index-citizendashboard.php?citizenIC=".$citizenIC."&role=".$role."");
+    header("location:citizen-index.php?citizenIC=".$citizenIC."&role=".$role."");
 		} else {
 
 		if(!isset($_SESSION["user-valid"])){

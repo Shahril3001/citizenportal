@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Citizen Portal Brunei | Service</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -34,7 +34,7 @@
 				<div id="mySidenav" class="side-nav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<!-- - -->
 					<?php
-					include 'side.php';
+						include 'side.php';
 					?>
 					<!-- - -->
 				</div>
@@ -43,53 +43,44 @@
 
 				<main>
 					<div class="main-container">
+						<?php
+							include 'breadcrumbs.php';
+						?>
 						<!--===============================================================================================-->
 						<div>
-							<h1 class="title-container">Feedback</h1>
-							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/>
-							<h2 class='statbox-title-h2'>Feedback List</h2>
-							<hr>
-							<?php
-									$cloneID = 0;
-									include 'connection.php';
-									$feedbackquery = dbConn()->prepare('SELECT * FROM feedback');
-									$feedbackquery->execute();
-									$feedbacklists = $feedbackquery->fetchAll(PDO::FETCH_OBJ);
-									echo"
-									<div class='row'>
-										<table id='listtable'>
-											<tr>
-												<th width='20px'>#</th>
-												<th>Detail</th>
-												<th>Date</th>
-												<th>Action</th>
-											</tr>";
-											foreach($feedbacklists as $feedbacklist){
-											$cloneID++;
-											$feedbackID  = $feedbacklist->feedbackID ;
-											$senderF = $feedbacklist->senderF;
-											$subjectF = $feedbacklist->subjectF;
-											$emailF = $feedbacklist->emailF;
-											$commentF = $feedbacklist->commentF;
-											$dateF = $feedbacklist->dateF;
-
-											echo "
-											<tr>
-												<td>$cloneID</td>
-												<td class='justify-contents'>
-													<b>Sender:</b> $senderF<br>
-													<b>Email:</b> $emailF<br>
-													<b>Subject:</b> $subjectF<br>
-												</td>
-												<td width='20%'>$dateF</td>
-												<td width='10%'>
-													<a href='admin-viewfeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-													<a href='admin-deletefeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
-												</td>
-											</tr>";
-											}
-											echo"</table>";
-									?>
+							<h1 class="title-container">Slideshow</h1>
+							<div class="task-container">
+								<?php
+										echo "
+											<p>Required fields are marked with an asterisk (*).</p>
+											<form method='POST' enctype='multipart/form-data' action='admin-addslideshow2.php?adminEmail=".$adminEmail."&role=".$role."'>
+												<table id='formtable'>
+													<tr>
+														<th colspan='2'>Add Slideshow</th>
+													</tr>
+													<tr>
+														<td><b>Caption:</b></td>
+														<td><input type='text' name='slideshowCaption' placeholder='Name...'></td>
+													</tr>
+													<tr>
+														<td><b>Slideshow Image:</b></td>
+														<td><input type='file' name='slideshowImg'></td>
+													</tr>
+													<tr>
+														<td style='border:none;' colspan='2'  id='buttonrow'>
+															<center>
+																<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
+																<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+															</center>
+														</td>
+													</tr>
+												</table>
+											</form>
+											<script>
+												CKEDITOR.replace( 'editor1' );
+											</script>
+										";
+								?>
 							</div>
 						</div>
 					</div>

@@ -64,10 +64,8 @@
 										<table id='listtable'>
 											<tr>
 												<th width='20px'>#</th>
-												<th>Title</th>
-												<th>Category</th>
-												<th>Description</th>
-												<th>Action</th>
+												<th>Detail</th>
+												<th width='10%'>Action</th>
 											</tr>";
 											foreach($serviceDeptlists as $serviceDeptlist){
 												$cloneID++;
@@ -87,10 +85,12 @@
 												echo "
 												<tr>
 													<td>$cloneID</td>
-													<td width='25%'>$listTitle</td>
-													<td width='20%'>$categoryName</td>
-													<td class='justify-contents'>".substr($listDesc,0,200)."..... <b>(More)</b></td>
-													<td width='10%'>
+													<td class='justify-contents'>
+														<b>Title:</b> $listTitle<br>
+														<b>Category:</b> $categoryName<br>
+														<b>Description:</b> ".substr($listDesc,0,250)."..... <i>(More)</i>
+													</td>
+													<td>
 														<a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
 														<a href='admin-editdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
 														<a href='admin-deletedeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>

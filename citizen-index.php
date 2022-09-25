@@ -43,35 +43,38 @@
 
 				<main>
 					<div class="main-container">
-						<div class="search-container">
-							<form method='POST' action=''>
-						   	<input class="search-input" type="text" placeholder="Search">
-							</form>
-						</div>
+
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">service categories</h1>
 							<?php
+							$cloneID = 0;
 							include 'connection.php';
-							$query1 = dbConn()->prepare('SELECT * FROM service_category');
-							$query1->execute();
-							$service_cates = $query1->fetchAll(PDO::FETCH_OBJ);
+							$query = dbConn()->prepare('SELECT * FROM slideshow');
+							$query->execute();
+							$slideshows = $query->fetchAll(PDO::FETCH_OBJ);
+							$num_count = $query->rowCount();
 
-							foreach($service_cates as $service_cate){
-								$categoryID = $service_cate->categoryID;
-								$categoryName = $service_cate->categoryName;
-								$categoryDesc = $service_cate->categoryDesc;
-								$categoryImg = $service_cate->categoryImg;
+							foreach($slideshows as $slideshow){
+								$cloneID++;
+								$slideshowID = $slideshow->slideshowID;
+								$slideshowImg = $slideshow->slideshowImg;
+								$slideshowCaption = $slideshow->slideshowCaption;
 
-								echo "
-								<div class='box-item'>
-									<div class='box-img bounce-7'>$categoryImg</div>
-									<div class='box-title'>$categoryName</div>
-									<div class='box-desc'>$categoryDesc</div>
-									<a href='login.php'><button class='button'>Click</button></a>
-								</div>
-								";
+							echo"
+							<div class='slideshow-container'>
+								<div class='mySlides fade'>
+								<div class='slideshow-numbertext'>$cloneID / $num_count</div>
+								<img class='slideshow-img' src='$slideshowImg'>
+								<div class='slideshow-caption'>$slideshowCaption</div>
+							</div>
+							";
 							}
+							echo"<div class='slideshow-container-dot'>";
+							for ($x = 0; $x <= ($num_count-1); $x++) {
+							  echo "<span class='slideshow-dot'></span>";
+							}
+							echo"</div>";
 							?>
 						</div>
 					</div>

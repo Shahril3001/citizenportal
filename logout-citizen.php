@@ -6,9 +6,9 @@
 
 <?php
 include 'connection.php';
-$date=date("Y-m-d h:i:sa");	
-$memberIC=$_GET['memberIC'];
-$query = dbConn()->prepare("UPDATE member SET lastLogin=:date WHERE memberIC='".$memberIC."'");
+$date=date("Y-m-d h:i:sa");
+$citizenIC=$_GET['citizenIC'];
+$query = dbConn()->prepare("UPDATE citizen SET lastLogin=:date WHERE citizenIC='".$citizenIC."'");
 $query->bindParam(":date", $date);
 $query -> execute();
 session_start();

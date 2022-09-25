@@ -65,12 +65,9 @@
 										<table id='listtable'>
 											<tr>
 												<th width='20px'>#</th>
-												<th>Name</th>
-												<th>IC Number</th>
-												<th>Phone</th>
-												<th>Email</th>
-												<th>Last Login</th>
-												<th>Action</th>
+												<th>Detail</th>
+												<th width='20%'>Last Login</th>
+												<th width='10%'>Action</th>
 											</tr>";
 											foreach($citizenlists as $citizenlist){
 											$cloneID++;
@@ -84,12 +81,14 @@
 											echo "
 											<tr>
 												<td>$cloneID</td>
-												<td width='25%'>$citizenName</td>
-												<td>$citizenIC</td>
-												<td>$citizenPhone</td>
-												<td width='20%'>$citizenEmail</td>
+												<td class='justify-contents'>
+													<b>Name:</b> $citizenName<br>
+													<b>IC Number:</b> $citizenIC<br>
+													<b>Phone:</b> $citizenPhone<br>
+													<b>Email:</b> $citizenEmail<br>
+												</td>
 												<td>$lastLogin</td>
-												<td width='10%'>
+												<td>
 													<a href='admin-editcitizen.php?adminEmail=".$adminEmail."&citizenID=".$citizenID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
 													<a href='admin-deletecitizen.php?adminEmail=".$adminEmail."&citizenID=".$citizenID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
 												</td>

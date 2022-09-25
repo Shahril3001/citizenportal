@@ -64,10 +64,9 @@
 										<table id='listtable'>
 											<tr>
 												<th width='20px'>#</th>
-												<th>Name</th>
-												<th>Image Icon</th>
-												<th>Description</th>
-												<th>Action</th>
+												<th width='20%'>Icon</th>
+												<th>Detail</th>
+												<th width='10%'>Action</th>
 											</tr>";
 											foreach($servicelists as $servicelist){
 											$cloneID++;
@@ -79,10 +78,12 @@
 											echo "
 											<tr>
 												<td>$cloneID</td>
-												<td width='25%'>$categoryName</td>
-												<td width='20%'><img src='$categoryImg' alt='' width='48px' height='48px'></td>
-												<td class='justify-contents'>$categoryDesc</td>
-												<td width='10%'>
+												<td><img src='$categoryImg' alt='' width='48px' height='48px'></td>
+												<td class='justify-contents'>
+													<b>Title:</b> $categoryName<br>
+													<b>Description:</b> $categoryDesc
+												</td>
+												<td>
 													<a href='admin-editservice.php?adminEmail=".$adminEmail."&categoryID=".$categoryID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
 													<a href='admin-deleteservice.php?adminEmail=".$adminEmail."&categoryID=".$categoryID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
 												</td>

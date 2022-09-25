@@ -30,7 +30,6 @@
 				?>
 
 				<!-- Sidebar -->
-				<!-- Sidebar -->
 				<div id="mySidenav" class="side-nav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<!-- - -->
 					<?php
@@ -45,46 +44,50 @@
 					<div class="main-container">
 						<!--===============================================================================================-->
 						<div>
-							<h1 class="title-container">Feedback</h1>
-							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/>
-							<h2 class='statbox-title-h2'>Feedback List</h2>
+							<h1 class="title-container">Slideshow</h1>
+							<img src='icon/icons8-slideshow-64.png' class='statbox-title-img'/>
+							<?php
+								echo"
+								<a href='admin-addslideshow.php?adminEmail=".$adminEmail."&role=".$role."'><button class='button' id='statbox-addBtn'>Add (+)</button></a>
+								";
+							?>
+							<h2 class='statbox-title-h2'>Slideshow List</h2>
 							<hr>
 							<?php
 									$cloneID = 0;
 									include 'connection.php';
-									$feedbackquery = dbConn()->prepare('SELECT * FROM feedback');
-									$feedbackquery->execute();
-									$feedbacklists = $feedbackquery->fetchAll(PDO::FETCH_OBJ);
+									$slideshowquery = dbConn()->prepare('SELECT * FROM slideshow');
+									$slideshowquery->execute();
+									$slideshows = $slideshowquery->fetchAll(PDO::FETCH_OBJ);
 									echo"
 									<div class='row'>
 										<table id='listtable'>
 											<tr>
 												<th width='20px'>#</th>
+												<th width='20%'>Image</th>
 												<th>Detail</th>
-												<th>Date</th>
-												<th>Action</th>
+												<th width='10%'>Action</th>
 											</tr>";
-											foreach($feedbacklists as $feedbacklist){
+											foreach($slideshows as $slideshow){
 											$cloneID++;
-											$feedbackID  = $feedbacklist->feedbackID ;
-											$senderF = $feedbacklist->senderF;
-											$subjectF = $feedbacklist->subjectF;
-											$emailF = $feedbacklist->emailF;
-											$commentF = $feedbacklist->commentF;
-											$dateF = $feedbacklist->dateF;
+											$slideshowID  = $slideshow->slideshowID ;
+											$slideshowImg = $slideshow->slideshowImg;
+											$slideshowCaption = $slideshow->slideshowCaption;
+											$addedBy = $slideshow->addedBy;
+											$dateAdded  = $slideshow->dateAdded;
 
 											echo "
 											<tr>
 												<td>$cloneID</td>
+												<td><img src='$slideshowImg' alt='' width='200px' height='90px'></td>
 												<td class='justify-contents'>
-													<b>Sender:</b> $senderF<br>
-													<b>Email:</b> $emailF<br>
-													<b>Subject:</b> $subjectF<br>
+													<b>Caption:</b> $slideshowCaption<br>
+													<b>Date Added:</b> $dateAdded<br>
+													<b>Added By:</b> $addedBy<br>
 												</td>
-												<td width='20%'>$dateF</td>
-												<td width='10%'>
-													<a href='admin-viewfeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-													<a href='admin-deletefeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+												<td>
+													<a href='admin-editslideshow.php?adminEmail=".$adminEmail."&slideshowID=".$slideshowID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
+													<a href='admin-deleteslideshow.php?adminEmail=".$adminEmail."&slideshowID=".$slideshowID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
 												</td>
 											</tr>";
 											}
