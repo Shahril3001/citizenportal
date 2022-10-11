@@ -93,6 +93,7 @@
 			<?php
 				include 'btnBacktoTop.php';
 				include 'js_connection.php';
+				include 'slideshow_connection.php';
 			?>
 	</body>
 </html>

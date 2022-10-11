@@ -48,9 +48,14 @@
 						<img src='icon/icons8-services-64.png' class='statbox-title-img'/>
 						<h2 class='statbox-title-h2'>Service List</h2>
 						<hr>
+						<div class="search-container">
+							<form method='POST' action=''>
+						   	<input class="search-input" type="text" placeholder="Search">
+							</form>
+						</div>
 						<?php
 						include 'connection.php';
-						$query1 = dbConn()->prepare('SELECT * FROM service_category');
+						$query1 = dbConn()->prepare('SELECT * FROM service_category ORDER BY  categoryName ASC');
 						$query1->execute();
 						$service_cates = $query1->fetchAll(PDO::FETCH_OBJ);
 

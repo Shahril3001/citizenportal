@@ -1,9 +1,7 @@
 body{
   background-color: #F5F9FC;
-  color:#323232;
   margin: 0;
   padding: 0;
-  font-family: Verdana,Arial,sans-serif;
 }
 
 .bgcover{
@@ -29,22 +27,8 @@ header{
 }
 
 #title-header-logo{
-  width:65px;
+  width:225px;
   height:65px;
-  margin-right: -12px;
-  margin-top:-5px;
-}
-
-.title-header #title-header-first-letter1 {
-  color: #FAB400;
-}
-
-.title-header #title-header-first-letter2 {
-  color: #3BA3F8;
-}
-
-.title-header #title-header-country {
-  color: #EBD618;
 }
 
 .side-nav-btn{
@@ -55,10 +39,6 @@ header{
 
 .side-nav-btn:hover{
   color: #FAB400;
-}
-
-.side-nav-btn:active{
-  transform: rotate(90deg);
 }
 
 .side-nav {
@@ -147,6 +127,7 @@ nav{
   float: none;
   padding: 1em;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  z-index: 1;
 }
 
 .sticky {
@@ -157,31 +138,6 @@ nav{
 
 nav li{
   display: inline-block;
-}
-
-nav ul ul {
-  position: absolute;
-  background-color: #FFFFFF;
-  padding: 0;
-  text-align: left;
-  display: none;
-}
-
-nav ul ul li {
-  display: block;
-  width: 12em;
-  padding: 0.2em 1em;
-  margin-left: 0;
-  background-color: #FFFFFF;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-}
-
-nav ul ul li:hover {
-  background-color: #FAB400;
-}
-
-nav ul ul li a:hover {
-  color: #FFFFFF;
 }
 
 nav li:hover ul {
@@ -196,7 +152,7 @@ nav ul{
 }
 
 nav a{
-  font-weight: 20px;
+  font-weight: bold;
   text-decoration: none;
   padding: 1em;
   border-style: none;
@@ -204,20 +160,70 @@ nav a{
 }
 
 nav a:link {
-  color: #25262A !important;
+  color: #25262A;
 }
 
 nav a:hover {
-  color: #FAB400 !important;
+  color: #FAB400;
 }
 
 nav a:visited {
-  color: #25262A !important;
+  color: #25262A;
 }
 
 nav a:active {
-  color: #25262A !important;
+  color: #25262A;
 }
+
+.navmenu {
+  position: relative;
+  display: inline-block;
+}
+
+.navmenu-navcontent {
+  text-align: left;
+  display: none;
+  position: absolute;
+  background-color: #F9F9F9;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  top:2.8em;
+}
+
+.navmenu-navcontent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.navmenu-navcontent a:hover {
+  background-color: #FFA700;
+}
+
+.show {
+  display: block;
+}
+
+/* Side Nav --------------------------------------------------------------------------------------*/
+.active-sidenav {
+  background-color: #FDA702;
+}
+
+.dropdown-sidenav {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+.arrowdown {
+  float: right;
+  padding-right: 8px;
+  font-size: 15px;
+}
+
+/* Side Nav --------------------------------------------------------------------------------------*/
 
 main{
   margin: 0;
@@ -478,10 +484,10 @@ header, nav, main, footer {
 
 .contact-item div{
   margin:10px;
+  float: left;
 }
 
 #contact-left-side{
-  text-align:left;
 }
 
 #contact-right-side{
@@ -507,6 +513,10 @@ tr,td, th{
 
 .removeNumpointer{
   -moz-appearance: textfield;
+}
+
+.search-container{
+  margin-bottom: 1.5em;
 }
 
 #onlyforAdmin{
@@ -828,34 +838,18 @@ select {
 }
 
 @media only screen and (max-width: 768px) {
-  header{
-    background-image: url('img/lilfish.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+
 
   h1{
     font-size:1.5em;
     line-height: 120%;
   }
 
-  nav a{
-    display: block;
-    padding: 0.2em;
-    font-size: 1.3em;
-    border-bottom: 1px solid #330000;
-  }
-
-  nav li{
-    display: block;
-  }
-
-  nav ul{
-    text-align: left;
+  #navbar{
+    display: none;
   }
 
   main{
-    padding-left: 0.4em;
   }
 
   .category{

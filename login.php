@@ -72,7 +72,7 @@
 											</tr>
 										</table>
 									</form>
-									<p>Forgot username or password? Please click <a href='forgot.php'>Find Account</a>.</p>
+									<p>Forgot username or password? Please click <a href='find-account.php'>Find Account</a>.</p>
 									<p>Don't have any account yet? Click <a href='citizen-registration.php'>Register</a> to create new account.</p>
 								</div>
 								<div class="detail" id="adminTab">

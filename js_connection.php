@@ -28,48 +28,55 @@
 	<!--===============================================================================================-->
 		<script src='js/main.js'></script>
 		<script>
-		// Get the button
-		let mybutton = document.getElementById('myBtn');
 
-		// When the user scrolls down 20px from the top of the document, show the button
-		window.onscroll = function() {scrollFunction()};
+				// Get the button
+				let mybutton = document.getElementById('myBtn');
 
-		function scrollFunction() {
-			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-				mybutton.style.display = 'block';
-			} else {
-				mybutton.style.display = 'none';
-			}
-		}
+				// When the user scrolls down 20px from the top of the document, show the button
+				window.onscroll = function() {scrollFunction()};
 
-		// When the user clicks on the button, scroll to the top of the document
-		function topFunction() {
-			document.body.scrollTop = 0;
-			document.documentElement.scrollTop = 0;
-		}
+				function scrollFunction() {
+					if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+						mybutton.style.display = 'block';
+					} else {
+						mybutton.style.display = 'none';
+					}
+				}
 
-			function openNav() {
-				document.getElementById('mySidenav').style.width = '250px';
-			}
+				// When the user clicks on the button, scroll to the top of the document
+				function topFunction() {
+					document.body.scrollTop = 0;
+					document.documentElement.scrollTop = 0;
+				}
 
-			function closeNav() {
-				document.getElementById('mySidenav').style.width = '0';
-			}
+				<!--===============================================================================================-->
 
-			$(document).ready(function(){
-				$('#citizenTab').show();
-				$('#adminTab').hide();
-			});
-			$(document).ready(function(){
-				$('#citizenLogBtn').click(function(){
-				$('#citizenTab').show();
-				$('#adminTab').hide();
+				function openNav() {
+					document.getElementById('mySidenav').style.width = '250px';
+				}
+
+				function closeNav() {
+					document.getElementById('mySidenav').style.width = '0';
+				}
+
+				<!--===============================================================================================-->
+
+				$(document).ready(function(){
+					$('#citizenTab').show();
+					$('#adminTab').hide();
 				});
-				$('#adminLogBtn').click(function(){
-				$('#adminTab').show();
-				$('#citizenTab').hide();
+				$(document).ready(function(){
+					$('#citizenLogBtn').click(function(){
+					$('#citizenTab').show();
+					$('#adminTab').hide();
+					});
+					$('#adminLogBtn').click(function(){
+					$('#adminTab').show();
+					$('#citizenTab').hide();
+					});
 				});
-			});
+
+				<!--===============================================================================================-->
 
 	      // The function below will start the confirmation dialog
 	      function confirmAction() {
@@ -81,28 +88,50 @@
 	        }
 	      }
 
+			<!--===============================================================================================-->
 			function goBack(){
 				window.history.back();
 			}
 
-			let slideIndex = 0;
-			showSlides();
+			<!--===============================================================================================-->
 
-			function showSlides() {
-				let i;
-				let slides = document.getElementsByClassName('mySlides');
-				let dots = document.getElementsByClassName('slideshow-dot');
-				for (i = 0; i < slides.length; i++) {
-					slides[i].style.display = 'none';
+			function myDropnav() {
+				document.getElementById('myDropdown').classList.toggle('show');
+			}
+
+			function myDropnav1() {
+				document.getElementById('myDropdown1').classList.toggle('show');
+			}
+
+			// Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+				if (!event.target.matches('.dropbtn')) {
+					var dropdowns = document.getElementsByClassName('dropdown-content');
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show')) {
+							openDropdown.classList.remove('show');
+						}
+					}
 				}
-				slideIndex++;
-				if (slideIndex > slides.length) {slideIndex = 1}
-				for (i = 0; i < dots.length; i++) {
-					dots[i].className = dots[i].className.replace(' active', '');
-				}
-				slides[slideIndex-1].style.display = 'block';
-				dots[slideIndex-1].className += ' active';
-				setTimeout(showSlides, 3000); // Change image every 2 seconds
+			}
+
+			<!--===============================================================================================-->
+
+			var dropdown = document.getElementsByClassName('sidenavdropdown-btn');
+			var i;
+
+			for (i = 0; i < dropdown.length; i++) {
+			  dropdown[i].addEventListener('click', function() {
+			    this.classList.toggle('active-sidenav');
+			    var dropdownContent = this.nextElementSibling;
+			    if (dropdownContent.style.display === 'block') {
+			      dropdownContent.style.display = 'none';
+			    } else {
+			      dropdownContent.style.display = 'block';
+			    }
+			  });
 			}
 		</script>
 	";

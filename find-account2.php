@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Contact</title>
+		<title>Citizen Portal Brunei | Login</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -29,7 +29,7 @@
 				include 'navigation_bar.php';
 			?>
 
-			<!-- Sidebar -->
+
 			<!-- Sidebar -->
 			<div id="mySidenav" class="side-nav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 				<!-- - -->
@@ -38,52 +38,75 @@
 				?>
 				<!-- - -->
 			</div>
-
+			<!-- Sidebar -->
 			<!--===============================================================================================-->
 			<main>
 				<!--===============================================================================================-->
 				<div class="main-container">
-					<h1 class="title-container">Contact Us</h1>
-					<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/>
-					<h2 class='statbox-title-h2'>Contact Us</h2>
+					<h1 class="title-container">Login</h1>
+					<img src='icon/icons8-find-user-96.png' class='statbox-title-img'/>
+					<h2 class='statbox-title-h2'>Find Account</h2>
 					<hr>
-					<div class='contact-item'>
-						<b>Leave a Comment</b>
-						<p>Your email address will not be published. Required fields are marked *</p>
-						<form method="POST" action="contact2.php" id="formpage">
-							<table id="formtable">
+						<?php
+						$citizenName = $_POST['citizenName'];
+						$citizenIC = $_POST['citizenIC'];
+						include 'connection.php';
+						$query = dbConn()->prepare("SELECT * FROM citizen where citizenName LIKE '%".$citizenName."%' AND citizenIC LIKE '%".$citizenIC."%'");
+						$query->execute();
+						$citizenlists = $query->fetchAll(PDO::FETCH_OBJ);
+						$num_count = $query->rowCount();
+						if ($num_count !=0)
+						{
+						echo"<p><b>Result:</b> There is $num_count that match your search and are shown below:</p></br>
+						<div class='row'>";
+						foreach($citizenlists as $citizenlist){
+							$citizenID = $citizenlist->citizenID;
+							$citizenIC = $citizenlist->citizenIC;
+							$citizenName = $citizenlist->citizenName;
+							$citizenPhone = $citizenlist->citizenPhone;
+							$citizenEmail = $citizenlist->citizenEmail;
+							$citizenAddress = $citizenlist->citizenAddress;
+							$citizenPassword = $citizenlist->citizenPassword;
+							echo"<table id='formtable'>
 								<tr>
-									<th colspan="2">Feedback</th>
+									<th colspan='2'>Profile</th>
 								</tr>
 								<tr>
-									<td><b>Username:</b></td>
-									<td><input type="text" name="senderF" size='25' placeholder="Your name..."></td>
+									<td width='240px'><b>Name:</b></td>
+									<td>$citizenName</td>
+								</tr>
+								<tr>
+									<td width='240px'><b>IC Number:</b></td>
+									<td>$citizenIC</td>
+								</tr>
+								<tr>
+									<td><b>Phone:</b></td>
+									<td>$citizenPhone</td>
 								</tr>
 								<tr>
 									<td><b>Email:</b></td>
-									<td><input type="email" name="emailF" size='25' placeholder="Your email..."></td>
+									<td>$citizenEmail</td>
 								</tr>
 								<tr>
-									<td><b>Subject:</b></td>
-									<td><input type="text" name="subjectF" size='25' placeholder="Your subject..."></td>
+									<td><b>Address:</b></td>
+									<td>$citizenAddress</td>
 								</tr>
 								<tr>
-									<td><b>Message:</b></td>
-									<td><textarea name="commentF"  id='editor1' rows='5' cols='35%' placeholder="Your comment.."></textarea></td>
+									<td><b>Password:</b></td>
+									<td>$citizenPassword</td>
 								</tr>
 								<tr>
-									<td colspan="2"  id="buttonrow">
-										<input id="submitBtn" class="button" type="submit" name="Submit" value="Submit">
-										<input id="resetBtn" class="button" type="reset" name="reset" value="Reset"/></td>
+									<td style='border:none;' colspan='2'  id='buttonrow'><a href='login.php'><button id='buttonclick' class='button'>Login</button></a></td>
 								</tr>
-							</table>
-						</form>
-						<script>
-						CKEDITOR.replace( 'editor1' );
-						</script>
-					</div>
-					<div class='contact-item' id="contact-right-side">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16846.627165538885!2d114.89525465722976!3d4.89366284877766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3222f557ca25b52b%3A0x202cd68248048c3b!2sPusat%20Kebangsaan%20E-Kerajaan!5e0!3m2!1sms!2sbn!4v1663037423021!5m2!1sms!2sbn" width="100%" height="465px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+								</table>";
+
+						}
+						}else if ($num_count == 0){
+						echo "<p><b>Result:</b> There are no results were founded.</p>";
+						}else{
+						echo "<p>Something wrong on database.</p>";
+						}
+						?>
 					</div>
 				</div>
 

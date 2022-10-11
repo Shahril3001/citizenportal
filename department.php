@@ -44,6 +44,9 @@
 				<!--===============================================================================================-->
 				<div class="main-container">
 					<h1 class="title-container">Department</h1>
+					<img src='icon/icons8-department-48.png' class='statbox-title-img'/>
+					<h2 class='statbox-title-h2'>Department</h2>
+					<hr>
 
 				</div>
 

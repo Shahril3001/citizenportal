@@ -28,9 +28,6 @@
 					include 'header_bar.php';
 					include 'navigation_bar.php';
 				?>
-
-				<!-- Sidebar -->
-				<!-- Sidebar -->
 				<div id="mySidenav" class="side-nav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<!-- - -->
 					<?php
@@ -43,11 +40,6 @@
 
 				<main>
 					<div class="main-container">
-						<div class="search-container">
-							<form method='POST' action=''>
-						   	<input class="search-input" type="text" placeholder="Search">
-							</form>
-						</div>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">service categories</h1>
@@ -64,7 +56,7 @@
 								$categoryImg = $service_cate->categoryImg;
 
 								echo "
-								<div class='box-item'>
+								<div class='box-item' >
 									<div class='box-img bounce-7'><img src='$categoryImg' alt='' width='48px' height='48px'></div>
 									<div class='box-title'>$categoryName</div>
 									<div class='box-desc'>$categoryDesc</div>
@@ -91,5 +83,9 @@
 				include 'btnBacktoTop.php';
 				include 'js_connection.php';
 			?>
+
+			<script>
+		
+			</script>
 	</body>
 </html>
