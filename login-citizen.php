@@ -27,9 +27,9 @@ session_start();
 include 'connection.php';
 echo "<center>";
 if(isset($_POST['Submit1'])){
-	$citizenName = $_POST['citizenName'];
+	$citizenIC = $_POST['citizenIC'];
 	$citizenPassword = $_POST['citizenPassword'];
-	if(empty($citizenName) || empty($citizenPassword)) {
+	if(empty($citizenIC) || empty($citizenPassword)) {
 	echo "<div class='pos'>";
 	echo "<img src='icon/icons8-error-96.png'/>";
 	echo "<h2>Empty field!</h2>";
@@ -37,12 +37,12 @@ if(isset($_POST['Submit1'])){
 	<p>Please click <a href='login.php'><button id='backBtn' class='button'>Back</button></a> to re-login.</p>";
 	echo "</div>";
 	} else {
-		$query = dbConn()->prepare("SELECT * FROM citizen WHERE citizenName='$citizenName' AND  citizenPassword='$citizenPassword' ");
+		$query = dbConn()->prepare("SELECT * FROM citizen WHERE citizenIC='$citizenIC' AND  citizenPassword='$citizenPassword' ");
 		$query->execute(array());
 
 		if($query->rowCount() >= 1) {
-		  $_SESSION['citizenName'] = $citizenName;
-			$query1 = dbConn()->prepare('SELECT * FROM citizen WHERE citizenName="'.$citizenName.'"');
+		  $_SESSION['citizenIC'] = $citizenIC;
+			$query1 = dbConn()->prepare('SELECT * FROM citizen WHERE citizenIC="'.$citizenIC.'"');
 			$query1->execute();
 			$citizens = $query1->fetchAll(PDO::FETCH_OBJ);
 			foreach($citizens as $citizen){

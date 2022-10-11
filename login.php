@@ -57,8 +57,8 @@
 												<th colspan="2">Citizen</th>
 											</tr>
 											<tr>
-												<td><b>Name</b></td>
-												<td><input type="text" name="citizenName"></td>
+												<td><b>IC</b></td>
+												<td><input type="text" name="citizenIC"></td>
 											</tr>
 											<tr>
 												<td><b>Password</b></td>
