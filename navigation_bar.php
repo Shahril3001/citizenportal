@@ -8,7 +8,7 @@
 							echo"
 							<nav id='navbar'>
 								<ul>
-									<li><a href='admin-index.php?adminEmail=".$adminEmail."&role=".$role."'>Home</a></li>
+									<li><a href='admin-index.php?adminEmail=".$adminEmail."&role=".$role."'>Dashboard</a></li>
 									<div class='navmenu'>
 										<li><a href='javascript:void(0)' onclick='myDropnav()' class='dropbtn'>Management &#9660</a>
 											<div id='myDropdown' class='navmenu-navcontent'>
@@ -37,9 +37,9 @@
 							echo"
 							<nav id='navbar'>
 								<ul>
-									<li><a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'>Home</a></li>
-									<li><a href='citizen-profile.php?citizenIC=".$citizenIC."&role=".$role."'>My Profile</a></li>
-									<li><a href='citizen-service.php?citizenIC=".$citizenIC."&role=".$role."'>Service</a></li>
+									<li><a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'>Dashboard</a></li>
+									<li><a href='citizen-myprofile.php?citizenIC=".$citizenIC."&role=".$role."'>My Profile</a></li>
+									<li><a href='services.php?citizenIC=".$citizenIC."&role=".$role."'>Service</a></li>
 									<li><a href='citizen-history.php?citizenIC=".$citizenIC."&role=".$role."'>History</a></li>
 									<li><a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'>Contact</a></li>
 									<li><a href='logout-citizen.php?citizenIC=".$citizenIC."&role=".$role."'>Log Out</a></li>

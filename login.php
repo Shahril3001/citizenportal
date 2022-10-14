@@ -57,11 +57,11 @@
 												<th colspan="2">Citizen</th>
 											</tr>
 											<tr>
-												<td><b>IC</b></td>
+												<td><b>IC Number:</b></td>
 												<td><input type="text" name="citizenIC"></td>
 											</tr>
 											<tr>
-												<td><b>Password</b></td>
+												<td><b>Password:</b></td>
 												<td><input type="password" name="citizenPassword"></td>
 											</tr>
 											<tr>

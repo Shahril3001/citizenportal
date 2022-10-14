@@ -28,7 +28,7 @@
 					include 'header_bar.php';
 					include 'navigation_bar.php';
 				?>
-
+			
 				<!-- Sidebar -->
 				<!-- Sidebar -->
 				<div id="mySidenav" class="side-nav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -43,13 +43,73 @@
 
 				<main>
 					<div class="main-container">
-
+						<div class='greeting'>
+							<?php
+								if(isset($_GET['citizenIC'])&& isset($_GET['role'])){
+									$adminemail=$_GET['citizenIC'];
+									$role=$_GET['role'];
+									include 'connection.php';
+									$query1 = dbConn()->prepare('SELECT * FROM citizen WHERE citizenIC="'. $citizenIC .'"');
+									$query1->execute();
+									$citizens = $query1->fetchAll(PDO::FETCH_OBJ);
+									foreach($citizens as $citizen){
+										$citizenID = $citizen->citizenID;
+										$citizenIC = $citizen->citizenIC;
+										$citizenName = $citizen->citizenName;
+										$citizenPhone = $citizen->citizenPhone;
+										$citizenEmail = $citizen->citizenEmail;
+										$lastLogin = $citizen->lastLogin;
+									}
+								echo"<center><h3> ~ WELCOME, ".strtoupper($citizenName)." ~ </h3></br>
+								<p>[ Last Login: $lastLogin ]</p></center>";
+							?>
+							<div class="wave"></div>
+						</div>
 						<!--===============================================================================================-->
+						<div>
+							<h1 class="title-container">Citizen Dashboard</h1>
+							<img src='icon/icons8-complaints-96.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview</h2><hr>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Total complains</div>
+								<div class='statbox-count-total'>20</div>
+								<a href='#'><button class='button'>Go</button></a>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Open</div>
+								<div class='statbox-count-total'>15</div>
+								<a href='#'><button class='button'>Go</button></a>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Closed</div>
+								<div class='statbox-count-total'>1</div>
+								<a href='#'><button class='button'>Go</button></a>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Dropped</div>
+								<div class='statbox-count-total'>4</div>
+								<a href='#'><button class='button'>Go</button></a>
+							</div><br><br>
+							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Feedbacks</h2><hr>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Positive</div>
+								<div class='statbox-count-total'>5</div>
+								<a href='#'><button class='button'>Go</button></a>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Negative</div>
+								<div class='statbox-count-total'>1</div>
+								<a href='#'><button class='button'>Go</button></a>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Pending</div>
+								<div class='statbox-count-total'>19</div>
+								<a href='#'><button class='button'>Go</button></a>
+							</div>
+						</div>
 						<div>
 							<h1 class="title-container">service categories</h1>
 							<?php
 							$cloneID = 0;
-							include 'connection.php';
 							$query = dbConn()->prepare('SELECT * FROM slideshow');
 							$query->execute();
 							$slideshows = $query->fetchAll(PDO::FETCH_OBJ);
@@ -94,6 +154,7 @@
 				include 'btnBacktoTop.php';
 				include 'js_connection.php';
 				include 'slideshow_connection.php';
+				}
 			?>
 	</body>
 </html>

@@ -40,6 +40,10 @@
 
 				<main>
 					<div class="main-container">
+						<div class='greeting'>
+								<center><h3> ~ WELCOME TO ADUAN DARUSSALAM SITE ~</h3></br></center>
+							<div class="wave"></div>
+						</div>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">service categories</h1>
@@ -85,7 +89,7 @@
 			?>
 
 			<script>
-		
+
 			</script>
 	</body>
 </html>

@@ -40,7 +40,7 @@
 
 				<main>
 					<div class="main-container">
-						<div>
+						<div class='greeting'>
 							<?php
 								if(isset($_GET['adminEmail'])&& isset($_GET['role'])){
 									$adminemail=$_GET['adminEmail'];
@@ -57,9 +57,10 @@
 										$lastLogin = $admin->lastLogin;
 									}
 
-								echo"<h3>WELCOME ".strtoupper($adminName)."</h3></br>
-								<p>[ Last Login: $lastLogin ]</p>";
+								echo"<center><h3>~ WELCOME, ".strtoupper($adminName)." ~</h3></br>
+								<p>[ Last Login: $lastLogin ]</p></center>";
 							?>
+							<div class="wave"></div>
 						</div>
 						<!--===============================================================================================-->
 						<div>

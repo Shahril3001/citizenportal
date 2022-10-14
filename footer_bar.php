@@ -14,7 +14,7 @@
 				</ul>
 			 </div>
 			<div class='footer-trademark'>
-				<p>&copy; 2022 <a href='mailto:citizenportal.com.bn'>Citizen Portal Brunei</a>. All rights reserved.</p>
+				<p>&copy; 2022 <a href='mailto:aduandarussalam.com.bn'>Aduan Darussalam</a>. All rights reserved.</p>
 			</div>
 		 </div>
 			";
@@ -41,7 +41,7 @@
 				</ul>
 			 </div>
 			<div class='footer-trademark'>
-				<p>&copy; 2022 <a href='mailto:citizenportal.com.bn'>Citizen Portal Brunei</a>. All rights reserved.</p>
+				<p>&copy; 2022 <a href='mailto:aduandarussalam.com.bn'>Aduan Darussalam</a>. All rights reserved.</p>
 			</div>
 			</div>
 			";
@@ -70,7 +70,7 @@
 			</ul>
 		 </div>
 		<div class='footer-trademark'>
-			<p>&copy; 2022 <a href='mailto:citizenportal.com.bn'>Citizen Portal Brunei</a>. All rights reserved.</p>
+			<p>&copy; 2022 <a href='mailto:aduandarussalam.com.bn'>Aduan Darussalam</a>. All rights reserved.</p>
 		</div>
 		</div>
 		";
