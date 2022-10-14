@@ -40,6 +40,14 @@
 									<li><a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'>Dashboard</a></li>
 									<li><a href='citizen-myprofile.php?citizenIC=".$citizenIC."&role=".$role."'>My Profile</a></li>
 									<li><a href='services.php?citizenIC=".$citizenIC."&role=".$role."'>Service</a></li>
+									<div class='navmenu'>
+									<li><a href='javascript:void(0)' onclick='myDropnav()' class='dropbtn'>Lodge a Complain</a>
+										<div id='myDropdown' class='navmenu-navcontent'>
+									    <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'>Submit Your Complain</a>
+									    <a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>Complaining on Someone's Behalf</a>
+									  </div>
+									</li>
+								</div>
 									<li><a href='citizen-history.php?citizenIC=".$citizenIC."&role=".$role."'>History</a></li>
 									<li><a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'>Contact</a></li>
 									<li><a href='logout-citizen.php?citizenIC=".$citizenIC."&role=".$role."'>Log Out</a></li>
