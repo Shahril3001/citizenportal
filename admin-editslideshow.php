@@ -47,7 +47,10 @@
 						?>
 						<!--===============================================================================================-->
 						<div>
-							<h1 class="title-container">Service</h1>
+							<h1 class="title-container">Slideshow</h1>
+							<img src='icon/icons8-slideshow-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Edit Slideshow</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 									if(isset($_GET['adminEmail'])&& isset($_GET['role'])){
@@ -66,14 +69,14 @@
 											<form method='POST' enctype='multipart/form-data' action='admin-editslideshow2.php?adminEmail=".$adminEmail."&role=".$role."&slideshowID=".$slideshowID."'>
 												<table id='formtable'>
 													<tr>
-														<th colspan='2'>Edit Service</th>
+														<th colspan='2'>Edit Slideshow</th>
 													</tr>
 													<tr>
-														<td><b>*Caption</b></td>
+														<td><b>*Caption:</b></td>
 														<td><input type='text' name='slideshowCaption' placeholder='Title...' value='$slideshowCaption'></td>
 													</tr>
 													<tr>
-														<td><b>*Slideshow Image</b></td>
+														<td><b>*Slideshow Image:</b></td>
 															<td><p><input type='file' name='slideshowImg'>Old picture: <img src='$slideshowImg' alt='' height='50px' width='120px'></p></td>
 													</tr>
 													<tr>

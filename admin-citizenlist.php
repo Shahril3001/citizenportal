@@ -77,6 +77,7 @@
 											$citizenPhone = $citizenlist->citizenPhone;
 											$citizenEmail = $citizenlist->citizenEmail;
 											$lastLogin = $citizenlist->lastLogin;
+											$lastLogin = date('d M Y H:i:sa',strtotime($lastLogin));
 
 											echo "
 											<tr>
@@ -85,7 +86,7 @@
 													<b>Name:</b> $citizenName<br>
 													<b>IC Number:</b> $citizenIC<br>
 													<b>Phone:</b> $citizenPhone<br>
-													<b>Email:</b> $citizenEmail<br>
+													<b>Email:</b> <a href='mailto:$citizenEmail'>$citizenEmail</a><br>
 												</td>
 												<td>$lastLogin</td>
 												<td>

@@ -55,6 +55,7 @@
 										$adminEmail = $admin->adminEmail;
 										$adminPassword = $admin->adminPassword;
 										$lastLogin = $admin->lastLogin;
+										$lastLogin = date('d F Y H:i:s A',strtotime($lastLogin));
 									}
 
 								echo"<center><h3>~ WELCOME, ".strtoupper($adminName)." ~</h3></br>

@@ -76,6 +76,7 @@
 											$adminPhone = $adminlist->adminPhone;
 											$adminEmail = $adminlist->adminEmail;
 											$lastLogin = $adminlist->lastLogin;
+											$lastLogin = date('d M Y H:i:sa',strtotime($lastLogin));
 
 											echo "
 											<tr>

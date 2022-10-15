@@ -69,17 +69,20 @@
 											$feedbackID  = $feedbacklist->feedbackID ;
 											$senderF = $feedbacklist->senderF;
 											$subjectF = $feedbacklist->subjectF;
+											$feedbackType = $feedbacklist->feedbackType;
 											$emailF = $feedbacklist->emailF;
 											$commentF = $feedbacklist->commentF;
 											$dateF = $feedbacklist->dateF;
+											$dateF = date('d M Y H:i:sa',strtotime($dateF));
 
 											echo "
 											<tr>
 												<td>$cloneID</td>
 												<td class='justify-contents'>
 													<b>Sender:</b> $senderF<br>
-													<b>Email:</b> $emailF<br>
+													<b>Email:</b> <a href='mailto:$emailF'>$emailF</a><br>
 													<b>Subject:</b> $subjectF<br>
+													<b>Type:</b> $feedbackType<br>
 												</td>
 												<td width='20%'>$dateF</td>
 												<td width='10%'>

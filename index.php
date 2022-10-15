@@ -44,11 +44,65 @@
 								<center><h3> ~ WELCOME TO ADUAN DARUSSALAM SITE ~</h3></br></center>
 							<div class="wave"></div>
 						</div>
+
+						<div id="slideshow">
+								<div id="slides">
+										<?php
+										include 'connection.php';
+										$cloneID = 0;
+										$query = dbConn()->prepare('SELECT * FROM slideshow');
+										$query->execute();
+										$slideshows = $query->fetchAll(PDO::FETCH_OBJ);
+										$num_count = $query->rowCount();
+
+										foreach($slideshows as $slideshow){
+											$cloneID++;
+											$slideshowID = $slideshow->slideshowID;
+											$slideshowImg = $slideshow->slideshowImg;
+											$slideshowCaption = $slideshow->slideshowCaption;
+
+											echo"<div class='slide show' data-slide='$cloneID'>
+													<img src='$slideshowImg' alt='$slideshowCaption'>
+
+													<div class='slide-content'>
+															<span class='slide-title'>$slideshowCaption</span>
+													</div>
+											</div>";
+										}
+										?>
+
+										<div class="slide-btn next">
+												<span>&raquo;</span>
+										</div>
+
+										<div class="slide-btn prev">
+												<span>&laquo;</span>
+										</div>
+								</div>
+
+								<div id="gallery">
+										<?php
+										foreach($slideshows as $slideshow){
+											$slideshowID = $slideshow->slideshowID;
+											$slideshowImg = $slideshow->slideshowImg;
+											$slideshowCaption = $slideshow->slideshowCaption;
+
+											echo"<div class='thumbnail' data-slide='$cloneID'>
+														<img src='$slideshowImg' alt='$slideshowCaption'>
+
+														<div class='slide-content'>
+																<span class='slide-title'>$slideshowCaption</span>
+														</div>
+												</div>";
+											}
+										?>
+								</div>
+						</div>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">service categories</h1>
 							<?php
-							include 'connection.php';
+
 							$query1 = dbConn()->prepare('SELECT * FROM service_category');
 							$query1->execute();
 							$service_cates = $query1->fetchAll(PDO::FETCH_OBJ);
@@ -86,6 +140,7 @@
 			<?php
 				include 'btnBacktoTop.php';
 				include 'js_connection.php';
+				include 'slideshow_connection.php';
 			?>
 
 			<script>

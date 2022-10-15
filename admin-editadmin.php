@@ -46,6 +46,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Staff</h1>
+							<img src='icon/icons8-staff-96.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Edit Staff</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 									if(isset($_GET['adminEmail'])&& isset($_GET['role'])){

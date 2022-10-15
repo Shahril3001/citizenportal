@@ -46,6 +46,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Citizen</h1>
+							<img src='icon/icons8-citizen-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Edit Citizen</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 									if(isset($_GET['adminEmail'])&& isset($_GET['role'])){
@@ -72,33 +75,33 @@
 														<th colspan='2'>Edit Citizen</th>
 													</tr>
 													<tr>
-														<td><b>*Name</b></td>
+														<td><b>*Name:</b></td>
 														<td><input type='text' name='citizenName' placeholder='Name...' value='$citizenName'></td>
 													</tr>
 													<tr>
-														<td><b>IC Number</b></td>
+														<td><b>IC Number:</b></td>
 														<td><input type='number' class='removeNumpointer' placeholder='IC Number...' value='$citizenIC' readonly></td>
 													</tr>
 													<tr>
-														<td><b>Email</b></td>
+														<td><b>Email:</b></td>
 														<td><input type='email' placeholder='Email...' value='$citizenEmail' readonly></td>
 													</tr>
 													<tr>
-														<td><b>*Phone</b></td>
+														<td><b>*Phone:</b></td>
 														<td><input type='number' name='citizenPhone' class='removeNumpointer' placeholder='Phone No...' value='$citizenPhone' minlength='7'></td>
 													</tr>
 													<tr>
-														<td><b>*Address</b></td>
+														<td><b>*Address:</b></td>
 														<td>
 															<textarea name='citizenAddress' rows='4' cols='46%'>$citizenAddress</textarea>
 														</td>
 													</tr>
 													<tr>
-														<td><b>*Password</b></td>
+														<td><b>*Password:</b></td>
 														<td><input type='password' name='citizenPassword' placeholder='Password...' value='$citizenPassword' minlength='8'></td>
 													</tr>
 													<tr>
-														<td><b>Confirm Password</b></td>
+														<td><b>Confirm Password:</b></td>
 														<td><input type='password' name='citizenCPassword' placeholder='Password...' value='$citizenPassword' minlength='8'></td>
 													</tr>
 													<tr>

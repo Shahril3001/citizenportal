@@ -47,33 +47,49 @@
 
 				<div class="main-container">
 					<h1 class="title-container">About</h1>
-				<div class="about-section">
-        		<div class="inner-container">
-            	<h1>Establishment of the Department</h1>
-            	<p class="aboutText">
-                Management Services Unit (MSU) was established under the Personnel Office on 1 January 1982. Starting on 1 August 1993 MSU was known as the Management Service Department (MSD). Since its establishment, several main programs / projects towards reform and improvement have been planned and implemented, including the Performance Evaluation System for Public Service Officers and Staff, the Civil Service Review Program (CSR), the establishment of the Public Service Reform Committee (JPPA), the establishment of the Workers' Trust fund, the Outstanding Public Service Award, Public Service Day and the Determination of Public Concern (TPOR). </p>
-				<p class="aboutText">The public's expectations of the quality of service delivery by government agencies are increasing and becoming more sophisticated. Therefore, the role of MSD also increased and focused on the introduction of initiatives that emphasize customer-oriented services including updating and strengthening systems / procedures through Business Process Reengineering (BPR) and encouraging coordination between government agencies in achieving 21st Century Public Service Vision and Brunei Vision 2035.
-				MSD has also received the recognition and certification of PBD ISO 9001:2008 Quality Management System on 20 March 2012. With the certification, MSD continues to strive to improve the level of service delivery comparable to international standards, in addition to giving more confidence to interested parties (stakeholders) towards responsible service. </p>
-				<p class="aboutText">In order to ensure that MSD citizens are always ready to face various challenges, the priority is to provide improvement, strengthening the capabilities and skills of officers through capacity development programs such as Certificate Management Consulting Essential (CMCE), attending short or long-term courses / training either domestically or abroad.
-            	</p>
-            	<br>
-			</div>
-
-			<!-- Mission & Vision -->
-
-				 <div class="aboutRow">
- 				 <div class="aboutColumn">
-    				<h1>Mission</h1>
-    					<p>Providing High Quality Management Consulting Services To Stakeholders To Achieve Public Service Excellence</p>
-  				</div>
-  				<div class="aboutColumn">
-    				<h1>Vision</h1>
-    				<p>Become a Public Service Main Choice Management Consultant</p>
-  				</div>
-
-        	</div>
-    	</div>
-	</div>
+					<img src='icon/icons8-history-64-1.png' class='statbox-title-img'/>
+					<h2 class='statbox-title-h2'>History Background</h2>
+					<hr>
+						<div class="aboutRow">
+							<div class="aboutColumn">
+								 <img class='aboutimg' src="img/building.jpg" alt="Aduan Darussalam Headquarter" height='254em' width='100%'/>
+								 <figcaption>Caption: Aduan Darussalam Headquarter</figcaption>
+							</div>
+							<div class="aboutColumn">
+								<h1>Establishment of the Department</h1>
+								<hr>
+								<p>
+									Management Services Unit (MSU) was established under the Personnel Office on 1 January 1982. Starting on 1 August 1993 MSU was known as the Management Service Department (MSD). Since its establishment, several main programs / projects towards reform and improvement have been planned and implemented, including the Performance Evaluation System for Public Service Officers and Staff, the Civil Service Review Program (CSR), the establishment of the Public Service Reform Committee (JPPA), the establishment of the Workers' Trust fund, the Outstanding Public Service Award, Public Service Day and the Determination of Public Concern (TPOR).
+								</p>
+							</div>
+							<div class="aboutColumn">
+								<p>
+									The public's expectations of the quality of service delivery by government agencies are increasing and becoming more sophisticated. Therefore, the role of MSD also increased and focused on the introduction of initiatives that emphasize customer-oriented services including updating and strengthening systems / procedures through Business Process Reengineering (BPR) and encouraging coordination between government agencies in achieving 21st Century Public Service 	Vision and Brunei Vision 2035.<br><br>
+									MSD has also received the recognition and certification of PBD ISO 9001:2008 Quality Management System on 20 March 2012. With the certification, MSD continues to strive to improve the level of service delivery comparable to international standards, in addition to giving more confidence to interested parties (stakeholders) towards responsible service.
+								</p>
+							</div>
+							<div class="aboutColumn">
+								<p>
+									In order to ensure that MSD citizens are always ready to face various challenges, the priority is to provide improvement, strengthening the capabilities and skills of officers through capacity development programs such as Certificate Management Consulting Essential (CMCE), attending short or long-term courses / training either domestically or abroad.
+								</p>
+							</div>
+						</div>
+						<img src='icon/icons8-goal-96.png' class='statbox-title-img'/>
+						<h2 class='statbox-title-h2'>Mission & Vision</h2>
+						<hr>
+						<div class="aboutRow">
+						 		<div class="aboutGoal">
+						   		<h1>Mission</h1>
+									<img src='icon/icons8-mission-96.png' alt='' width='48px' height='48px'>
+						   		<p>Providing High Quality Management Consulting Services To Stakeholders To Achieve Public Service Excellence</p>
+						  	</div>
+						  	<div class="aboutGoal">
+						   		<h1>Vision</h1>
+									<img src='icon/icons8-vision-64.png' alt='' width='48px' height='48px'>
+						   		<p>Become a Public Service Main Choice Management Consultant</p>
+						  	</div>
+			       </div>
+				</div>
 
 			</main>
 			<!--===============================================================================================-->

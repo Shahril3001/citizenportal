@@ -48,6 +48,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Department</h1>
+							<img src='icon/icons8-department-48.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Edit Department</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 									if(isset($_GET['adminEmail'])&& isset($_GET['role'])){
@@ -70,11 +73,11 @@
 														<th colspan='2'>Edit Department</th>
 													</tr>
 													<tr>
-														<td><b>Title</b></td>
+														<td><b>Title:</b></td>
 														<td><input type='text' name='listTitle' placeholder='Title...' value='$listTitle'></td>
 													</tr>
 													<tr>
-														<td><b>Category Service</b></td>
+														<td><b>Category Service:</b></td>
 														<td><select name='listCategory' id='listCategory'>";
 																echo"<option value='$listCategory'>Select a category...</option>";
 																$servicequery = dbConn()->prepare("SELECT * FROM service_category");
@@ -91,11 +94,11 @@
 														</td>
 													</tr>
 													<tr>
-														<td><b>Description</b></td>
+														<td><b>Description:</b></td>
 														<td><textarea name='listDesc' id='editor1' rows='5' cols='40%' placeholder='Description...'>$listDesc</textarea></td>
 													</tr>
 													<tr>
-														<td><b>Guideline Description</b></td>
+														<td><b>Guideline Description:</b></td>
 														<td><textarea name='listGuideline'  id='editor1' rows='5' cols='40%' placeholder='Guideline...'>$listGuideline</textarea></td>
 													</tr>
 													<tr>

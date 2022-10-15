@@ -49,6 +49,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Citizen</h1>
+							<img src='icon/icons8-citizen-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Add Citizen</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 										echo "
@@ -91,7 +94,7 @@
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<center>
 																<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
-																<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 															</center>
 														</td>
 													</tr>

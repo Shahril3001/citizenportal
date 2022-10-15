@@ -48,6 +48,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Service</h1>
+							<img src='icon/icons8-services-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Edit Service</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 									if(isset($_GET['adminEmail'])&& isset($_GET['role'])){
@@ -70,15 +73,15 @@
 														<th colspan='2'>Edit Service</th>
 													</tr>
 													<tr>
-														<td><b>*Category Name</b></td>
+														<td><b>*Category Name:</b></td>
 														<td><input type='text' name='categoryName' placeholder='Title...' value='$categoryName'></td>
 													</tr>
 													<tr>
-														<td><b>*Category Icon</b></td>
+														<td><b>*Category Icon:</b></td>
 															<td><p><input type='file' name='categoryImg'>Old picture:<img src='$categoryImg' alt='' height='50px' width='50px'></p></td>
 													</tr>
 													<tr>
-														<td><b>*Category Description</b></td>
+														<td><b>*Category Description:</b></td>
 														<td><textarea name='categoryDesc' id='editor1' rows='5' cols='40%' placeholder='Description...'>$categoryDesc</textarea></td>
 													</tr>
 													<tr>

@@ -159,7 +159,7 @@
 			}
 			showTime();
 
-			const monthNames = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
+			const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN','JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
 			var today = new Date();
 			var result = ('00' + today.getDate()).slice(-2)+' ' + monthNames[today.getMonth()] +' ' +today.getFullYear();

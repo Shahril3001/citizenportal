@@ -15,7 +15,6 @@
 				$adminEmail=$_GET['adminEmail'];
 				$role=$_GET['role'];
 				$slideshowID=$_GET['slideshowID'];
-
 				$slideshowCaption=$_POST['slideshowCaption'];
 
 				$target_dir = "data/img/slideshow/";

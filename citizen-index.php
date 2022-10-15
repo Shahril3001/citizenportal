@@ -28,7 +28,7 @@
 					include 'header_bar.php';
 					include 'navigation_bar.php';
 				?>
-			
+
 				<!-- Sidebar -->
 				<!-- Sidebar -->
 				<div id="mySidenav" class="side-nav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -59,11 +59,65 @@
 										$citizenPhone = $citizen->citizenPhone;
 										$citizenEmail = $citizen->citizenEmail;
 										$lastLogin = $citizen->lastLogin;
+										$lastLogin = date('d F Y H:i:s A',strtotime($lastLogin));
 									}
 								echo"<center><h3> ~ WELCOME, ".strtoupper($citizenName)." ~ </h3></br>
 								<p>[ Last Login: $lastLogin ]</p></center>";
 							?>
 							<div class="wave"></div>
+						</div>
+						<!--===============================================================================================-->
+						<div id="slideshow">
+								<div id="slides">
+										<?php
+										$cloneID = 0;
+										$query = dbConn()->prepare('SELECT * FROM slideshow');
+										$query->execute();
+										$slideshows = $query->fetchAll(PDO::FETCH_OBJ);
+										$num_count = $query->rowCount();
+
+										foreach($slideshows as $slideshow){
+											$cloneID++;
+											$slideshowID = $slideshow->slideshowID;
+											$slideshowImg = $slideshow->slideshowImg;
+											$slideshowCaption = $slideshow->slideshowCaption;
+
+											echo"<div class='slide show' data-slide='$cloneID'>
+													<img src='$slideshowImg' alt='$slideshowCaption'>
+
+													<div class='slide-content'>
+															<span class='slide-title'>$slideshowCaption</span>
+													</div>
+											</div>";
+										}
+										?>
+
+										<div class="slide-btn next">
+												<span>&raquo;</span>
+										</div>
+
+										<div class="slide-btn prev">
+												<span>&laquo;</span>
+										</div>
+								</div>
+
+								<div id="gallery">
+										<?php
+										foreach($slideshows as $slideshow){
+											$slideshowID = $slideshow->slideshowID;
+											$slideshowImg = $slideshow->slideshowImg;
+											$slideshowCaption = $slideshow->slideshowCaption;
+
+											echo"<div class='thumbnail' data-slide='$cloneID'>
+														<img src='$slideshowImg' alt='$slideshowCaption'>
+
+														<div class='slide-content'>
+																<span class='slide-title'>$slideshowCaption</span>
+														</div>
+												</div>";
+											}
+										?>
+								</div>
 						</div>
 						<!--===============================================================================================-->
 						<div>
@@ -107,36 +161,6 @@
 							</div>
 						</div>
 						<div>
-							<h1 class="title-container">service categories</h1>
-							<?php
-							$cloneID = 0;
-							$query = dbConn()->prepare('SELECT * FROM slideshow');
-							$query->execute();
-							$slideshows = $query->fetchAll(PDO::FETCH_OBJ);
-							$num_count = $query->rowCount();
-
-							foreach($slideshows as $slideshow){
-								$cloneID++;
-								$slideshowID = $slideshow->slideshowID;
-								$slideshowImg = $slideshow->slideshowImg;
-								$slideshowCaption = $slideshow->slideshowCaption;
-
-							echo"
-							<div class='slideshow-container'>
-								<div class='mySlides fade'>
-								<div class='slideshow-numbertext'>$cloneID / $num_count</div>
-								<img class='slideshow-img' src='$slideshowImg'>
-								<div class='slideshow-caption'>$slideshowCaption</div>
-							</div>
-							";
-							}
-							echo"<div class='slideshow-container-dot'>";
-							for ($x = 0; $x <= ($num_count-1); $x++) {
-							  echo "<span class='slideshow-dot'></span>";
-							}
-							echo"</div>";
-							?>
-						</div>
 					</div>
 				</main>
 
