@@ -14,12 +14,13 @@
 		$citizenIC=$_GET['citizenIC'];
 		$complaint=$_POST['complaint'];
 		$location=$_POST['location'];
-		$date=date("Y-m-d");
+		$date=date("Y-m-d h:i:sa");
+		$government=$_POST['government'];
 		$complaintImage=$_POST['complaintImage'];
 		$complaintDocument=$_POST['complaintDocument'];
 
 			// isEmpty field
-			if(empty($complaint) || empty($location) || empty($date)) {
+			if(empty($complaint) || empty($location) || empty($date) || empty($government)) {
 				echo "<div class='pos'>";
 				echo "<img src='icon/icons8-error-96.png'/>";
 				echo "<h2>Invalid Value!</h2>";
@@ -33,7 +34,7 @@
 				echo "</div>";
 			}
 			else{
-					$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaint."', '".$location."', '".$date."', '".$complaintImage."', '".$complaintDocument."','".$citizenIC."')");
+					$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaint."', '".$location."', '".$date."', '".$government."','".$complaintImage."', '".$complaintDocument."','".$citizenIC."')");
 					// Success
 					if($query -> execute()){
 						echo "<div class='pos'>";

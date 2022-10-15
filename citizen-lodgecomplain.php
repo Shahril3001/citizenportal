@@ -76,8 +76,9 @@
 
 													<tr>
 														<td><b>Government:</b></td>"?>
-														<td><input type="radio" name="gender"<?php if (isset($gender) && $gender=="female") echo "checked";?>value="female">Female <br>
-															<input type="radio" name="gender"<?php if (isset($gender) && $gender=="female") echo "checked";?>value="female">Female <br>
+														<td>
+															<input type="radio" name="government" size='20'<?php if (isset($gender) && $gender=="mofe") echo "checked";?>value="mofe">mofe <br> </td>
+															<td><input type="radio" name="government"<?php if (isset($gender) && $gender=="female") echo "checked";?>value="female">Female <br>
 														</td>
 
 													<?php
