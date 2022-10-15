@@ -14,7 +14,7 @@
 		$citizenIC=$_GET['citizenIC'];
 		$complaint=$_POST['complaint'];
 		$location=$_POST['location'];
-		$date=date("Y-m-d h:i:sa");
+		$date=$_POST["date"];
 		$government=$_POST['government'];
 		$complaintImage=$_POST['complaintImage'];
 		$complaintDocument=$_POST['complaintDocument'];
@@ -41,7 +41,7 @@
 						echo "<img src='icon/icons8-success-64.png'/>";
 						echo "<h2>Success!</h2>";
 						echo "<p id='valid'>Complaint is successfully added.</p>
-						<p>Click <a href='login.php'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
+						<p>Click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."'<input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
 						";
 						echo "</div>";
 					}
