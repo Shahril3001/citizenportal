@@ -45,19 +45,51 @@
 			<!--===============================================================================================-->
 				<div class="main-container">
 					<h1 class="title-container">Lodge a Complain</h1>
+
+					<p>If you are complaining on someone's behalf, please click <a href='citizen-lodgecomplainbehalf.php'>here.</a></p>
 					<div class="task-container">
-
-									<p>If you are complaining on someone's behalf, please click <a href='citizen-lodgecomplainbehalf.php'>here.</a>.</p>
-
 									<br>
 
 									<?php
 										echo "
 											<p>Required fields are marked with an asterisk (*).</p>
-											<form method='POST' action='citizen-lodgecomplain.php'>
+											<form method='POST' action='citizen-lodgecomplain2.php?citizenIC=".$citizenIC."'>
 												<table id='formtable'>
 													<tr>
 														<th colspan='2'>Complain</th>
+													</tr>
+
+													<tr>
+														<td><b>*Complaint:</b></td>
+														<td><textarea name='complaint' name='complaint' id='editor1' rows='5' cols='35%' placeholder=' Complaint...' minlength='5'></textarea></td>
+													</tr>
+
+													<tr>
+														<td><b>*Location of Accident / Event:</b></td>
+														<td><input type='text' name='location' placeholder=' Location...' minlength='5' size='50'></td>
+													</tr>
+
+													<tr>
+														<td><b>*Date of Accident / Event:</b></td>
+														<td><input type='date' name='date' placeholder=' Date...' size='50'></td>
+													</tr>
+
+													<tr>
+														<td><b>Government:</b></td>"?>
+														<td><input type="radio" name="gender"<?php if (isset($gender) && $gender=="female") echo "checked";?>value="female">Female <br>
+															<input type="radio" name="gender"<?php if (isset($gender) && $gender=="female") echo "checked";?>value="female">Female <br>
+														</td>
+
+													<?php
+													echo "
+													<tr>
+														<td><b>Image:</b></td>
+														<td><input type='file' name='complaintImage'></td>
+													</tr>
+
+													<tr>
+														<td><b>Relevant Document:</b></td>
+														<td><input type='file' name='complaintDocument'></td>
 													</tr>
 
 													<tr>
