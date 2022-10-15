@@ -71,7 +71,7 @@
 								<div id="slides">
 										<?php
 										$cloneID = 0;
-										$query = dbConn()->prepare('SELECT * FROM slideshow');
+										$query = dbConn()->prepare('SELECT * FROM slideshow ORDER BY dateAdded LIMIT 5');
 										$query->execute();
 										$slideshows = $query->fetchAll(PDO::FETCH_OBJ);
 										$num_count = $query->rowCount();

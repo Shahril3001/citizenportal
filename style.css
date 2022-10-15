@@ -1046,11 +1046,14 @@ keyframes active {
 
 #slideshow {
     background-color: #2C2E33;
-    padding: 1.7em 0;
+    padding: 2.5em 0;
     display: flex;
     margin: 1em auto;
     width: 1200px;
     height: 525px;
+    border:solid 1px #DADADA;
+    border-radius: 10px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
 #slides {
@@ -1100,7 +1103,7 @@ keyframes active {
     height: 100%;
     padding: 0 20px;
     font-size: 40px;
-    color: #000;
+    color: #F9F9F9;
     background: transparent;
     cursor: pointer;
     transition: all 0.4s linear;
@@ -1109,7 +1112,8 @@ keyframes active {
 
 .slide-btn:hover {
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #2C2E33;
+    opacity: 0.70;
 }
 
 .next {
