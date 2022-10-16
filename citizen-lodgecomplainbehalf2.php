@@ -9,20 +9,30 @@
 	<?php
 		echo "<center>";
 		include 'connection.php';
+		include 'js_connection.php';
+
 		if(isset($_POST['Submit']))
 		{
 		$citizenIC=$_GET['citizenIC'];
 		$role=$_GET['role'];
-		
+
+		$behalfName=$_POST['behalfName'];
+		$reason=$_POST['reason'];
+		$behalfContact=$_POST['behalfContact'];
+		$behalfAddress=$_POST['behalfAddress'];
+		$relationship=$_POST['relationship'];
+
 		$complaint=$_POST['complaint'];
 		$location=$_POST['location'];
 		$date=$_POST["date"];
 		$department=$_POST['department'];
 		$complaintImage=$_POST['complaintImage'];
 		$complaintDocument=$_POST['complaintDocument'];
+		$submitDate=date("Y-m-d");
+
 
 			// isEmpty field
-			if(empty($complaint) || empty($location) || empty($date) || empty($department)) {
+			if(empty($behalfName) || empty($reason) || empty($behalfContact) || empty($behalfAddress) || empty($relationship) || empty($complaint) || empty($location) || empty($date) || empty($department)) {
 				echo "<div class='pos'>";
 				echo "<img src='icon/icons8-error-96.png'/>";
 				echo "<h2>Invalid Value!</h2>";
@@ -36,14 +46,14 @@
 				echo "</div>";
 			}
 			else{
-					$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaint."', '".$location."', '".$date."', '".$department."','".$complaintImage."', '".$complaintDocument."','".$citizenIC."')");
+					$query = dbConn()->prepare("INSERT INTO complaintsBehalf VALUE(null, '".$behalfName."', '".$reason."', '".$behalfContact."', '".$behalfAddress."', '".$relationship."', '".$complaint."', '".$location."', '".$date."', '".$department."','".$complaintImage."', '".$complaintDocument."','".$citizenIC."', '".$submitDate."')");
 					// Success
 					if($query -> execute()){
 						echo "<div class='pos'>";
 						echo "<img src='icon/icons8-success-64.png'/>";
 						echo "<h2>Success!</h2>";
-						echo "<p id='valid'>Complaint is successfully added.</p>
-						<p>Click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."''<input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
+						echo "<p id='valid'>Your complaint is successfully added.</p>
+						<p>Click <a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
 						";
 						echo "</div>";
 					}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Aduan Darussalam | Lodge a Complain</title>
+		<title>Aduan Darussalam | Lodge a Complain on Behalf</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -46,17 +46,71 @@
 				<div class="main-container">
 					<h1 class="title-container">Lodge a Complain</h1>
 
-				<p>If you are on someone's behalf, please click <?php echo "<a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>"?> here.</a></p>
+					<p>If you are complaining for yourself, please click <?php echo "<a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'>"?> here.</a></p>
 					<div class="task-container">
 									<br>
 
 									<?php
 										echo "
+
+
+											<h4>Before making a complain on someone's behalf:</h4>
+											<ul>
+												<li> Ensure that you have their consent before submitting a complaint </li>
+												<li> Ensure that the complaint is about a matter you have no personal involvement in </li>
+											</ul>
+
+
 											<p>Required fields are marked with an asterisk (*).</p>
-											<form method='POST' action='citizen-lodgecomplain2.php?citizenIC=".$citizenIC."&role=".$role."'>
+											<form method='POST' action='citizen-lodgecomplainbehalf2.php?citizenIC=".$citizenIC."&role=".$role."'>
 												<table id='formtable'>
+
+												<!-- Details of the person -->
+
+												<tr>
+														<th colspan='2'>Details of the Person</th>
+													</tr>
+
 													<tr>
-														<th colspan='2'>Complain</th>
+														<td><b>*Full Name of the Person:</b></td>
+														<td><input type='text' name='behalfName' placeholder='Full name of the person...' minlength='5' size='50'></td>
+													</tr>
+
+													<tr>
+														<td><b>*Reason Unable to Complain by Themselves:</b></td>
+														<td><input type='text' name='reason' placeholder='Reason...' minlength='5' size='50'></td>
+													</tr>
+
+													<tr>
+														<td><b>*Their Contact Number:</b></td>
+														<td><input type='text' name='behalfContact' placeholder='Contact Number...' minlength='5' size='50'></td>
+													</tr>
+
+													<tr>
+														<td><b>*Their Address:</b></td>
+														<td><textarea name='behalfAddress' name='behalfAddress' id='editor1' rows='3' cols='50%' placeholder=' Address...' minlength='5'></textarea></td>
+													</tr>
+
+
+
+													<tr>
+														<td><b>*Relationship with Said Person:</b></td>"?>
+														<td>
+															<input type="radio" name="relationship" <?php if (isset($relationship) && $relationship=="Child") echo "checked";?>value="Child"> Child <br>
+															<input type="radio" name="relationship" <?php if (isset($relationship) && $relationship=="Parent") echo "checked";?>value="Parent"> Parent <br>
+															<input type="radio" name="relationship" <?php if (isset($relationship) && $relationship=="Spouse") echo "checked";?>value="Spouse"> Spouse <br>
+
+														</td>
+
+													<?php
+													echo "
+													</tr>
+
+
+													<!-- Complain Section -->
+
+													<tr>
+														<th colspan='2'>Complain on Someone's Behalf</th>
 													</tr>
 
 													<tr>
@@ -85,7 +139,7 @@
 
 															<input type="radio" name="department"<?php if (isset($department) && $department=="f&sl") echo "checked";?>value="Family & Social Welfare"> Family & Social Welfare <br>
 
-															<input type="radio" name="department"<?php if (isset($department) && $department=="he&s") echo "checked";?>value="Health & Safety"> Family & Social Welfare <br>
+															<input type="radio" name="department"<?php if (isset($department) && $department=="he&s") echo "checked";?>value="Health & Safety"> Health & Safety <br>
 
 															<input type="radio" name="department"<?php if (isset($department) && $department=="hol&e") echo "checked";?>value="House, Land & Environment"> House, Land & Environment <br>
 
@@ -99,9 +153,11 @@
 
 														</td>
 
-
 													<?php
 													echo "
+
+													</tr>
+													</tr>
 													<tr>
 														<td><b>Image:</b></td>
 														<td><input type='file' name='complaintImage'></td>
@@ -118,6 +174,13 @@
 															<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
 														</td>
 													</tr>
+
+
+
+
+
+
+
 												</table>
 											</form>
 											<script>
