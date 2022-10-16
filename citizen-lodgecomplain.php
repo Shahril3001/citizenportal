@@ -45,20 +45,24 @@
 			<!--===============================================================================================-->
 				<div class="main-container">
 					<h1 class="title-container">Lodge a Complain</h1>
-
-				<p>If you are on someone's behalf, please click <?php echo "<a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>"?> here.</a></p>
+					<img src='icon/icons8-complain-64.png' class='statbox-title-img'/>
+					<h2 class='statbox-title-h2'>Complaint(Self-Report)</h2>
+					<hr>
 					<div class="task-container">
 									<br>
 
 									<?php
 										echo "
-											<p>Required fields are marked with an asterisk (*).</p>
-											<form method='POST' action='citizen-lodgecomplain2.php?citizenIC=".$citizenIC."&role=".$role."'>
+											<p>Required fields are marked with an asterisk (*). If you are on someone's behalf, please click <a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>here.</a></p>
+											<form method='POST' enctype='multipart/form-data' action='citizen-lodgecomplain2.php?citizenIC=".$citizenIC."&role=".$role."'>
 												<table id='formtable'>
 													<tr>
 														<th colspan='2'>Complain</th>
 													</tr>
-
+													<tr>
+														<td><b>*Subject:</b></td>
+														<td><input type='text' name='complaintSubject' placeholder=' Subject...'></td>
+													</tr>
 													<tr>
 														<td><b>*Complaint:</b></td>
 														<td><textarea name='complaint' name='complaint' id='editor1' rows='5' cols='50%' placeholder=' Complaint...' minlength='5'></textarea></td>
@@ -75,33 +79,22 @@
 													</tr>
 
 													<tr>
-														<td><b>*Department concerned:</b></td>"?>
-														<td>
-															<input type="radio" name="department" <?php if (isset($department) && $department=="b&f") echo "checked";?>value="Business & Finance"> Business & Finance <br>
+														<td><b>Category Service:</b></td>
+														<td><select name='listCategory' id='listCategory'>";
+																echo"<option>Select a category...</option>";
+																include 'connection.php';
+																$servicequery = dbConn()->prepare("SELECT * FROM service_category");
+																$servicequery->execute();
+																$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
 
-															<input type="radio" name="department"<?php if (isset($department) && $department=="e&l") echo "checked";?>value="Education & Learning"> Education & Learning <br>
-
-															<input type="radio" name="department"<?php if (isset($department) && $department=="emp&l") echo "checked";?>value="Employment & Labour"> Employment & Labour <br>
-
-															<input type="radio" name="department"<?php if (isset($department) && $department=="f&sl") echo "checked";?>value="Family & Social Welfare"> Family & Social Welfare <br>
-
-															<input type="radio" name="department"<?php if (isset($department) && $department=="he&s") echo "checked";?>value="Health & Safety"> Family & Social Welfare <br>
-
-															<input type="radio" name="department"<?php if (isset($department) && $department=="hol&e") echo "checked";?>value="House, Land & Environment"> House, Land & Environment <br>
-
-															<input type="radio" name="department"<?php if (isset($department) && $department=="imtrav") echo "checked";?>value="Immigration & Travel"> Immigration & Travel <br>
-
-															<input type="radio" name="department"<?php if (isset($department) && $department=="law") echo "checked";?>value="Law"> Law <br>
-
-															<input type="radio" name="department"<?php if (isset($department) && $department=="famsoc") echo "checked";?>value="Family & Social Welfare"> Family & Social Welfare <br>
-
-															<input type="radio" name="department"<?php if (isset($department) && $department=="transportation") echo "checked";?>value="Transportation"> Transportation <br>
-
+																foreach($servicelists as $servicelist){
+																	$categoryID  = $servicelist->categoryID;
+																	$categoryName  = $servicelist->categoryName;
+																  	echo"<option value='$categoryName'>$categoryName</option>";
+																}
+																echo"</select>
 														</td>
-
-
-													<?php
-													echo "
+													</tr>
 													<tr>
 														<td><b>Image:</b></td>
 														<td><input type='file' name='complaintImage'></td>

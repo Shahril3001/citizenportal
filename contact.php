@@ -56,20 +56,24 @@
 									<th colspan="2">Feedback</th>
 								</tr>
 								<tr>
-									<td><b>Username:</b></td>
-									<td><input type="text" name="senderF" size='25' placeholder="Your name..."></td>
+									<td><b>Fullname:</b></td>
+									<td><input type="text" name="citizenName" size='35' placeholder="Fullname..."></td>
+								</tr>
+								<tr>
+									<td><b>IC Number:</b></td>
+									<td><input type="number" name="citizenIC" size='35' class='removeNumpointer' minlength='8'  placeholder="IC Number..."></td>
 								</tr>
 								<tr>
 									<td><b>Email:</b></td>
-									<td><input type="email" name="emailF" size='25' placeholder="Your email..."></td>
+									<td><input type="email" name="emailF" size='35' placeholder="Email..."></td>
 								</tr>
 								<tr>
 									<td><b>Subject:</b></td>
-									<td><input type="text" name="subjectF" size='25' placeholder="Your subject..."></td>
+									<td><input type="text" name="subjectF" size='35' placeholder="Subject..."></td>
 								</tr>
 								<tr>
 									<td><b>Message:</b></td>
-									<td><textarea name="commentF"  id='editor1' rows='5' cols='35%' placeholder="Your comment.."></textarea></td>
+									<td><textarea name="commentF"  id='editor1' rows='5' cols='35%' placeholder="Comment.."></textarea></td>
 								</tr>
 								<tr>
 									<td colspan="2"  id="buttonrow">

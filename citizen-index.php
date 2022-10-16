@@ -46,7 +46,7 @@
 						<div class='greeting'>
 							<?php
 								if(isset($_GET['citizenIC'])&& isset($_GET['role'])){
-									$adminemail=$_GET['citizenIC'];
+									$citizenIC=$_GET['citizenIC'];
 									$role=$_GET['role'];
 									include 'connection.php';
 									$query1 = dbConn()->prepare('SELECT * FROM citizen WHERE citizenIC="'. $citizenIC .'"');
@@ -122,43 +122,127 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Citizen Dashboard</h1>
-							<img src='icon/icons8-complaints-96.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview</h2><hr>
-							<div class='statbox-item'>
-								<div class='statbox-title'>Total complains</div>
-								<div class='statbox-count-total'>20</div>
-								<a href='#'><button class='button'>Go</button></a>
-							</div>
+							<img src='icon/icons8-complain-64.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview (Self-Report)</h2><hr>
+							<?php
+								function countTotalstatus($complaintStatus) {
+									$citizenIC=$_GET['citizenIC'];
+									$conditionquery = dbConn()->prepare("SELECT * FROM complaints WHERE citizenIC='$citizenIC' AND  complaintStatus='$complaintStatus'");
+									$conditionquery->execute();
+									$conditionnum_count = $conditionquery->rowCount();
+
+
+									$overallquery = dbConn()->prepare("SELECT * FROM complaints WHERE citizenIC='$citizenIC'");
+									$overallquery->execute();
+									$overallnum_count = $overallquery->rowCount();
+
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+									return number_format($counttotal);
+								}
+							?>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Open</div>
-								<div class='statbox-count-total'>15</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Open";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Closed</div>
-								<div class='statbox-count-total'>1</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Closed";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Dropped</div>
-								<div class='statbox-count-total'>4</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Dropped";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div><br><br>
+
+
+							<img src='icon/icons8-complain-64-1.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview (On Behalf)</h2><hr>
+							<?php
+								function countTotalstatus2($complaintStatus) {
+									$citizenIC=$_GET['citizenIC'];
+									$conditionquery = dbConn()->prepare("SELECT * FROM complaintsbehalf WHERE citizenIC='$citizenIC' AND  complaintStatus='$complaintStatus'");
+									$conditionquery->execute();
+									$conditionnum_count = $conditionquery->rowCount();
+
+									$overallquery = dbConn()->prepare("SELECT * FROM complaintsbehalf WHERE citizenIC='$citizenIC'");
+									$overallquery->execute();
+									$overallnum_count = $overallquery->rowCount();
+
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+									return number_format($counttotal);
+								}
+							?>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Open</div>
+								<?php
+									$complaintStatus="Open";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Closed</div>
+								<?php
+									$complaintStatus="Closed";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Dropped</div>
+								<?php
+									$complaintStatus="Dropped";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div><br><br>
+
+
 							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Feedbacks</h2><hr>
+							<?php
+							function countTotal($feedbackType) {
+								$citizenIC=$_GET['citizenIC'];
+
+								$conditionquery = dbConn()->prepare("SELECT * FROM feedback WHERE citizenIC='$citizenIC' AND  feedbackType='$feedbackType' ");
+								$conditionquery->execute();
+								$conditionnum_count = $conditionquery->rowCount();
+
+								$overallquery = dbConn()->prepare("SELECT * FROM feedback WHERE citizenIC='$citizenIC'");
+								$overallquery->execute();
+								$overallnum_count = $overallquery->rowCount();
+
+								$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+								return number_format($counttotal);
+							}
+							?>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Positive</div>
-								<div class='statbox-count-total'>5</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$feedbackType="Positive";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Negative</div>
-								<div class='statbox-count-total'>1</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$feedbackType="Negative";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Pending</div>
-								<div class='statbox-count-total'>19</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$feedbackType="Pending";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
+
 						</div>
 						<div>
 					</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Feedback</title>
+		<title>Citizen Portal Brunei | Complaint</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -43,77 +43,79 @@
 
 				<main>
 					<div class="main-container">
-						<?php
-							include 'breadcrumbs.php';
-						?>
 						<!--===============================================================================================-->
 						<div>
-							<h1 class="title-container">Feedback</h1>
-							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/>
-							<h2 class='statbox-title-h2'>View Feedback</h2>
+							<h1 class="title-container">Complaint</h1>
+							<img src='icon/icons8-complain-64-1.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Complaint (On Behalf)</h2>
 							<hr>
 							<div class="task-container">
 								<?php
-										$feedbackID=$_GET['feedbackID'];
-										include 'connection.php';
-										$feedBackquery = dbConn()->prepare("SELECT * FROM feedback WHERE feedbackID='$feedbackID'");
-										$feedBackquery->execute();
-										$feedbacks = $feedBackquery->fetchAll(PDO::FETCH_OBJ);
+									if(isset($_GET['adminEmail'])&& isset($_GET['role'])){
+									$adminEmail=$_GET['adminEmail'];
+									$role=$_GET['role'];
+									$behalfComplaintID=$_GET['behalfComplaintID'];
+									include 'connection.php';
 
-										foreach($feedbacks as $feedback){
-											$feedbackID = $feedback->feedbackID;
-											$citizenName = $feedback->citizenName;
-											$citizenIC = $feedback->citizenIC;
-											$subjectF = $feedback->subjectF;
-											$feedbackType = $feedback->feedbackType;
-											$emailF = $feedback->emailF;
-											$commentF = $feedback->commentF;
-											$dateF = $feedback->dateF;
+									$query = dbConn()->prepare('SELECT * FROM complaintsbehalf WHERE behalfComplaintID="'. $behalfComplaintID .'"');
+									$query->execute();
+									$complaints = $query->fetchAll(PDO::FETCH_OBJ);
+									foreach($complaints as $complaint){
+										$complaintSubject = $complaint->complaintSubject;
+										$complaintDesc = $complaint->complaintDesc;
+										$location = $complaint->location;
+										$date = $complaint->date;
+										$date = date('d M Y',strtotime($date));
+										$complaintStatus = $complaint->complaintStatus;
 
 										echo "
-											<p>Feedback details.</p>
-											<form>
+											<p>Required fields are marked with an asterisk (*).</p>
+											<form method='POST' action='admin-editcomplaint-b2.php?adminEmail=".$adminEmail."&role=".$role."&behalfComplaintID=".$behalfComplaintID."'>
 												<table id='formtable'>
 													<tr>
-														<th colspan='2'>View Feedback</th>
+														<th colspan='2'>Update Complaint</th>
 													</tr>
 													<tr>
-														<td width='30%'><b>Fullname:</b></td>
-														<td>$citizenName</td>
+														<td><b>Subject</b></td>
+														<td><input type='text' name='complaintSubject' placeholder='Subject...' value='$complaintSubject' readonly></td>
 													</tr>
 													<tr>
-														<td width='30%'><b>IC Number:</b></td>
-														<td>$citizenIC</td>
+														<td><b>Description</b></td>
+														<td><textarea name='complaintDesc' id='editor1' rows='5' cols='40%' placeholder='Description...' readonly>$complaintDesc</textarea></td>
 													</tr>
 													<tr>
-														<td><b>Subject:</b></td>
-														<td>$subjectF</td>
+														<td><b>Location</b></td>
+														<td><input type='text' name='location' placeholder='Location...' value='$location' readonly></td>
 													</tr>
 													<tr>
-														<td><b>Feedback Type:</b></td>
-														<td>$feedbackType</td>
+														<td><b>Date</b></td>
+														<td><input type='text' name='date' placeholder='Date...' value='$date' readonly></td>
 													</tr>
 													<tr>
-														<td><b>Email:</b></td>
-														<td><a href='mailto:$emailF'>$emailF</a></td>
-													</tr>
-													<tr>
-														<td><b>Comment:</b></td>
-														<td>$commentF</td>
-													</tr>
-													<tr>
-														<td><b>Date:</b></td>
-														<td>$dateF</td>
+														<td><b>Complaint Status</b></td>
+														<td>
+															<select name='complaintStatus' id='complaintStatus'>
+																<option value='$complaintStatus'>Select a status...</option>
+																<option value='Open'>Open</option>
+																<option value='Closed'>Closed</option>
+																<option value='Dropped'>Dropped</option>
+															</select>
+														</td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
-															<center><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></center>
+															<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
+															<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 														</td>
 													</tr>
 												</table>
 											</form>
+											<script>
+												CKEDITOR.replace( 'editor1' );
+											</script>
 										";
 									}
+								}
 								?>
 							</div>
 						</div>

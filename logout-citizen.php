@@ -6,7 +6,7 @@
 
 <?php
 include 'connection.php';
-$date=date("Y-m-d h:i:s");
+$date=date("Y-m-d h:i:sa");
 $citizenIC=$_GET['citizenIC'];
 $query = dbConn()->prepare("UPDATE citizen SET lastLogin=:date WHERE citizenIC='".$citizenIC."'");
 $query->bindParam(":date", $date);

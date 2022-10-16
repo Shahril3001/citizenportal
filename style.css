@@ -311,11 +311,11 @@ main{
 
 .statbox-item {
   display:inline-block;
-  width: 23%;
+  width: 31%;
   border-radius:10px;
   border:solid 1px #DADADA;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-  height:11em;
+  height:18em;
   overflow: hidden;
   margin:10px;
   padding:5px;
@@ -342,7 +342,7 @@ main{
 }
 
 .statbox-count-total{
-  font-size:3em;
+  font-size:5em;
   font-weight: bold;
 }
 
@@ -352,13 +352,6 @@ main{
   animation: active 1200ms ease 1 alternate;
 }
 
-/* Hover state animation applied here */
-.statbox-item:hover {
-  -webkit-animation: hover 1200ms linear 2 alternate;
-  animation: hover 1200ms linear 2 alternate;
-  box-shadow: 0 5px 5px rgba(244, 142, 26, 1);
-}
-
 .statbox-title-img {
   display: block;
   float: left;
@@ -366,6 +359,53 @@ main{
   height: 3em;
   margin-right: 10px;
 }
+
+.statbox-pie {
+  --w:50%;
+  --b:35px;
+  width: var(--w);
+  aspect-ratio: 1;
+  position: relative;
+  display: inline-grid;
+  place-content: center;
+  margin: 5px;
+  font-size: 19px;
+  font-weight: bold;
+  font-family: sans-serif;
+  background-color: #FFF;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.statbox-pie:before {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  inset: 0;
+  background: conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+          mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+}
+
+.statbox-item:nth-child(4n + 1) .statbox-pie:before{
+  --c:#F88B0A;
+}
+
+.statbox-item:nth-child(4n + 2) .statbox-pie:before{
+  --c:#2096F2;
+}
+
+.statbox-item:nth-child(4n + 3) .statbox-pie:before{
+  --c:#C80A50;
+}
+
+.statbox-item:nth-child(4n + 4) .statbox-pie:before{
+  --c:#8AC447;
+}
+
+
+
 
 .statbox-desc {
   font-size:14px;

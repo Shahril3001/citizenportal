@@ -52,7 +52,7 @@
 							<?php
 									$cloneID = 0;
 									include 'connection.php';
-									$feedbackquery = dbConn()->prepare('SELECT * FROM feedback');
+									$feedbackquery = dbConn()->prepare('SELECT * FROM feedback WHERE citizenIC="'. $citizenIC .'"');
 									$feedbackquery->execute();
 									$feedbacklists = $feedbackquery->fetchAll(PDO::FETCH_OBJ);
 									echo"
@@ -88,8 +88,7 @@
 												</td>
 												<td width='20%'>$dateF</td>
 												<td width='10%'>
-													<a href='admin-viewfeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-													<a href='admin-deletefeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+													<a href='admin-viewfeedback.php?citizenIC=".$citizenIC."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
 												</td>
 											</tr>";
 											}

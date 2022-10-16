@@ -66,43 +66,124 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Admin Dashboard</h1>
-							<img src='icon/icons8-complaints-96.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview</h2><hr>
-							<div class='statbox-item'>
-								<div class='statbox-title'>Total complains</div>
-								<div class='statbox-count-total'>20</div>
-								<a href='#'><button class='button'>Go</button></a>
-							</div>
+							<img src='icon/icons8-complain-64.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview (Self-Report)</h2><hr>
+							<?php
+								function countTotalstatus($complaintStatus) {
+									$conditionquery = dbConn()->prepare("SELECT * FROM complaints WHERE complaintStatus='$complaintStatus'");
+									$conditionquery->execute();
+									$conditionnum_count = $conditionquery->rowCount();
+
+									$overallquery = dbConn()->prepare("SELECT * FROM complaints");
+									$overallquery->execute();
+									$overallnum_count = $overallquery->rowCount();
+
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+									return number_format($counttotal);
+								}
+							?>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Open</div>
-								<div class='statbox-count-total'>15</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Open";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Closed</div>
-								<div class='statbox-count-total'>1</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Closed";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Dropped</div>
-								<div class='statbox-count-total'>4</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Dropped";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div><br><br>
+
+
+							<img src='icon/icons8-complain-64-1.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview (On Behalf)</h2><hr>
+							<?php
+								function countTotalstatus2($complaintStatus) {
+									$conditionquery = dbConn()->prepare("SELECT * FROM complaintsbehalf WHERE complaintStatus='$complaintStatus'");
+									$conditionquery->execute();
+									$conditionnum_count = $conditionquery->rowCount();
+
+
+									$overallquery = dbConn()->prepare("SELECT * FROM complaintsbehalf");
+									$overallquery->execute();
+									$overallnum_count = $overallquery->rowCount();
+
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+									return number_format($counttotal);
+								}
+							?>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Open</div>
+								<?php
+									$complaintStatus="Open";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Closed</div>
+								<?php
+									$complaintStatus="Closed";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Dropped</div>
+								<?php
+									$complaintStatus="Dropped";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div><br><br>
+
+
 							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Feedbacks</h2><hr>
+							<?php
+								function countTotal($feedbackType) {
+									$conditionquery = dbConn()->prepare("SELECT * FROM feedback WHERE feedbackType='$feedbackType' ");
+									$conditionquery->execute();
+									$conditionnum_count = $conditionquery->rowCount();
+
+
+									$overallquery = dbConn()->prepare("SELECT * FROM feedback");
+									$overallquery->execute();
+									$overallnum_count = $overallquery->rowCount();
+
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+									return number_format($counttotal);
+								}
+							?>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Positive</div>
-								<div class='statbox-count-total'>5</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$feedbackType="Positive";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Negative</div>
-								<div class='statbox-count-total'>1</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$feedbackType="Negative";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Pending</div>
-								<div class='statbox-count-total'>19</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$feedbackType="Pending";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
+
 						</div>
 					</div>
 				</main>

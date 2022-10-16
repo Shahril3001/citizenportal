@@ -48,62 +48,88 @@
 						?>
 						<!--===============================================================================================-->
 						<div>
-							<h1 class="title-container">Feedback</h1>
-							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/>
-							<h2 class='statbox-title-h2'>View Feedback</h2>
+							<h1 class="title-container">Complaint</h1>
+							<img src='icon/icons8-complain-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>View Complaint(Self-Report)</h2>
 							<hr>
 							<div class="task-container">
 								<?php
-										$feedbackID=$_GET['feedbackID'];
+										$complaintID=$_GET['complaintID'];
 										include 'connection.php';
-										$feedBackquery = dbConn()->prepare("SELECT * FROM feedback WHERE feedbackID='$feedbackID'");
-										$feedBackquery->execute();
-										$feedbacks = $feedBackquery->fetchAll(PDO::FETCH_OBJ);
+										$complaintquery = dbConn()->prepare("SELECT * FROM complaints WHERE complaintID='$complaintID'");
+										$complaintquery->execute();
+										$complaintlists = $complaintquery->fetchAll(PDO::FETCH_OBJ);
 
-										foreach($feedbacks as $feedback){
-											$feedbackID = $feedback->feedbackID;
-											$citizenName = $feedback->citizenName;
-											$citizenIC = $feedback->citizenIC;
-											$subjectF = $feedback->subjectF;
-											$feedbackType = $feedback->feedbackType;
-											$emailF = $feedback->emailF;
-											$commentF = $feedback->commentF;
-											$dateF = $feedback->dateF;
+										foreach($complaintlists as $complaintlist){
+											$complaintID  = $complaintlist->complaintID ;
+											$complaintSubject = $complaintlist->complaintSubject;
+											$complaintDesc = $complaintlist->complaintDesc;
+											$location = $complaintlist->location;
+
+											$date = $complaintlist->date;
+											$date = date('d M Y',strtotime($date));
+
+											$serviceCategory = $complaintlist->serviceCategory;
+											$complaintImage = $complaintlist->complaintImage;
+											$document = $complaintlist->document;
+											$citizenIC = $complaintlist->citizenIC;
+											$complaintStatus = $complaintlist->complaintStatus;
+
+											$complaintDate = $complaintlist->complaintDate;
+											$complaintDate = date('d M Y H:i:sa',strtotime($complaintDate));
+
+											$citizenquery = dbConn()->prepare('SELECT * FROM citizen WHERE citizenIC="'. $citizenIC .'"');
+											$citizenquery->execute();
+											$citizenlists = $citizenquery->fetchAll(PDO::FETCH_OBJ);
+											foreach($citizenlists as $citizenlist){
+											$citizenName = $citizenlist->citizenName;
 
 										echo "
-											<p>Feedback details.</p>
+											<p>Complaint details.</p>
 											<form>
 												<table id='formtable'>
 													<tr>
-														<th colspan='2'>View Feedback</th>
+														<th colspan='2'>View Complaint</th>
 													</tr>
 													<tr>
-														<td width='30%'><b>Fullname:</b></td>
-														<td>$citizenName</td>
+														<td width='30%'><b>Subject:</b></td>
+														<td>$complaintSubject</td>
 													</tr>
 													<tr>
-														<td width='30%'><b>IC Number:</b></td>
-														<td>$citizenIC</td>
+														<td><b>Description:</b></td>
+														<td>$complaintDesc</td>
 													</tr>
 													<tr>
-														<td><b>Subject:</b></td>
-														<td>$subjectF</td>
-													</tr>
-													<tr>
-														<td><b>Feedback Type:</b></td>
-														<td>$feedbackType</td>
-													</tr>
-													<tr>
-														<td><b>Email:</b></td>
-														<td><a href='mailto:$emailF'>$emailF</a></td>
-													</tr>
-													<tr>
-														<td><b>Comment:</b></td>
-														<td>$commentF</td>
+														<td><b>Location:</b></td>
+														<td>$location</td>
 													</tr>
 													<tr>
 														<td><b>Date:</b></td>
-														<td>$dateF</td>
+														<td>$date</td>
+													</tr>
+													<tr>
+														<td><b>Category:</b></td>
+														<td>$serviceCategory</td>
+													</tr>
+													<tr>
+														<td><b>Image:</b></td>
+														<td><a href='$complaintImage'><img src='$complaintImage' alt='' width='30%' height='30%'></a></td>
+													</tr>
+													<tr>
+														<td><b>Document:</b></td>
+														<td><a href='$document'>$document</a></td>
+													</tr>
+													<tr>
+														<td><b>Sender:</b></td>
+														<td>$citizenName</td>
+													</tr>
+													<tr>
+														<td><b>Complaint Status:</b></td>
+														<td>$complaintStatus</td>
+													</tr>
+													<tr>
+														<td><b>Complaint Date:</b></td>
+														<td>$complaintDate</td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
@@ -114,6 +140,7 @@
 											</form>
 										";
 									}
+								}
 								?>
 							</div>
 						</div>

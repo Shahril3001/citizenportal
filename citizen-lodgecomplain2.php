@@ -13,16 +13,15 @@
 		{
 		$citizenIC=$_GET['citizenIC'];
 		$role=$_GET['role'];
-		
+		$complaintSubject=$_POST['complaintSubject'];
 		$complaint=$_POST['complaint'];
 		$location=$_POST['location'];
 		$date=$_POST["date"];
-		$department=$_POST['department'];
-		$complaintImage=$_POST['complaintImage'];
-		$complaintDocument=$_POST['complaintDocument'];
+		$listCategory=$_POST['listCategory'];
+		$complaintDate=date("Y-m-d h:i:sa");
 
 			// isEmpty field
-			if(empty($complaint) || empty($location) || empty($date) || empty($department)) {
+			if(empty($complaintSubject) || empty($complaint) || empty($location) || empty($date) || empty($listCategory)) {
 				echo "<div class='pos'>";
 				echo "<img src='icon/icons8-error-96.png'/>";
 				echo "<h2>Invalid Value!</h2>";
@@ -36,14 +35,24 @@
 				echo "</div>";
 			}
 			else{
-					$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaint."', '".$location."', '".$date."', '".$department."','".$complaintImage."', '".$complaintDocument."','".$citizenIC."')");
+				$target_dir="complaint/image/";
+				$target_dir=$target_dir. basename($_FILES["complaintImage"]["name"]);
+				move_uploaded_file($_FILES["complaintImage"]["tmp_name"],$target_dir);
+				$imageup=$target_dir;
+
+				$target_dir1="complaint/document/";
+				$target_dir1=$target_dir1. basename($_FILES["complaintDocument"]["name"]);
+				move_uploaded_file($_FILES["complaintDocument"]["tmp_name"],$target_dir1);
+				$documentup=$target_dir1;
+
+					$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaintSubject."', '".$complaint."', '".$location."', '".$date."', '".$listCategory."','".$imageup."', '".$documentup."','".$citizenIC."','Open','".$complaintDate."')");
 					// Success
 					if($query -> execute()){
 						echo "<div class='pos'>";
 						echo "<img src='icon/icons8-success-64.png'/>";
 						echo "<h2>Success!</h2>";
 						echo "<p id='valid'>Complaint is successfully added.</p>
-						<p>Click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."''<input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
+						<p>Click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
 						";
 						echo "</div>";
 					}

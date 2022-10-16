@@ -24,6 +24,8 @@
 	<!--===============================================================================================-->
 		<script type='text/javascript'  src='vendor/isotope/isotope.pkgd.min.js'></script>
 	<!--===============================================================================================-->
+
+	<!--===============================================================================================-->
 		<script src='ckeditor/ckeditor.js'></script>
 	<!--===============================================================================================-->
 		<script src='js/main.js'></script>
@@ -101,6 +103,10 @@
 
 			function myDropnav1() {
 				document.getElementById('myDropdown1').classList.toggle('show');
+			}
+
+			function myDropnav2() {
+				document.getElementById('myDropdown2').classList.toggle('show');
 			}
 
 			// Close the dropdown if the user clicks outside of it
