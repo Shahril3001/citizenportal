@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -63,7 +65,7 @@
 													</tr>
 													<tr>
 														<td><b>Title:</b></td>
-														<td><input type='text' name='listTitle' placeholder='Your Title...'></td>
+														<td><input type='text' name='listTitle'  class='forminput' placeholder='Your Title...'></td>
 													</tr>
 													<tr>
 														<td><b>Category Service:</b></td>
@@ -84,11 +86,11 @@
 													</tr>
 													<tr>
 														<td><b>Description:</b></td>
-														<td><textarea name='listDesc'  id='editor1' rows='5' cols='40%' placeholder='Your Description...'></textarea></td>
+														<td><textarea name='listDesc' id='editor' rows='10' cols='60%' placeholder='Your Description...'></textarea></td>
 													</tr>
 													<tr>
 														<td><b>Guideline Description:</b></td>
-														<td><textarea name='listGuideline'  id='editor1' rows='5' cols='40%' placeholder='Your Guideline...'></textarea></td>
+														<td><textarea name='listGuideline'  id='editor1' rows='10' cols='60%' placeholder='Your Guideline...'></textarea></td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
@@ -101,7 +103,8 @@
 												</table>
 											</form>
 											<script>
-												CKEDITOR.replace( 'editor1' );
+												CKEDITOR.replace('editor');
+												CKEDITOR.replace('editor1');
 											</script>
 										";
 								?>

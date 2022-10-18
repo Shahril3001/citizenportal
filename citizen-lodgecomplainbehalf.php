@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -74,25 +76,23 @@
 
 													<tr>
 														<td><b>*Full Name of the Person:</b></td>
-														<td><input type='text' name='behalfName' placeholder='Full name of the person...' minlength='5' size='50'></td>
+														<td><input type='text' name='behalfName' class='forminput' placeholder='Full name of the person...' minlength='5' size='50'></td>
 													</tr>
 
 													<tr>
 														<td><b>*Reason Unable to Complain by Themselves:</b></td>
-														<td><input type='text' name='reason' placeholder='Reason...' minlength='5' size='50'></td>
+														<td><input type='text' name='reason' class='forminput' placeholder='Reason...' minlength='5' size='50'></td>
 													</tr>
 
 													<tr>
 														<td><b>*Their Contact Number:</b></td>
-														<td><input type='text' name='behalfContact' placeholder='Contact Number...' minlength='5' size='50'></td>
+														<td><input type='number' name='behalfContact' class='forminput' id='removeNumpointer' placeholder='Contact Number...' minlength='7' size='50'></td>
 													</tr>
 
 													<tr>
 														<td><b>*Their Address:</b></td>
-														<td><textarea name='behalfAddress' name='behalfAddress' id='editor1' rows='3' cols='50%' placeholder=' Address...' minlength='5'></textarea></td>
+														<td><textarea name='behalfAddress' name='behalfAddress' id='editor' rows='3' cols='50%' placeholder=' Address...' minlength='5'></textarea></td>
 													</tr>
-
-
 
 													<tr>
 														<td><b>*Relationship with Said Person:</b></td>"?>
@@ -107,7 +107,6 @@
 													echo "
 													</tr>
 
-
 													<!-- Complain Section -->
 
 													<tr>
@@ -115,7 +114,7 @@
 													</tr>
 													<tr>
 														<td><b>*Subject:</b></td>
-														<td><input type='text' name='complaintSubject' placeholder=' Subject...'></td>
+														<td><input type='text' name='complaintSubject' class='forminput' placeholder=' Subject...'></td>
 													</tr>
 													<tr>
 														<td><b>*Complaint:</b></td>
@@ -124,7 +123,7 @@
 
 													<tr>
 														<td><b>*Location of Accident / Event:</b></td>
-														<td><input type='text' name='location' placeholder=' Location...' minlength='5' size='50'></td>
+														<td><input type='text' name='location' class='forminput' placeholder=' Location...' minlength='5' size='50'></td>
 													</tr>
 
 													<tr>
@@ -152,12 +151,12 @@
 													</tr>
 													<tr>
 														<td><b>Image:</b></td>
-														<td><input type='file' name='complaintImage'></td>
+														<td><input type='file' name='complaintImage'>*Limited to 10MB and PNG/JPG file only. </td>
 													</tr>
 
 													<tr>
 														<td><b>Relevant Document:</b></td>
-														<td><input type='file' name='complaintDocument'></td>
+														<td><input type='file' name='complaintDocument'>*Limited to 10MB and RAR/DOC/PDF file only.</td>
 													</tr>
 
 													<tr>
@@ -166,16 +165,10 @@
 															<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
 														</td>
 													</tr>
-
-
-
-
-
-
-
 												</table>
 											</form>
 											<script>
+												CKEDITOR.replace( 'editor' );
 												CKEDITOR.replace( 'editor1' );
 											</script>
 										";

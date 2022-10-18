@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -74,7 +76,7 @@
 													</tr>
 													<tr>
 														<td><b>*Category Name:</b></td>
-														<td><input type='text' name='categoryName' placeholder='Title...' value='$categoryName'></td>
+														<td><input type='text' name='categoryName' class='forminput' placeholder='Title...' value='$categoryName'></td>
 													</tr>
 													<tr>
 														<td><b>*Category Icon:</b></td>

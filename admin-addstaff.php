@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -60,15 +62,15 @@
 													</tr>
 													<tr>
 														<td><b>*Name</b></td>
-														<td><input type='text' name='adminName' placeholder=' Name...'></td>
+														<td><input type='text' name='adminName' class='forminput' placeholder=' Name...'></td>
 													</tr>
 													<tr>
 														<td><b>*Email</b></td>
-														<td><input type='email' name='adminEmail' placeholder='Email...'></td>
+														<td><input type='email' name='adminEmail' class='forminput' placeholder='Email...'></td>
 													</tr>
 													<tr>
 														<td><b>*Phone</b></td>
-														<td><input type='number' name='adminPhone' class='removeNumpointer' placeholder='Phone No...' minlength='7'></td>
+														<td><input type='number' name='adminPhone' class='forminput' id='removeNumpointer' placeholder='Phone No...' minlength='7'></td>
 													</tr>
 													<tr>
 														<td><b>*Password</b></td>

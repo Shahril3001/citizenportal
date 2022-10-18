@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -77,19 +79,19 @@
 													</tr>
 													<tr>
 														<td><b>Subject</b></td>
-														<td><input type='text' name='complaintSubject' placeholder='Subject...' value='$complaintSubject' readonly></td>
+														<td><input type='text' name='complaintSubject' class='forminput' placeholder='Subject...' value='$complaintSubject' readonly></td>
 													</tr>
 													<tr>
 														<td><b>Description</b></td>
-														<td><textarea name='complaintDesc' id='editor1' rows='5' cols='40%' placeholder='Description...' readonly>$complaintDesc</textarea></td>
+														<td><textarea name='complaintDesc' id='editor1' rows='10' cols='60%' placeholder='Description...' readonly>$complaintDesc</textarea></td>
 													</tr>
 													<tr>
 														<td><b>Location</b></td>
-														<td><input type='text' name='location' placeholder='Location...' value='$location' readonly></td>
+														<td><input type='text' name='location' class='forminput' placeholder='Location...' value='$location' readonly></td>
 													</tr>
 													<tr>
 														<td><b>Date</b></td>
-														<td><input type='text' name='date' placeholder='Date...' value='$date' readonly></td>
+														<td><input type='text' name='date' class='forminput' placeholder='Date...' value='$date' readonly></td>
 													</tr>
 													<tr>
 														<td><b>Complaint Status</b></td>

@@ -1,6 +1,5 @@
 body{
-  background-color: #F5F9FC;
-  margin: 0;
+  min-height: 100vh;
   padding: 0;
 }
 
@@ -50,6 +49,12 @@ header{
   transform: translateY(30%);
   border-radius:5px;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+@media screen and (max-width: 768px) {
+    #currentdatetime {
+        display: none;
+    }
 }
 
 .datetime {
@@ -116,8 +121,6 @@ side-nav-btn:hover{
   height: 24px;
   margin-right: 10px;
 }
-
-
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -322,7 +325,7 @@ main{
 }
 
 .statbox-item:nth-child(4n + 1){
-  color:#F88B0A;
+  color:#FAB400;
 }
 
 .statbox-item:nth-child(4n + 2){
@@ -389,7 +392,7 @@ main{
 }
 
 .statbox-item:nth-child(4n + 1) .statbox-pie:before{
-  --c:#F88B0A;
+  --c:#FAB400;
 }
 
 .statbox-item:nth-child(4n + 2) .statbox-pie:before{
@@ -404,11 +407,21 @@ main{
   --c:#8AC447;
 }
 
-
-
-
 .statbox-desc {
   font-size:14px;
+}
+
+@media (max-width:768px) {
+  .statbox-item{
+    width: 27%;
+    height:10em;
+  }
+  .statbox-pie{
+    --w:70%;
+    --b:15px;
+    font-size: 12px;
+  }
+
 }
 
 .category{
@@ -424,6 +437,7 @@ img{
 
 footer{
   /* position: absolute; */
+
   bottom: 0;
   left: 0;
   right: 0;
@@ -543,12 +557,28 @@ footer{
   color: #FAB400;
 }
 
-@media (max-width:500px) {
-.footer-menu ul{
-  display: flex;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
+@media (max-width:768px) {
+  footer{
+    margin-top: auto;
+  }
+
+  .footer-bottom{
+    margin: auto;
+    width: 100%;
+  }
+  .footer-menu ul{
+    display: inline-flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .footer-trademark{
+    display: inline-flex;
+    float: none;
+  }
+
+  .footer-menu{
+    float: none;
+  }
 }
 
 header, nav, main, footer {
@@ -558,14 +588,12 @@ header, nav, main, footer {
 .contact-item {
   display:inline-block;
   top: 0;
-  width: 45%;
+  width: 98%;
   overflow: hidden;
-  margin:10px;
   padding:5px;
 }
 
 .contact-item div{
-  margin:10px;
   float: left;
 }
 
@@ -593,7 +621,7 @@ tr,td, th{
   text-justify: inter-word;
 }
 
-.removeNumpointer{
+#removeNumpointer{
   -moz-appearance: textfield;
 }
 
@@ -627,6 +655,16 @@ tr,td, th{
   background-color: #FAB400;
   border-radius:10px 10px 0 0;
   text-align:center;
+}
+
+.forminput{
+  width: 70%;
+}
+
+@media (max-width:768px) {
+  .forminput{
+    width: 100%;
+  }
 }
 
 .logintab{
@@ -806,6 +844,13 @@ select {
   font-size:14px;
 }
 
+@media screen and (max-width: 768px) {
+  .box-item{
+    width: 45.5%;
+    height:17em;
+  }
+}
+
 /*wiggle*/
 .category-btn {
   border-radius: 100px;
@@ -918,8 +963,6 @@ select {
 }
 
 @media only screen and (max-width: 768px) {
-
-
   h1{
     font-size:1.5em;
     line-height: 120%;
@@ -944,7 +987,6 @@ select {
     margin-top: 1em;
     margin-bottom: 1em;
   }
-
 }
 
 @-webkit-keyframes active {
@@ -1074,13 +1116,12 @@ keyframes active {
   cursor: pointer;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .btn-back-to-top {
     bottom: 15px;
     right: 15px;
   }
 }
-
 
 /***********************************************************************************/
 
@@ -1090,7 +1131,7 @@ keyframes active {
     display: flex;
     margin: 1em auto;
     width: 1200px;
-    height: 525px;
+    height: 500px;
     border:solid 1px #DADADA;
     border-radius: 10px;
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
@@ -1218,12 +1259,19 @@ keyframes active {
 }
 
 @media screen and (max-width: 768px) {
-    #slides {
-        width: 100%;
+    #slideshow{
+      width:100%;
+      height:300px;
+      padding: 1.5em 0;
     }
-
+    .slide show {
+      width: 100%;
+    }
+    #slides {
+      width: 100%;
+    }
     #gallery {
-        display: none;
+      display: none;
     }
 }
 
@@ -1248,7 +1296,7 @@ keyframes active {
     }
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:768px){
     .about-section{
         padding: 0;
     }
@@ -1299,7 +1347,7 @@ keyframes active {
   color:#F8F8F8;
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:768px){
     .aboutColumn {
       width: 90%;
     }
@@ -1323,7 +1371,7 @@ keyframes active {
   box-shadow: 0 5px 5px rgba(244, 142, 26, 1);
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:768px){
     .aboutGoal {
       width: 90%;
     }

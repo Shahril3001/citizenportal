@@ -9,13 +9,17 @@
 	<?php
 		include 'connection.php';
 		include 'js_connection.php';
-		
+
 		$adminEmail=$_GET['adminEmail'];
 		$role=$_GET['role'];
-		$citizenID = $_GET["citizenID"];
+		$citizenIC = $_GET["citizenIC"];
 
-		$query = dbConn()->prepare("DELETE  FROM citizen WHERE citizenID='".$citizenID."'");
-		if($query->execute()){
+		$citizenquery = dbConn()->prepare("DELETE  FROM citizen WHERE citizenIC='".$citizenIC."'");
+		$feedbackquery = dbConn()->prepare("DELETE  FROM feedback WHERE citizenIC='".$citizenIC."'");
+		$complaintsquery = dbConn()->prepare("DELETE  FROM complaints WHERE citizenIC='".$citizenIC."'");
+		$complaintsbehalfquery = dbConn()->prepare("DELETE  FROM complaintsbehalf WHERE citizenIC='".$citizenIC."'");
+
+		if($query->execute() && $feedbackquery->execute() && $complaintsquery->execute() && $complaintsbehalfquery->execute()){
 			echo "<div class='pos'>";
 			echo "<img src='icon/icons8-success-64.png'/>";
 			echo "<h2>Success!</h2>";

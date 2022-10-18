@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -74,7 +76,7 @@
 													</tr>
 													<tr>
 														<td><b>Title:</b></td>
-														<td><input type='text' name='listTitle' placeholder='Title...' value='$listTitle'></td>
+														<td><input type='text' name='listTitle' class='forminput' placeholder='Title...' value='$listTitle'></td>
 													</tr>
 													<tr>
 														<td><b>Category Service:</b></td>
@@ -95,7 +97,7 @@
 													</tr>
 													<tr>
 														<td><b>Description:</b></td>
-														<td><textarea name='listDesc' id='editor1' rows='5' cols='40%' placeholder='Description...'>$listDesc</textarea></td>
+														<td><textarea name='listDesc' id='editor' rows='5' cols='40%' placeholder='Description...'>$listDesc</textarea></td>
 													</tr>
 													<tr>
 														<td><b>Guideline Description:</b></td>
@@ -112,6 +114,7 @@
 												</table>
 											</form>
 											<script>
+												CKEDITOR.replace( 'editor' );
 												CKEDITOR.replace( 'editor1' );
 											</script>
 										";

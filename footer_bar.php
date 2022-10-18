@@ -61,17 +61,17 @@
 		 </ul>
 		</div>
 		<div class='footer-bottom'>
-		 <div class='footer-menu'>
-			<ul class='f-menu'>
-			 <li><a href=''>Sitemap</a></li>
-			 <li><a href=''>Privacy Policy</a></li>
-			 <li><a href=''>Disclaimer</a></li>
-			 <li><a href=''>Terms of Use</a></li>
-			</ul>
-		 </div>
-		<div class='footer-trademark'>
-			<p>&copy; 2022 <a href='mailto:aduandarussalam.com.bn'>Aduan Darussalam</a>. All rights reserved.</p>
-		</div>
+			<div class='footer-menu' id='footer-mobile'>
+				<ul class='f-menu'>
+					<li><a href=''>Sitemap</a></li>
+					<li><a href=''>Privacy Policy</a></li>
+					<li><a href=''>Disclaimer</a></li>
+					<li><a href=''>Terms of Use</a></li>
+				</ul>
+		 	</div>
+			<div class='footer-trademark' id='footer-mobile'>
+				<p>&copy; 2022 <a href='mailto:aduandarussalam.com.bn'>Aduan Darussalam</a>. All rights reserved.</p>
+			</div>
 		</div>
 		";
 	}

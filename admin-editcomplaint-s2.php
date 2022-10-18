@@ -33,7 +33,7 @@
 					echo "<div class='pos'>";
 					echo "<img src='icon/icons8-success-64.png'/>";
 					echo "<h2>Success!</h2>";
-					echo "<p id='valid'>Staff is successfully updated.</p>
+					echo "<p id='valid'>Complaint(Self-Report) is successfully updated.</p>
 					<p>Click <a href='admin-complaintlist-selfreport.php?adminEmail=".$adminEmail."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
 					";
 					echo "</div>";

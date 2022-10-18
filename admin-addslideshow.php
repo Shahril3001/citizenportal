@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -63,7 +65,7 @@
 													</tr>
 													<tr>
 														<td><b>Caption:</b></td>
-														<td><input type='text' name='slideshowCaption' placeholder='Name...'></td>
+														<td><input type='text' name='slideshowCaption' class='forminput' placeholder='Name...'></td>
 													</tr>
 													<tr>
 														<td><b>Slideshow Image:</b></td>

@@ -54,11 +54,11 @@
 							</tr>
 							<tr>
 								<td><b>Name:</b></td>
-								<td><input type='text' name='citizenName' placeholder='Name...' minlength='10'></td>
+								<td><input type='text' name='citizenName' class='forminput' placeholder='Name...' minlength='10'></td>
 							</tr>
 							<tr>
 								<td><b>IC Number:</b></td>
-								<td><input type='number' name='citizenIC' class='removeNumpointer' placeholder='IC Number...' minlength='8'></td>
+								<td><input type='number' name='citizenIC' class='forminput' id='removeNumpointer' placeholder='IC Number...' minlength='8'></td>
 							</tr>
 							<tr>
 								<td colspan="2"  id="buttonrow">

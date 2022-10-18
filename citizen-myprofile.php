@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -76,24 +78,24 @@
 													</tr>
 													<tr>
 														<td><b>*Name:</b></td>
-														<td><input type='text' name='citizenName' placeholder='Name...' value='$citizenName'></td>
+														<td><input type='text' name='citizenName'  class='forminput' placeholder='Name...' value='$citizenName'></td>
 													</tr>
 													<tr>
 														<td><b>IC Number:</b></td>
-														<td><input type='number' class='removeNumpointer' placeholder='IC Number...' value='$citizenIC' readonly></td>
+														<td><input type='number'  class='forminput' id='removeNumpointer' placeholder='IC Number...' value='$citizenIC' readonly></td>
 													</tr>
 													<tr>
 														<td><b>Email:</b></td>
-														<td><input type='email' placeholder='Email...' value='$citizenEmail' readonly></td>
+														<td><input type='email'  class='forminput' placeholder='Email...' value='$citizenEmail' readonly></td>
 													</tr>
 													<tr>
 														<td><b>*Phone:</b></td>
-														<td><input type='number' name='citizenPhone' class='removeNumpointer' placeholder='Phone No...' value='$citizenPhone' minlength='7'></td>
+														<td><input type='number' name='citizenPhone'  class='forminput' id='removeNumpointer' placeholder='Phone No...' value='$citizenPhone' minlength='7'></td>
 													</tr>
 													<tr>
 														<td><b>*Address:</b></td>
 														<td>
-															<textarea name='citizenAddress' rows='4' cols='46%'>$citizenAddress</textarea>
+															<textarea name='citizenAddress' id='editor1' rows='4' cols='46%'>$citizenAddress</textarea>
 														</td>
 													</tr>
 													<tr>

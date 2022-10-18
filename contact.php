@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -57,23 +59,34 @@
 								</tr>
 								<tr>
 									<td><b>Fullname:</b></td>
-									<td><input type="text" name="citizenName" size='35' placeholder="Fullname..."></td>
+									<td><input type="text" name="citizenName" class='forminput' placeholder="Fullname..."></td>
 								</tr>
 								<tr>
 									<td><b>IC Number:</b></td>
-									<td><input type="number" name="citizenIC" size='35' class='removeNumpointer' minlength='8'  placeholder="IC Number..."></td>
+									<td><input type="number" name="citizenIC" class='forminput' id='removeNumpointer' minlength='8'  placeholder="IC Number..."></td>
 								</tr>
 								<tr>
 									<td><b>Email:</b></td>
-									<td><input type="email" name="emailF" size='35' placeholder="Email..."></td>
+									<td><input type="email" name="emailF" class='forminput' placeholder="Email..."></td>
 								</tr>
 								<tr>
 									<td><b>Subject:</b></td>
-									<td><input type="text" name="subjectF" size='35' placeholder="Subject..."></td>
+									<td><input type="text" name="subjectF" class='forminput' placeholder="Subject..."></td>
+								</tr>
+								<tr>
+									<td><b>Feedback Type</b></td>
+									<td>
+										<select name='feedbackType' id='feedbackType'>
+											<option>Select a type...</option>
+											<option value='Suggestion'>Suggestion</option>
+											<option value='Complain'>Complain</option>
+											<option value='Report'>Report</option>
+										</select>
+									</td>
 								</tr>
 								<tr>
 									<td><b>Message:</b></td>
-									<td><textarea name="commentF"  id='editor1' rows='5' cols='35%' placeholder="Comment.."></textarea></td>
+									<td><textarea name='commentF'  id='editor1' rows='5' cols='35%' placeholder='Comment..'></textarea></td>
 								</tr>
 								<tr>
 									<td colspan="2"  id="buttonrow">

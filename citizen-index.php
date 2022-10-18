@@ -222,23 +222,23 @@
 							}
 							?>
 							<div class='statbox-item'>
-								<div class='statbox-title'>Positive</div>
+								<div class='statbox-title'>Suggestion</div>
 								<?php
-									$feedbackType="Positive";
+									$feedbackType="Suggestion";
 									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
 								?>
 							</div>
 							<div class='statbox-item'>
-								<div class='statbox-title'>Negative</div>
+								<div class='statbox-title'>Complaint</div>
 								<?php
-									$feedbackType="Negative";
+									$feedbackType="Complaint";
 									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
 								?>
 							</div>
 							<div class='statbox-item'>
-								<div class='statbox-title'>Pending</div>
+								<div class='statbox-title'>Report</div>
 								<?php
-									$feedbackType="Pending";
+									$feedbackType="Report";
 									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
 								?>
 							</div>

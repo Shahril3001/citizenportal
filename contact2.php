@@ -14,12 +14,13 @@
 		$citizenName=$_POST['citizenName'];
 		$citizenIC=$_POST['citizenIC'];
 		$subjectF=$_POST['subjectF'];
+		$feedbackType=$_POST['feedbackType'];
 		$emailF=$_POST['emailF'];
 		$commentF=$_POST['commentF'];
 		$dateF=date("Y-m-d h:i:sa");
 
 			// isEmpty field
-			if(empty($citizenName) || empty($citizenIC) || empty($subjectF) || empty($emailF) || empty($commentF)) {
+			if(empty($citizenName) || empty($citizenIC) || empty($subjectF) || empty($feedbackType) ||empty($emailF) || empty($commentF)) {
 				echo "<div class='pos'>";
 				echo "<img src='icon/icons8-error-96.png'/>";
 				echo "<h2>Invalid Value!</h2>";
@@ -33,7 +34,7 @@
 				echo "</div>";
 			}
 			else{
-				$query = dbConn()->prepare("INSERT INTO feedback VALUE(null, '".$citizenName."', '".$citizenIC."', '".$subjectF."', '".$emailF."', '".$commentF."', '".$dateF."')");
+				$query = dbConn()->prepare("INSERT INTO feedback VALUE(null, '".$citizenName."', '".$citizenIC."', '".$subjectF."', '".$feedbackType."', '".$emailF."', '".$commentF."', '".$dateF."')");
 				// Success
 				if($query -> execute()){
 					echo "<div class='pos'>";

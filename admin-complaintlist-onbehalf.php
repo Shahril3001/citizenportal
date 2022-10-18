@@ -95,7 +95,6 @@
 													<td>$cloneID</td>
 													<td class='justify-contents'>
 														<b>Subject:</b> $complaintSubject<br>
-														<b>Description:</b> $complaintDesc<br>
 														<b>Category:</b> $serviceCategory<br>
 														<b>Behalf Name:</b> $behalfName<br>
 														<b>Sender:</b> $citizenName ($citizenIC)<br>

@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -61,7 +63,7 @@
 													</tr>
 													<tr>
 														<td><b>*Subject:</b></td>
-														<td><input type='text' name='complaintSubject' placeholder=' Subject...'></td>
+														<td><input type='text' name='complaintSubject' class='forminput' placeholder=' Subject...'></td>
 													</tr>
 													<tr>
 														<td><b>*Complaint:</b></td>
@@ -70,7 +72,7 @@
 
 													<tr>
 														<td><b>*Location of Accident / Event:</b></td>
-														<td><input type='text' name='location' placeholder=' Location...' minlength='5' size='50'></td>
+														<td><input type='text' name='location' class='forminput' placeholder=' Location...' minlength='5' size='50'></td>
 													</tr>
 
 													<tr>
@@ -97,12 +99,12 @@
 													</tr>
 													<tr>
 														<td><b>Image:</b></td>
-														<td><input type='file' name='complaintImage'></td>
+														<td><input type='file' name='complaintImage'> *Limited to 10MB and PNG/JPG file only.</td>
 													</tr>
 
 													<tr>
 														<td><b>Relevant Document:</b></td>
-														<td><input type='file' name='complaintDocument'></td>
+														<td><input type='file' name='complaintDocument'> *Limited to 10MB and RAR/DOC/PDF file only.</td>
 													</tr>
 
 													<tr>

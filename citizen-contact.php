@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -74,19 +76,30 @@
 										</tr>
 										<tr>
 											<td><b>Fullname:</b></td>
-											<td><input type='text' name='citizenName' size='35' placeholder='Fullname...' value='$citizenName' readonly></td>
+											<td><input type='text' name='citizenName' class='forminput' placeholder='Fullname...' value='$citizenName' readonly></td>
 										</tr>
 										<tr>
 											<td><b>IC Number:</b></td>
-											<td><input type='number' name='citizenIC' size='35' class='removeNumpointer' placeholder='IC Number...' minlength='8' value='$citizenIC' readonly></td>
+											<td><input type='number' name='citizenIC' class='forminput' id='removeNumpointer' placeholder='IC Number...' minlength='8' value='$citizenIC' readonly></td>
 										</tr>
 										<tr>
 											<td><b>Email:</b></td>
-											<td><input type='email' name='emailF' size='35' placeholder='Email...' value='$citizenEmail' readonly></td>
+											<td><input type='email' name='emailF' class='forminput' placeholder='Email...' value='$citizenEmail' readonly></td>
 										</tr>
 										<tr>
 											<td><b>Subject:</b></td>
-											<td><input type='text' name='subjectF' size='35' placeholder='Subject...'></td>
+											<td><input type='text' name='subjectF' class='forminput' placeholder='Subject...'></td>
+										</tr>
+										<tr>
+											<td><b>Feedback Type</b></td>
+											<td>
+												<select name='feedbackType' id='feedbackType'>
+													<option>Select a type...</option>
+													<option value='Suggestion'>Suggestion</option>
+													<option value='Complain'>Complain</option>
+													<option value='Report'>Report</option>
+												</select>
+											</td>
 										</tr>
 										<tr>
 											<td><b>Message:</b></td>
