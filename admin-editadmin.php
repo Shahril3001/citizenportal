@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -46,6 +48,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Staff</h1>
+							<img src='icon/icons8-staff-96.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Edit Staff</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 									if(isset($_GET['adminEmail'])&& isset($_GET['role'])){
@@ -71,15 +76,15 @@
 													</tr>
 													<tr>
 														<td><b>*Name</b></td>
-														<td><input type='text' name='adminName' placeholder='Name...' value='$adminName'></td>
+														<td><input type='text' name='adminName' class='forminput' placeholder='Name...' value='$adminName'></td>
 													</tr>
 													<tr>
 														<td><b>Email</b></td>
-														<td><input type='email' placeholder='Email...' value='$adminEmail' readonly></td>
+														<td><input type='email' class='forminput' placeholder='Email...' value='$adminEmail' readonly></td>
 													</tr>
 													<tr>
 														<td><b>*Phone</b></td>
-														<td><input type='number' name='adminPhone' class='removeNumpointer' placeholder='Phone No...' value='$adminPhone' minlength='7'></td>
+														<td><input type='number' name='adminPhone'  class='forminput' id='removeNumpointer' placeholder='Phone No...' value='$adminPhone' minlength='7'></td>
 													</tr>
 													<tr>
 														<td><b>*Password</b></td>

@@ -12,8 +12,10 @@
 			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return $connection;
 
-		} catch(PDOException $e){
+		}catch(PDOException $e){
 			echo $e->getMessage();
+			echo $e->getLine();
+			echo $e->getTrace();
 		}
 	}
 ?>

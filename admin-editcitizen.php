@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -46,13 +48,16 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Citizen</h1>
+							<img src='icon/icons8-citizen-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Edit Citizen</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 									if(isset($_GET['adminEmail'])&& isset($_GET['role'])){
-									$citizenID=$_GET['citizenID'];
+									$citizenIC=$_GET['citizenIC'];
 									include 'connection.php';
 
-									$query = dbConn()->prepare('SELECT * FROM citizen WHERE citizenID="'. $citizenID .'"');
+									$query = dbConn()->prepare('SELECT * FROM citizen WHERE citizenIC="'. $citizenIC .'"');
 									$query->execute();
 									$citizens = $query->fetchAll(PDO::FETCH_OBJ);
 									foreach($citizens as $citizen){
@@ -66,39 +71,39 @@
 
 										echo "
 											<p>Required fields are marked with an asterisk (*).</p>
-											<form method='POST' action='admin-editcitizen2.php?adminEmail=".$adminEmail."&role=".$role."&citizenID=".$citizenID."'>
+											<form method='POST' action='admin-editcitizen2.php?adminEmail=".$adminEmail."&role=".$role."&citizenIC=".$citizenIC."'>
 												<table id='formtable'>
 													<tr>
 														<th colspan='2'>Edit Citizen</th>
 													</tr>
 													<tr>
-														<td><b>*Name</b></td>
-														<td><input type='text' name='citizenName' placeholder='Name...' value='$citizenName'></td>
+														<td><b>*Name:</b></td>
+														<td><input type='text' class='forminput' name='citizenName' placeholder='Name...' value='$citizenName'></td>
 													</tr>
 													<tr>
-														<td><b>IC Number</b></td>
-														<td><input type='number' class='removeNumpointer' placeholder='IC Number...' value='$citizenIC' readonly></td>
+														<td><b>IC Number:</b></td>
+														<td><input type='number' class='forminput' id='removeNumpointer' placeholder='IC Number...' value='$citizenIC' readonly></td>
 													</tr>
 													<tr>
-														<td><b>Email</b></td>
-														<td><input type='email' placeholder='Email...' value='$citizenEmail' readonly></td>
+														<td><b>Email:</b></td>
+														<td><input type='email' class='forminput' placeholder='Email...' value='$citizenEmail' readonly></td>
 													</tr>
 													<tr>
-														<td><b>*Phone</b></td>
-														<td><input type='number' name='citizenPhone' class='removeNumpointer' placeholder='Phone No...' value='$citizenPhone' minlength='7'></td>
+														<td><b>*Phone:</b></td>
+														<td><input type='number' name='citizenPhone'  class='forminput' id='removeNumpointer' placeholder='Phone No...' value='$citizenPhone' minlength='7'></td>
 													</tr>
 													<tr>
-														<td><b>*Address</b></td>
+														<td><b>*Address:</b></td>
 														<td>
-															<textarea name='citizenAddress' rows='4' cols='46%'>$citizenAddress</textarea>
+															<textarea name='citizenAddress' id='editor1' rows='4' cols='46%'>$citizenAddress</textarea>
 														</td>
 													</tr>
 													<tr>
-														<td><b>*Password</b></td>
+														<td><b>*Password:</b></td>
 														<td><input type='password' name='citizenPassword' placeholder='Password...' value='$citizenPassword' minlength='8'></td>
 													</tr>
 													<tr>
-														<td><b>Confirm Password</b></td>
+														<td><b>Confirm Password:</b></td>
 														<td><input type='password' name='citizenCPassword' placeholder='Password...' value='$citizenPassword' minlength='8'></td>
 													</tr>
 													<tr>

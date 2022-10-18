@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -49,6 +51,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Service</h1>
+							<img src='icon/icons8-services-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Add Service</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 										echo "
@@ -59,22 +64,22 @@
 														<th colspan='2'>Add Service</th>
 													</tr>
 													<tr>
-														<td><b>Category Name</b></td>
-														<td><input type='text' name='categoryName' placeholder='Name...'></td>
+														<td><b>Category Name:</b></td>
+														<td><input type='text' name='categoryName' class='forminput' placeholder='Name...'></td>
 													</tr>
 													<tr>
-														<td><b>Category Icon</b></td>
+														<td><b>Category Icon:</b></td>
 														<td><input type='file' name='categoryImg'></td>
 													</tr>
 													<tr>
-														<td><b>Description</b></td>
+														<td><b>Description:</b></td>
 														<td><textarea name='categoryDesc' id='editor1' rows='5' cols='40%' placeholder='Description...'></textarea></td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<center>
 																<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
-																<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 															</center>
 														</td>
 													</tr>

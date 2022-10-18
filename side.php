@@ -19,6 +19,12 @@
 				<a href='admin-citizenlist.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-citizen-64.png' class='side-nav-icon' />Citizen</a>
 			</div>
 
+			<a href='#' class='sidenavdropdown-btn'><img src='icon/icons8-suggestion-64.png' class='side-nav-icon' />Complaint <i class='arrowdown'>&#9660</i></a>
+			<div class='dropdown-sidenav'>
+				<a href='admin-complaintlist-selfreport.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-complain-64.png' class='side-nav-icon' />Self-report</a>
+				<a href='admin-complaintlist-onbehalf.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-complain-64-1.png' class='side-nav-icon' />On behalf</a>
+			</div>
+
 			<a href='admin-feedbacklist.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-feedback-96.png' class='side-nav-icon' />Feedback</a>
 			<a href='logout-admin.php?adminEmail=".$adminEmail."&role=".$role."'><img src='icon/icons8-logout-96.png' class='side-nav-icon' />Log Out</a>
 			";
@@ -28,7 +34,20 @@
 			<a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-home-48.png' class='side-nav-icon' />Dashboard</a>
 			<a href='citizen-myprofile.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-test-account-96.png' class='side-nav-icon' />My Profile</a>
 			<a href='citizen-service.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-services-64.png' class='side-nav-icon' />Service</a>
-			<a href='citizen-history.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-history-64.png' class='side-nav-icon' />History</a>
+
+			<a href='#' class='sidenavdropdown-btn'><img src='icon/icons8-account-64.png' class='side-nav-icon' />Complaint<i class='arrowdown'>&#9660</i></a>
+			<div class='dropdown-sidenav'>
+				<a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-complain-64.png' class='side-nav-icon' />Submit Your Complaint</a>
+				<a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-complain-64-1.png' class='side-nav-icon' />Submit On behalf Complaint</a>
+			</div>
+
+			<a href='#' class='sidenavdropdown-btn'><img src='icon/icons8-history-64.png' class='side-nav-icon' />History<i class='arrowdown'>&#9660</i></a>
+			<div class='dropdown-sidenav'>
+				<a href='citizen-complaintlist-selfreport.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-complain-64.png' class='side-nav-icon' />Complaint (Self-Report)</a>
+				<a href='citizen-complaintlist-selfreport.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-complain-64-1.png' class='side-nav-icon' />Complaint (On Behalf)</a>
+				<a href='citizen-feedbacklist.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-feedback-96.png' class='side-nav-icon' />Feedback</a>
+			</div>
+
 			<a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-mailboxes-64.png' class='side-nav-icon' />Contact</a>
 			<a href='logout-citizen.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-logout-96.png' class='side-nav-icon' />Log Out</a>
 			";

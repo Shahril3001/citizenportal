@@ -12,7 +12,7 @@
 		include 'js_connection.php';
 		if(isset($_POST['Submit']))
 		{
-		$citizenID=$_GET['citizenID'];
+		$citizenIC=$_GET['citizenIC'];
 		$adminEmail=$_GET['adminEmail'];
 		$role=$_GET['role'];
 
@@ -33,7 +33,7 @@
 			}
 			else{
 				if($citizenPassword==$citizenCPassword){
-					$query = dbConn()->prepare("UPDATE citizen SET citizenName='$citizenName', citizenPhone='$citizenPhone', citizenAddress='$citizenAddress', citizenPassword='$citizenPassword' WHERE citizenID='".$citizenID."'");
+					$query = dbConn()->prepare("UPDATE citizen SET citizenName='$citizenName', citizenPhone='$citizenPhone', citizenAddress='$citizenAddress', citizenPassword='$citizenPassword' WHERE citizenIC='".$citizenIC."'");
 					// Success
 					if($query -> execute()){
 						echo "<div class='pos'>";

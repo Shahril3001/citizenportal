@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -46,6 +48,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Staff</h1>
+							<img src='icon/icons8-staff-96.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Add Staff</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 										echo "
@@ -57,15 +62,15 @@
 													</tr>
 													<tr>
 														<td><b>*Name</b></td>
-														<td><input type='text' name='adminName' placeholder=' Name...'></td>
+														<td><input type='text' name='adminName' class='forminput' placeholder=' Name...'></td>
 													</tr>
 													<tr>
 														<td><b>*Email</b></td>
-														<td><input type='email' name='adminEmail' placeholder='Email...'></td>
+														<td><input type='email' name='adminEmail' class='forminput' placeholder='Email...'></td>
 													</tr>
 													<tr>
 														<td><b>*Phone</b></td>
-														<td><input type='number' name='adminPhone' class='removeNumpointer' placeholder='Phone No...' minlength='7'></td>
+														<td><input type='number' name='adminPhone' class='forminput' id='removeNumpointer' placeholder='Phone No...' minlength='7'></td>
 													</tr>
 													<tr>
 														<td><b>*Password</b></td>
@@ -79,7 +84,7 @@
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<center>
 																<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
-																<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 															</center>
 														</td>
 													</tr>

@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -49,6 +51,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Citizen</h1>
+							<img src='icon/icons8-citizen-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Add Citizen</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 										echo "
@@ -60,19 +65,19 @@
 													</tr>
 													<tr>
 														<td><b>*Name</b></td>
-														<td><input type='text' name='citizenName' placeholder=' Name...' minlength='10'></td>
+														<td><input type='text' name='citizenName'  class='forminput' placeholder=' Name...' minlength='10'></td>
 													</tr>
 													<tr>
 														<td><b>*IC Number</b></td>
-														<td><input type='number' name='citizenIC' class='removeNumpointer' placeholder='IC Number...' minlength='8'></td>
+														<td><input type='number' name='citizenIC' id='removeNumpointer' placeholder='IC Number...' minlength='8'></td>
 													</tr>
 													<tr>
 														<td><b>*Email</b></td>
-														<td><input type='email' name='citizenEmail' placeholder='Email...'></td>
+														<td><input type='email' name='citizenEmail'  class='forminput' placeholder='Email...'></td>
 													</tr>
 													<tr>
 														<td><b>*Phone</b></td>
-														<td><input type='number' name='citizenPhone' class='removeNumpointer' placeholder='Phone No...' minlength='7'></td>
+														<td><input type='number' name='citizenPhone'  class='forminput' id='removeNumpointer' placeholder='Phone No...' minlength='7'></td>
 													</tr>
 
 													<tr>
@@ -91,7 +96,7 @@
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<center>
 																<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
-																<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 															</center>
 														</td>
 													</tr>

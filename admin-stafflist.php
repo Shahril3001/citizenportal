@@ -76,6 +76,7 @@
 											$adminPhone = $adminlist->adminPhone;
 											$adminEmail = $adminlist->adminEmail;
 											$lastLogin = $adminlist->lastLogin;
+											$lastLogin = date('d M Y H:i:sa',strtotime($lastLogin));
 
 											echo "
 											<tr>
@@ -87,7 +88,6 @@
 												</td>
 												<td>$lastLogin</td>
 												<td>
-													<a href='admin-viewadmin.php?adminEmail=".$adminEmail."&adminID=".$adminID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
 													<a href='admin-editadmin.php?adminEmail=".$adminEmail."&adminID=".$adminID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
 													<a href='admin-deleteadmin.php?adminEmail=".$adminEmail."&adminID=".$adminID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
 												</td>

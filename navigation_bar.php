@@ -18,6 +18,7 @@
 											</div>
 										</li>
 									</div>
+
 									<div class='navmenu'>
 										<li><a href='javascript:void(0)' onclick='myDropnav1()' class='dropbtn'>User &#9660</a>
 											<div id='myDropdown1' class='navmenu-navcontent'>
@@ -26,6 +27,16 @@
 											</div>
 										</li>
 									</div>
+
+									<div class='navmenu'>
+										<li><a href='javascript:void(0)' onclick='myDropnav2()' class='dropbtn'>Complaint &#9660</a>
+											<div id='myDropdown2' class='navmenu-navcontent'>
+												<a href='admin-complaintlist-selfreport.php?adminEmail=".$adminEmail."&role=".$role."'>Self-report</a>
+												<a href='admin-complaintlist-onbehalf.php?adminEmail=".$adminEmail."&role=".$role."'>On behalf</a>
+											</div>
+										</li>
+									</div>
+
 									<li><a href='admin-feedbacklist.php?adminEmail=".$adminEmail."&role=".$role."'>Feedback</a></li>
 									<li><a href='logout-admin.php?adminEmail=".$adminEmail."&role=".$role."'>Log Out</a></li>
 								</ul>
@@ -40,15 +51,26 @@
 									<li><a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'>Dashboard</a></li>
 									<li><a href='citizen-myprofile.php?citizenIC=".$citizenIC."&role=".$role."'>My Profile</a></li>
 									<li><a href='services.php?citizenIC=".$citizenIC."&role=".$role."'>Service</a></li>
+
 									<div class='navmenu'>
-									<li><a href='javascript:void(0)' onclick='myDropnav()' class='dropbtn'>Lodge a Complain</a>
-										<div id='myDropdown' class='navmenu-navcontent'>
-									    <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'>Submit Your Complain</a>
-									    <a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>Complaining on Someone's Behalf</a>
-									  </div>
-									</li>
-								</div>
-									<li><a href='citizen-history.php?citizenIC=".$citizenIC."&role=".$role."'>History</a></li>
+										<li><a href='javascript:void(0)' onclick='myDropnav()' class='dropbtn'>Complaint &#9660</a>
+											<div id='myDropdown' class='navmenu-navcontent'>
+										    <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'>Submit Your Complain</a>
+										    <a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>Complaining on Someone's Behalf</a>
+										  </div>
+										</li>
+									</div>
+
+									<div class='navmenu'>
+										<li><a href='javascript:void(0)' onclick='myDropnav1()' class='dropbtn'>History &#9660</a>
+											<div id='myDropdown1' class='navmenu-navcontent'>
+										    <a href='citizen-complaintlist-selfreport.php?citizenIC=".$citizenIC."&role=".$role."'>Complaint (Self-Report)</a>
+										    <a href='citizen-complaintlist-onbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>Complaint (On Behalf)</a>
+												<a href='citizen-feedbacklist.php?citizenIC=".$citizenIC."&role=".$role."'>Feedback</a>
+										  </div>
+										</li>
+									</div>
+
 									<li><a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'>Contact</a></li>
 									<li><a href='logout-citizen.php?citizenIC=".$citizenIC."&role=".$role."'>Log Out</a></li>
 								</ul>

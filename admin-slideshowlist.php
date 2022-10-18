@@ -79,7 +79,7 @@
 											echo "
 											<tr>
 												<td>$cloneID</td>
-												<td><img src='$slideshowImg' alt='' width='200px' height='90px'></td>
+												<td><img src='$slideshowImg' alt='' width='100%' height='100%'></td>
 												<td class='justify-contents'>
 													<b>Caption:</b> $slideshowCaption<br>
 													<b>Date Added:</b> $dateAdded<br>

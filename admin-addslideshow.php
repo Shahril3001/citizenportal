@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -49,6 +51,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Slideshow</h1>
+							<img src='icon/icons8-slideshow-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Add Slideshow</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 										echo "
@@ -60,7 +65,7 @@
 													</tr>
 													<tr>
 														<td><b>Caption:</b></td>
-														<td><input type='text' name='slideshowCaption' placeholder='Name...'></td>
+														<td><input type='text' name='slideshowCaption' class='forminput' placeholder='Name...'></td>
 													</tr>
 													<tr>
 														<td><b>Slideshow Image:</b></td>
@@ -70,7 +75,7 @@
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<center>
 																<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
-																<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 															</center>
 														</td>
 													</tr>

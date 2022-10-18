@@ -49,6 +49,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Registration</h1>
+							<img src='icon/icons8-add-user-male-96.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>Registration</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 										echo "
@@ -59,38 +62,39 @@
 														<th colspan='2'>Registration</th>
 													</tr>
 													<tr>
-														<td><b>*Name</b></td>
+														<td><b>*Name:</b></td>
 														<td><input type='text' name='citizenName' placeholder=' Name...' minlength='10'></td>
 													</tr>
 													<tr>
-														<td><b>*IC Number</b></td>
+														<td><b>*IC Number:</b></td>
 														<td><input type='number' name='citizenIC' class='removeNumpointer' placeholder='IC Number...' minlength='8'></td>
 													</tr>
 													<tr>
-														<td><b>*Email</b></td>
+														<td><b>*Email:</b></td>
 														<td><input type='email' name='citizenEmail' placeholder='Email...'></td>
 													</tr>
 													<tr>
-														<td><b>*Phone</b></td>
+														<td><b>*Phone:</b></td>
 														<td><input type='number' name='citizenPhone' class='removeNumpointer' placeholder='Phone No...' minlength='7'></td>
 													</tr>
 
 													<tr>
-														<td><b>*Address</b></td>
+														<td><b>*Address:</b></td>
 														<td><textarea name='citizenAddress' id='editor1' rows='5' cols='40%' placeholder='Address...'></textarea></td>
 													</tr>
 													<tr>
-														<td><b>*Password</b></td>
+														<td><b>*Password:</b></td>
 														<td><input type='password' name='citizenPassword' placeholder='Password...' minlength='8'></td>
 													</tr>
 													<tr>
-														<td><b>Confirm Password</b></td>
+														<td><b>Confirm Password:</b></td>
 														<td><input type='password' name='citizenCPassword' placeholder='Password...' minlength='8'></td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
 															<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+															<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 														</td>
 													</tr>
 												</table>

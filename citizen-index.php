@@ -28,7 +28,7 @@
 					include 'header_bar.php';
 					include 'navigation_bar.php';
 				?>
-			
+
 				<!-- Sidebar -->
 				<!-- Sidebar -->
 				<div id="mySidenav" class="side-nav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -46,7 +46,7 @@
 						<div class='greeting'>
 							<?php
 								if(isset($_GET['citizenIC'])&& isset($_GET['role'])){
-									$adminemail=$_GET['citizenIC'];
+									$citizenIC=$_GET['citizenIC'];
 									$role=$_GET['role'];
 									include 'connection.php';
 									$query1 = dbConn()->prepare('SELECT * FROM citizen WHERE citizenIC="'. $citizenIC .'"');
@@ -59,6 +59,7 @@
 										$citizenPhone = $citizen->citizenPhone;
 										$citizenEmail = $citizen->citizenEmail;
 										$lastLogin = $citizen->lastLogin;
+										$lastLogin = date('d F Y H:i:s A',strtotime($lastLogin));
 									}
 								echo"<center><h3> ~ WELCOME, ".strtoupper($citizenName)." ~ </h3></br>
 								<p>[ Last Login: $lastLogin ]</p></center>";
@@ -66,77 +67,184 @@
 							<div class="wave"></div>
 						</div>
 						<!--===============================================================================================-->
+						<div id="slideshow">
+								<div id="slides">
+										<?php
+										$cloneID = 0;
+										$query = dbConn()->prepare('SELECT * FROM slideshow ORDER BY dateAdded LIMIT 5');
+										$query->execute();
+										$slideshows = $query->fetchAll(PDO::FETCH_OBJ);
+										$num_count = $query->rowCount();
+
+										foreach($slideshows as $slideshow){
+											$cloneID++;
+											$slideshowID = $slideshow->slideshowID;
+											$slideshowImg = $slideshow->slideshowImg;
+											$slideshowCaption = $slideshow->slideshowCaption;
+
+											echo"<div class='slide show' data-slide='$cloneID'>
+													<img src='$slideshowImg' alt='$slideshowCaption'>
+
+													<div class='slide-content'>
+															<span class='slide-title'>$slideshowCaption</span>
+													</div>
+											</div>";
+										}
+										?>
+
+										<div class="slide-btn next">
+												<span>&raquo;</span>
+										</div>
+
+										<div class="slide-btn prev">
+												<span>&laquo;</span>
+										</div>
+								</div>
+
+								<div id="gallery">
+										<?php
+										foreach($slideshows as $slideshow){
+											$slideshowID = $slideshow->slideshowID;
+											$slideshowImg = $slideshow->slideshowImg;
+											$slideshowCaption = $slideshow->slideshowCaption;
+
+											echo"<div class='thumbnail' data-slide='$cloneID'>
+														<img src='$slideshowImg' alt='$slideshowCaption'>
+
+														<div class='slide-content'>
+																<span class='slide-title'>$slideshowCaption</span>
+														</div>
+												</div>";
+											}
+										?>
+								</div>
+						</div>
+						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Citizen Dashboard</h1>
-							<img src='icon/icons8-complaints-96.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview</h2><hr>
-							<div class='statbox-item'>
-								<div class='statbox-title'>Total complains</div>
-								<div class='statbox-count-total'>20</div>
-								<a href='#'><button class='button'>Go</button></a>
-							</div>
+							<img src='icon/icons8-complain-64.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview (Self-Report)</h2><hr>
+							<?php
+								function countTotalstatus($complaintStatus) {
+									$citizenIC=$_GET['citizenIC'];
+									$conditionquery = dbConn()->prepare("SELECT * FROM complaints WHERE citizenIC='$citizenIC' AND  complaintStatus='$complaintStatus'");
+									$conditionquery->execute();
+									$conditionnum_count = $conditionquery->rowCount();
+
+
+									$overallquery = dbConn()->prepare("SELECT * FROM complaints WHERE citizenIC='$citizenIC'");
+									$overallquery->execute();
+									$overallnum_count = $overallquery->rowCount();
+
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+									return number_format($counttotal);
+								}
+							?>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Open</div>
-								<div class='statbox-count-total'>15</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Open";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Closed</div>
-								<div class='statbox-count-total'>1</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Closed";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
 								<div class='statbox-title'>Dropped</div>
-								<div class='statbox-count-total'>4</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<?php
+									$complaintStatus="Dropped";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus($complaintStatus) .";'>". countTotalstatus($complaintStatus) ."%</div>";
+								?>
 							</div><br><br>
+
+
+							<img src='icon/icons8-complain-64-1.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Complains Overview (On Behalf)</h2><hr>
+							<?php
+								function countTotalstatus2($complaintStatus) {
+									$citizenIC=$_GET['citizenIC'];
+									$conditionquery = dbConn()->prepare("SELECT * FROM complaintsbehalf WHERE citizenIC='$citizenIC' AND  complaintStatus='$complaintStatus'");
+									$conditionquery->execute();
+									$conditionnum_count = $conditionquery->rowCount();
+
+									$overallquery = dbConn()->prepare("SELECT * FROM complaintsbehalf WHERE citizenIC='$citizenIC'");
+									$overallquery->execute();
+									$overallnum_count = $overallquery->rowCount();
+
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+									return number_format($counttotal);
+								}
+							?>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Open</div>
+								<?php
+									$complaintStatus="Open";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Closed</div>
+								<?php
+									$complaintStatus="Closed";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div>
+							<div class='statbox-item'>
+								<div class='statbox-title'>Dropped</div>
+								<?php
+									$complaintStatus="Dropped";
+									echo "<div class='statbox-pie' style='--p:". countTotalstatus2($complaintStatus) .";'>". countTotalstatus2($complaintStatus) ."%</div>";
+								?>
+							</div><br><br>
+
+
 							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/><h2 class='statbox-title-h2'>Feedbacks</h2><hr>
+							<?php
+							function countTotal($feedbackType) {
+								$citizenIC=$_GET['citizenIC'];
+
+								$conditionquery = dbConn()->prepare("SELECT * FROM feedback WHERE citizenIC='$citizenIC' AND  feedbackType='$feedbackType' ");
+								$conditionquery->execute();
+								$conditionnum_count = $conditionquery->rowCount();
+
+								$overallquery = dbConn()->prepare("SELECT * FROM feedback WHERE citizenIC='$citizenIC'");
+								$overallquery->execute();
+								$overallnum_count = $overallquery->rowCount();
+
+								$counttotal= $conditionnum_count/$overallnum_count * 100;
+
+								return number_format($counttotal);
+							}
+							?>
 							<div class='statbox-item'>
-								<div class='statbox-title'>Positive</div>
-								<div class='statbox-count-total'>5</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<div class='statbox-title'>Suggestion</div>
+								<?php
+									$feedbackType="Suggestion";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
-								<div class='statbox-title'>Negative</div>
-								<div class='statbox-count-total'>1</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<div class='statbox-title'>Complaint</div>
+								<?php
+									$feedbackType="Complaint";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
 							<div class='statbox-item'>
-								<div class='statbox-title'>Pending</div>
-								<div class='statbox-count-total'>19</div>
-								<a href='#'><button class='button'>Go</button></a>
+								<div class='statbox-title'>Report</div>
+								<?php
+									$feedbackType="Report";
+									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
+								?>
 							</div>
+
 						</div>
 						<div>
-							<h1 class="title-container">service categories</h1>
-							<?php
-							$cloneID = 0;
-							$query = dbConn()->prepare('SELECT * FROM slideshow');
-							$query->execute();
-							$slideshows = $query->fetchAll(PDO::FETCH_OBJ);
-							$num_count = $query->rowCount();
-
-							foreach($slideshows as $slideshow){
-								$cloneID++;
-								$slideshowID = $slideshow->slideshowID;
-								$slideshowImg = $slideshow->slideshowImg;
-								$slideshowCaption = $slideshow->slideshowCaption;
-
-							echo"
-							<div class='slideshow-container'>
-								<div class='mySlides fade'>
-								<div class='slideshow-numbertext'>$cloneID / $num_count</div>
-								<img class='slideshow-img' src='$slideshowImg'>
-								<div class='slideshow-caption'>$slideshowCaption</div>
-							</div>
-							";
-							}
-							echo"<div class='slideshow-container-dot'>";
-							for ($x = 0; $x <= ($num_count-1); $x++) {
-							  echo "<span class='slideshow-dot'></span>";
-							}
-							echo"</div>";
-							?>
-						</div>
 					</div>
 				</main>
 

@@ -88,7 +88,7 @@
 													<td class='justify-contents'>
 														<b>Title:</b> $listTitle<br>
 														<b>Category:</b> $categoryName<br>
-														<b>Description:</b> ".substr($listDesc,0,250)."..... <i>(More)</i>
+														<b>Description:</b> ".substr($listDesc,0,250)."..... <i><a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'>(More)</a></i>
 													</td>
 													<td>
 														<a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>

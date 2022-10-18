@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+		<!--===============================================================================================-->
+		<script src="ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<!--===============================================================================================-->
@@ -67,26 +69,41 @@
 								$citizenAddress = $citizen->citizenAddress;
 								$citizenPassword = $citizen->citizenPassword;
 								echo"
-								<form method='POST' action='contact2.php?citizenIC=".$citizenIC."&role=".$role."' id='formpage'>
+								<form method='POST' action='citizen-contact2.php?citizenIC=".$citizenIC."&role=".$role."' id='formpage'>
 									<table id='formtable'>
 										<tr>
 											<th colspan='2'>Feedback</th>
 										</tr>
 										<tr>
 											<td><b>Fullname:</b></td>
-											<td><input type='text' name='senderF' size='25' placeholder='Your name...' value='$citizenName' readonly></td>
+											<td><input type='text' name='citizenName' class='forminput' placeholder='Fullname...' value='$citizenName' readonly></td>
+										</tr>
+										<tr>
+											<td><b>IC Number:</b></td>
+											<td><input type='number' name='citizenIC' class='forminput' id='removeNumpointer' placeholder='IC Number...' minlength='8' value='$citizenIC' readonly></td>
 										</tr>
 										<tr>
 											<td><b>Email:</b></td>
-											<td><input type='email' name='emailF' size='25' placeholder='Your email...' value='$citizenEmail' readonly></td>
+											<td><input type='email' name='emailF' class='forminput' placeholder='Email...' value='$citizenEmail' readonly></td>
 										</tr>
 										<tr>
 											<td><b>Subject:</b></td>
-											<td><input type='text' name='subjectF' size='25' placeholder='Your subject...'></td>
+											<td><input type='text' name='subjectF' class='forminput' placeholder='Subject...'></td>
+										</tr>
+										<tr>
+											<td><b>Feedback Type</b></td>
+											<td>
+												<select name='feedbackType' id='feedbackType'>
+													<option>Select a type...</option>
+													<option value='Suggestion'>Suggestion</option>
+													<option value='Complain'>Complain</option>
+													<option value='Report'>Report</option>
+												</select>
+											</td>
 										</tr>
 										<tr>
 											<td><b>Message:</b></td>
-											<td><textarea name='commentF'  id='editor1' rows='5' cols='35%' placeholder='Your comment..'></textarea></td>
+											<td><textarea name='commentF'  id='editor1' rows='5' cols='35%' placeholder='Comment..'></textarea></td>
 										</tr>
 										<tr>
 											<td colspan='2'  id='buttonrow'>

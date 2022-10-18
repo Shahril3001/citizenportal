@@ -49,6 +49,9 @@
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Feedback</h1>
+							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>View Feedback</h2>
+							<hr>
 							<div class="task-container">
 								<?php
 										$feedbackID=$_GET['feedbackID'];
@@ -59,8 +62,10 @@
 
 										foreach($feedbacks as $feedback){
 											$feedbackID = $feedback->feedbackID;
-											$senderF = $feedback->senderF;
+											$citizenName = $feedback->citizenName;
+											$citizenIC = $feedback->citizenIC;
 											$subjectF = $feedback->subjectF;
+											$feedbackType = $feedback->feedbackType;
 											$emailF = $feedback->emailF;
 											$commentF = $feedback->commentF;
 											$dateF = $feedback->dateF;
@@ -73,23 +78,31 @@
 														<th colspan='2'>View Feedback</th>
 													</tr>
 													<tr>
-														<td width='30%'><b>Sender</b></td>
-														<td>$senderF</td>
+														<td width='30%'><b>Fullname:</b></td>
+														<td>$citizenName</td>
 													</tr>
 													<tr>
-														<td><b>Subject</b></td>
+														<td width='30%'><b>IC Number:</b></td>
+														<td>$citizenIC</td>
+													</tr>
+													<tr>
+														<td><b>Subject:</b></td>
 														<td>$subjectF</td>
 													</tr>
 													<tr>
-														<td><b>Email</b></td>
-														<td>$emailF</td>
+														<td><b>Feedback Type:</b></td>
+														<td>$feedbackType</td>
 													</tr>
 													<tr>
-														<td><b>Comment</b></td>
+														<td><b>Email:</b></td>
+														<td><a href='mailto:$emailF'>$emailF</a></td>
+													</tr>
+													<tr>
+														<td><b>Comment:</b></td>
 														<td>$commentF</td>
 													</tr>
 													<tr>
-														<td><b>Date</b></td>
+														<td><b>Date:</b></td>
 														<td>$dateF</td>
 													</tr>
 													<tr>

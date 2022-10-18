@@ -77,6 +77,7 @@
 											$citizenPhone = $citizenlist->citizenPhone;
 											$citizenEmail = $citizenlist->citizenEmail;
 											$lastLogin = $citizenlist->lastLogin;
+											$lastLogin = date('d M Y H:i:sa',strtotime($lastLogin));
 
 											echo "
 											<tr>
@@ -85,12 +86,12 @@
 													<b>Name:</b> $citizenName<br>
 													<b>IC Number:</b> $citizenIC<br>
 													<b>Phone:</b> $citizenPhone<br>
-													<b>Email:</b> $citizenEmail<br>
+													<b>Email:</b> <a href='mailto:$citizenEmail'>$citizenEmail</a><br>
 												</td>
 												<td>$lastLogin</td>
 												<td>
-													<a href='admin-editcitizen.php?adminEmail=".$adminEmail."&citizenID=".$citizenID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
-													<a href='admin-deletecitizen.php?adminEmail=".$adminEmail."&citizenID=".$citizenID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+													<a href='admin-editcitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
+													<a href='admin-deletecitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
 												</td>
 											</tr>";
 											}

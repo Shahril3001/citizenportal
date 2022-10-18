@@ -15,7 +15,6 @@
 				$adminEmail=$_GET['adminEmail'];
 				$role=$_GET['role'];
 				$slideshowID=$_GET['slideshowID'];
-
 				$slideshowCaption=$_POST['slideshowCaption'];
 
 				$target_dir = "data/img/slideshow/";
@@ -46,7 +45,7 @@
 							echo "<div class='pos'>";
 							echo "<img src='icon/icons8-success-64.png'/>";
 							echo "<h2>Success!</h2>";
-							echo "<p id='valid'>Service is successfully updated.</p>
+							echo "<p id='valid'>Slideshow is successfully updated.</p>
 							<p>Image File is successfully uploaded.</p>
 							<p>Click <a href='admin-slideshowlist.php?adminEmail=".$adminEmail."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
 							";

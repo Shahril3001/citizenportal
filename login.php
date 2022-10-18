@@ -85,11 +85,11 @@
 												<th colspan="2">Employee</th>
 											</tr>
 											<tr>
-												<td><b>Name</b></td>
+												<td><b>Name:</b></td>
 												<td><input type="text" name="adminName"></td>
 											</tr>
 											<tr>
-												<td><b>Password</b></td>
+												<td><b>Password:</b></td>
 												<td><input type="password" name="adminPassword"></td>
 											</tr>
 											<tr>

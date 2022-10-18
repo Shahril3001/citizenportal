@@ -24,6 +24,8 @@
 	<!--===============================================================================================-->
 		<script type='text/javascript'  src='vendor/isotope/isotope.pkgd.min.js'></script>
 	<!--===============================================================================================-->
+
+	<!--===============================================================================================-->
 		<script src='ckeditor/ckeditor.js'></script>
 	<!--===============================================================================================-->
 		<script src='js/main.js'></script>
@@ -103,6 +105,10 @@
 				document.getElementById('myDropdown1').classList.toggle('show');
 			}
 
+			function myDropnav2() {
+				document.getElementById('myDropdown2').classList.toggle('show');
+			}
+
 			// Close the dropdown if the user clicks outside of it
 			window.onclick = function(event) {
 				if (!event.target.matches('.dropbtn')) {
@@ -159,7 +165,7 @@
 			}
 			showTime();
 
-			const monthNames = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
+			const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN','JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
 			var today = new Date();
 			var result = ('00' + today.getDate()).slice(-2)+' ' + monthNames[today.getMonth()] +' ' +today.getFullYear();
