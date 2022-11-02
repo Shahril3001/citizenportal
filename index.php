@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Home</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -100,7 +100,7 @@
 						</div>
 						<!--===============================================================================================-->
 						<div>
-							<h1 class="title-container">service categories</h1>
+							<h1 class="title-container">Service Categories</h1>
 							<?php
 
 							$query1 = dbConn()->prepare('SELECT * FROM service_category');
@@ -124,6 +124,37 @@
 							}
 							?>
 						</div>
+
+						<!--===============================================================================================-->
+
+						<!-- CORE VALUES -->
+
+						<h1 class="title-container">Role</h1>
+
+						<div class="aboutRow">
+						 		<div class="aboutGoal">
+						   		<h1>01)	Provide consultancy and facilitation services</h1>
+									<img src='icon/icons8-integrity-64.png' alt='' width='48px' height='48px'>
+						   		<p>Provide advisory and consulting services to government agencies in the field of management and administration as well as handling public complaints against government services to strengthen and further improve the level of service delivery</p>
+						  	</div>
+						  	<div class="aboutGoal">
+						   		<h1>02)	Implement public sector performance grading evaluation</h1>
+									<img src='icon/icons8-best-seller-48.png' alt='' width='48px' height='48px'>
+						   		<p>Facilitate core management assessment of government agencies for official recognition support to improve governance excellence</p>
+						  	</div>
+						  	<div class="aboutGoal">
+						   		<h1>03)	Conduct research and development</h1>
+									<img src='icon/icons8-improvement-50.png' alt='' width='48px' height='48px'>
+						   		<p>Conduct research and development to produce creative and innovative ideas to further strengthen the management and administration system of the Public Service</p>
+						  	</div>
+						  	<div class="aboutGoal">
+						   		<h1>04)	Introducing innovation and management improvements</h1>
+									<img src='icon/icons8-citizen-64.png' alt='' width='48px' height='48px'>
+						   		<p>Introducing and promoting reform and improvement programs involving management and administration to ensure efficient, effective and responsive public services</p>
+						  	</div>
+						  </div>
+
+						  	<p>
 					</div>
 				</main>
 
