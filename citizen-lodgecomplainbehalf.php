@@ -61,10 +61,19 @@
 											<ul>
 												<li> Ensure that you have their consent before submitting a complaint </li>
 												<li> Ensure that the complaint is about a matter you have no personal involvement in </li>
-											</ul>
+											</ul>";
+											if(isset($_GET['listID'])){
+												$listID=$_GET['listID'];
+												echo "<p>Required fields are marked with an asterisk (*). If you are complaining for yourself, please click <a href='citizen-lodgecomplain.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'> here.</a></p>";
+											}else{
+												echo "<p>Required fields are marked with an asterisk (*). If you are complaining for yourself, please click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'> here.</a></p>";
+											}
 
 
-											<p>Required fields are marked with an asterisk (*). If you are complaining for yourself, please click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'> here.</a></p>
+
+
+
+											echo"
 											<form method='POST' enctype='multipart/form-data' action='citizen-lodgecomplainbehalf2.php?citizenIC=".$citizenIC."&role=".$role."'>
 												<table id='formtable'>
 
@@ -122,6 +131,38 @@
 													</tr>
 
 													<tr>
+														<td><b>Complaint Department:</b></td>
+														<td><select name='listID' id='listID'>";
+																include 'connection.php';
+																if(isset($_GET['listID'])){
+																	$selectservicelistquery = dbConn()->prepare("SELECT * FROM service_list WHERE  listID='$listID'");
+																	$selectservicelistquery->execute();
+																	$selectservicelists = $selectservicelistquery->fetchAll(PDO::FETCH_OBJ);
+																	foreach($selectservicelists as $selectservicelist){
+																		$listID  = $selectservicelist->listID;
+																		$listTitle   = $selectservicelist->listTitle;
+																		$listCategory    = $selectservicelist->listCategory;
+																	  echo"<option value='$listID'>$listCategory | $listTitle</option>";
+																	}
+																	echo"<option>Select a department...</option>";
+																}else{
+																	echo"<option>Select a department...</option>";
+																}
+																$servicelistquery = dbConn()->prepare("SELECT * FROM service_list ORDER BY listCategory ASC");
+																$servicelistquery->execute();
+																$servicelists = $servicelistquery->fetchAll(PDO::FETCH_OBJ);
+
+																foreach($servicelists as $servicelist){
+																	$listID  = $servicelist->listID;
+																	$listTitle   = $servicelist->listTitle;
+																	$listCategory    = $servicelist->listCategory;
+																  echo"<option value='$listID'>$listCategory | $listTitle</option>";
+																}
+																echo"</select>
+														</td>
+													</tr>
+
+													<tr>
 														<td><b>*Location of Accident / Event:</b></td>
 														<td><input type='text' name='location' class='forminput' placeholder=' Location...' minlength='5' size='50'></td>
 													</tr>
@@ -131,24 +172,6 @@
 														<td><input type='date' name='date' placeholder=' Date...' size='50'></td>
 													</tr>
 
-													<tr>
-														<td><b>Category Service:</b></td>
-														<td><select name='listCategory' id='listCategory'>";
-																echo"<option>Select a category...</option>";
-																include 'connection.php';
-																$servicequery = dbConn()->prepare("SELECT * FROM service_category");
-																$servicequery->execute();
-																$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
-
-																foreach($servicelists as $servicelist){
-																	$categoryID  = $servicelist->categoryID;
-																	$categoryName  = $servicelist->categoryName;
-																  	echo"<option value='$categoryName'>$categoryName</option>";
-																}
-																echo"</select>
-														</td>
-													</tr>
-													</tr>
 													<tr>
 														<td><b>Image:</b></td>
 														<td><input type='file' name='complaintImage'>*Limited to 10MB and PNG/JPG file only. </td>

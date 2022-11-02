@@ -700,6 +700,11 @@ tr,td, th{
   margin-right: auto;
 }
 
+#deptCategory{
+  position: absolute;
+  right: 30px;
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #listtable{
   width:97%;
@@ -725,6 +730,15 @@ tr,td, th{
   background-color: #2255A4;
 }
 
+#selfreportBtn{
+  background-color: #FFB848;
+}
+
+
+#onbehalfBtn {
+  background-color: #019D5E;
+}
+
 #returnBtn {
   background-color: #019D5E;
 }
@@ -743,7 +757,7 @@ tr,td, th{
 }
 
 #submitBtn {
-  background-color: #007BFF;
+  background-color: #2255A4;
 }
 
 #resetBtn, #cancelBtn, #backBtn, #deleteBtn{

@@ -102,7 +102,7 @@
 
 						}
 						}else if ($num_count == 0){
-						echo "<p><b>Result:</b> There are no results were founded.</p>";
+						echo "<p><b>Result:</b> There are no results were found.</p>";
 						}else{
 						echo "<p>Something wrong on database.</p>";
 						}

@@ -75,19 +75,12 @@
 												$listDesc = $serviceDeptlist->listDesc;
 												$listGuideline = $serviceDeptlist->listGuideline;
 
-												$servicequery = dbConn()->prepare("SELECT * FROM service_category WHERE categoryID='$listCategory'");
-												$servicequery->execute();
-												$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
-
-												foreach($servicelists as $servicelist){
-												$categoryName  = $servicelist->categoryName ;
-
 												echo "
 												<tr>
 													<td>$cloneID</td>
 													<td class='justify-contents'>
 														<b>Title:</b> $listTitle<br>
-														<b>Category:</b> $categoryName<br>
+														<b>Category:</b> $listCategory<br>
 														<b>Description:</b> ".substr($listDesc,0,250)."..... <i><a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'>(More)</a></i>
 													</td>
 													<td>
@@ -96,7 +89,6 @@
 														<a href='admin-deletedeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
 													</td>
 												</tr>";
-												}
 											}
 											echo"</table>";
 									?>

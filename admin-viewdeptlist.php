@@ -67,13 +67,6 @@
 											$listDesc = $serviceDeptlist->listDesc;
 											$listGuideline = $serviceDeptlist->listGuideline;
 
-											$servicequery = dbConn()->prepare("SELECT * FROM service_category WHERE categoryID='$listCategory'");
-											$servicequery->execute();
-											$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
-
-											foreach($servicelists as $servicelist){
-											$categoryName  = $servicelist->categoryName ;
-
 										echo "
 											<p>Department details.</p>
 											<form>
@@ -87,7 +80,7 @@
 													</tr>
 													<tr>
 														<td><b>Category</b></td>
-														<td>$categoryName</td>
+														<td>$listCategory</td>
 													</tr>
 													<tr>
 														<td><b>Description</b></td>
@@ -99,13 +92,18 @@
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
-															<center><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></center>
+															<center>";
+																if(!isset($_GET['role'])){
+																	echo"<a href='login.php'><input id='viewBtn' class='button' type='button' name='back' value='Login'></a>";
+																}
+																echo"
+																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
+															</center>
 														</td>
 													</tr>
 												</table>
 											</form>
 										";
-										}
 									}
 								?>
 							</div>

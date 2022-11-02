@@ -73,6 +73,7 @@
 												$date = $complaintlist->date;
 												$date = date('d M Y',strtotime($date));
 
+												$serviceTitle = $complaintlist->serviceTitle;
 												$serviceCategory = $complaintlist->serviceCategory;
 												$complaintImage = $complaintlist->complaintImage;
 												$document = $complaintlist->document;
@@ -94,6 +95,7 @@
 													<td>$cloneID</td>
 													<td class='justify-contents'>
 														<b>Subject:</b> $complaintSubject<br>
+														<b>Title:</b> $serviceTitle<br>
 														<b>Category:</b> $serviceCategory<br>
 														<b>Sender:</b> $citizenName ($citizenIC)<br>
 														<b>Date:</b> $date<br>

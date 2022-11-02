@@ -65,6 +65,8 @@
 									foreach($complaints as $complaint){
 										$complaintSubject = $complaint->complaintSubject;
 										$complaintDesc = $complaint->complaintDesc;
+										$serviceTitle = $complaint->serviceTitle;
+										$serviceCategory = $complaint->serviceCategory;
 										$location = $complaint->location;
 										$date = $complaint->date;
 										$date = date('d M Y',strtotime($date));
@@ -80,6 +82,14 @@
 													<tr>
 														<td><b>Subject</b></td>
 														<td><input type='text' name='complaintSubject' class='forminput' placeholder='Subject...' value='$complaintSubject' readonly></td>
+													</tr>
+													<tr>
+														<td><b>Title</b></td>
+														<td><input type='text' class='forminput' placeholder='Title...' value='$serviceTitle' readonly></td>
+													</tr>
+													<tr>
+														<td><b>Category</b></td>
+														<td><input type='text' class='forminput' placeholder='Category...' value='$serviceCategory' readonly></td>
 													</tr>
 													<tr>
 														<td><b>Description</b></td>

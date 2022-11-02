@@ -76,6 +76,7 @@
 											$date = $complaintlist->date;
 											$date = date('d M Y',strtotime($date));
 
+											$serviceTitle = $complaintlist->serviceTitle;
 											$serviceCategory = $complaintlist->serviceCategory;
 											$complaintImage = $complaintlist->complaintImage;
 											$document = $complaintlist->document;
@@ -158,6 +159,10 @@
 													<tr>
 														<td><b>Date:</b></td>
 														<td>$date</td>
+													</tr>
+													<tr>
+														<td><b>Title:</b></td>
+														<td>$serviceTitle</td>
 													</tr>
 													<tr>
 														<td><b>Category:</b></td>

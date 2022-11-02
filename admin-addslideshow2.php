@@ -49,8 +49,13 @@
 					echo "<div class='pos'>";
 					echo "<img src='icon/icons8-error-96.png'/>";
 					echo "<h2>Invalid Value!</h2>";
-					echo "<p id='invalid'>Unable to added. Please try again.</p>
-					<p>Please click <input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>.</p>";
+					echo "<p id='invalid'>Unable to submit. Please try again.</p>
+					<p>Please click <input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>.</p>
+					<script>
+						function goBack(){
+							window.history.back();
+						}
+					</script></p>";
 					echo "</div>";
 				}
 			}

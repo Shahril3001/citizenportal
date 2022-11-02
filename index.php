@@ -118,7 +118,7 @@
 									<div class='box-img bounce-7'><img src='$categoryImg' alt='' width='48px' height='48px'></div>
 									<div class='box-title'>$categoryName</div>
 									<div class='box-desc'>$categoryDesc</div>
-									<a href='login.php'><button class='button'>Click</button></a>
+									<a href='department.php?categoryName=".$categoryName."'><button class='button'>Go</button></a>
 								</div>
 								";
 							}

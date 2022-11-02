@@ -17,11 +17,11 @@
 		$complaint=$_POST['complaint'];
 		$location=$_POST['location'];
 		$date=$_POST["date"];
-		$listCategory=$_POST['listCategory'];
+		$listID=$_POST['listID'];
 		$complaintDate=date("Y-m-d h:i:sa");
 
 			// isEmpty field
-			if(empty($complaintSubject) || empty($complaint) || empty($location) || empty($date) || empty($listCategory)) {
+			if(empty($complaintSubject) || empty($complaint) || empty($location) || empty($date) || empty($listID)) {
 				echo "<div class='pos'>";
 				echo "<img src='icon/icons8-error-96.png'/>";
 				echo "<h2>Invalid Value!</h2>";
@@ -45,21 +45,29 @@
 				move_uploaded_file($_FILES["complaintDocument"]["tmp_name"],$target_dir1);
 				$documentup=$target_dir1;
 
-					$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaintSubject."', '".$complaint."', '".$location."', '".$date."', '".$listCategory."','".$imageup."', '".$documentup."','".$citizenIC."','Open','".$complaintDate."')");
-					// Success
-					if($query -> execute()){
-						echo "<div class='pos'>";
-						echo "<img src='icon/icons8-success-64.png'/>";
-						echo "<h2>Success!</h2>";
-						echo "<p id='valid'>Complaint is successfully added.</p>
-						<p>Click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
-						";
-						echo "</div>";
-					}
+				$servicelistquery = dbConn()->prepare("SELECT * FROM service_list WHERE listID='$listID'");
+				$servicelistquery->execute();
+				$servicelists = $servicelistquery->fetchAll(PDO::FETCH_OBJ);
+
+				foreach($servicelists as $servicelist){
+					$listTitle   = $servicelist->listTitle;
+					$listCategory    = $servicelist->listCategory;
+
+					$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaintSubject."', '".$complaint."', '".$location."', '".$date."', '".$listTitle."', '".$listCategory."', '".$imageup."', '".$documentup."','".$citizenIC."','Open','".$complaintDate."')");
+				}// Success
+				if($query -> execute()){
+					echo "<div class='pos'>";
+					echo "<img src='icon/icons8-success-64.png'/>";
+					echo "<h2>Success!</h2>";
+					echo "<p id='valid'>Complaint is successfully added.</p>
+					<p>Click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
+					";
+					echo "</div>";
+				}
 				else{
 					echo "<div class='pos'>";
 					echo "<img src='icon/icons8-error-96.png'/>";
-					echo "<h2>Password doesn't match.</h2>";
+					echo "<h2>Invalid Value!</h2>";
 					echo "<p id='invalid'>Unable to submit. Please try again.</p>
 					<p>Please click <input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>.</p>
 					<script>

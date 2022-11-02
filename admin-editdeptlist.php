@@ -87,10 +87,9 @@
 																$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
 
 																foreach($servicelists as $servicelist){
-																	$categoryID  = $servicelist->categoryID;
 																	$categoryName  = $servicelist->categoryName;
 
-																  echo"<option value='$categoryID'>$categoryName</option>";
+																  echo"<option value='$categoryName'>$categoryName</option>";
 																}
 																echo"</select>
 														</td>

@@ -50,7 +50,7 @@
 								<ul>
 									<li><a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'>Dashboard</a></li>
 									<li><a href='citizen-myprofile.php?citizenIC=".$citizenIC."&role=".$role."'>My Profile</a></li>
-									<li><a href='services.php?citizenIC=".$citizenIC."&role=".$role."'>Service</a></li>
+									<li><a href='citizen-services.php?citizenIC=".$citizenIC."&role=".$role."'>Service</a></li>
 
 									<div class='navmenu'>
 										<li><a href='javascript:void(0)' onclick='myDropnav()' class='dropbtn'>Complaint &#9660</a>

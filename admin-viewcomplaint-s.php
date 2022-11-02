@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Feedback</title>
+		<title>Citizen Portal Brunei | Complaint</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -69,6 +69,7 @@
 											$date = $complaintlist->date;
 											$date = date('d M Y',strtotime($date));
 
+											$serviceTitle = $complaintlist->serviceTitle;
 											$serviceCategory = $complaintlist->serviceCategory;
 											$complaintImage = $complaintlist->complaintImage;
 											$document = $complaintlist->document;
@@ -106,6 +107,10 @@
 													<tr>
 														<td><b>Date:</b></td>
 														<td>$date</td>
+													</tr>
+													<tr>
+														<td><b>Title:</b></td>
+														<td>$serviceTitle</td>
 													</tr>
 													<tr>
 														<td><b>Category:</b></td>
