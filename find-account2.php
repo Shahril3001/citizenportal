@@ -50,6 +50,8 @@
 						<?php
 						$citizenName = $_POST['citizenName'];
 						$citizenIC = $_POST['citizenIC'];
+						$citizenEmail = $_POST['citizenEmail'];
+
 						include 'connection.php';
 						if(empty($citizenName) || empty($citizenIC)) {
 							echo "<p><b>Result:</b> There are no results were found due to empty some of inputs.</p>
@@ -60,7 +62,7 @@
 								}
 							</script></p>";
 						}else{
-							$query = dbConn()->prepare("SELECT * FROM citizen where citizenName LIKE '%".$citizenName."%' AND citizenIC LIKE '%".$citizenIC."%'");
+							$query = dbConn()->prepare("SELECT * FROM citizen where citizenName LIKE '%".$citizenName."%' AND citizenIC LIKE '%".$citizenIC."%' AND citizenEmail LIKE '%".$citizenEmail."%'");
 							$query->execute();
 							$citizenlists = $query->fetchAll(PDO::FETCH_OBJ);
 							$num_count = $query->rowCount();
@@ -76,7 +78,7 @@
 								$citizenEmail = $citizenlist->citizenEmail;
 								$citizenAddress = $citizenlist->citizenAddress;
 								$citizenPassword = $citizenlist->citizenPassword;
-								echo"<table id='formtable'>
+								echo"<table id='formtable' class='findaccounttable'>
 									<tr>
 										<th colspan='2'>Profile</th>
 									</tr>
@@ -105,7 +107,7 @@
 										<td>$citizenPassword</td>
 									</tr>
 									<tr>
-										<td style='border:none;' colspan='2'  id='buttonrow'><a href='login.php'><button id='buttonclick' class='button'>Login</button></a></td>
+										<td style='border:none;' colspan='2'  id='buttonrow'><a href='login.php'><button id='viewBtn' class='button'>Login</button></a></td>
 									</tr>
 									</table>";
 

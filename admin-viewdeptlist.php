@@ -72,19 +72,19 @@
 														<th colspan='2'>View Department</th>
 													</tr>
 													<tr>
-														<td width='30%'><b>Title</b></td>
+														<td width='30%'><b>Title:</b></td>
 														<td>$listTitle</td>
 													</tr>
 													<tr>
-														<td><b>Category</b></td>
+														<td><b>Category:</b></td>
 														<td>$listCategory</td>
 													</tr>
 													<tr>
-														<td><b>Description</b></td>
+														<td><b>Description:</b></td>
 														<td>$listDesc</td>
 													</tr>
 													<tr>
-														<td><b>Guideline Description</b></td>
+														<td><b>Guideline Description:</b></td>
 														<td>$listGuideline</td>
 													</tr>
 													<tr>

@@ -694,6 +694,10 @@ tr,td, th{
   text-align:center;
 }
 
+.findaccounttable{
+  margin:0 20px;
+}
+
 .forminput{
   width: 70%;
 }
@@ -947,7 +951,7 @@ select {
 
 @media screen and (max-width: 768px) {
   .box-item{
-    width: 45.5%;
+    width: 90%;
     height:17em;
   }
 }
@@ -1521,6 +1525,11 @@ keyframes active {
 @media screen and (max-width:768px){
     .roleBox {
       width: 90%;
-      height:260px;
+      height:290px;
+    }
+    .roleRow h1{
+      margin-bottom: 0.5em;
+      font-size: 20px;
+      font-weight: 900;
     }
 }

@@ -54,7 +54,7 @@
 							<div class="task-container">
 								<?php
 										echo "
-											<p>Required fields are marked with an asterisk (*).</p>
+											<p>Required fields are marked with an asterisk (*). Already have account? Click <a href='login.php'>Login</a> to sign up.</p>
 											<form method='POST' action='citizen-registration2.php'>
 												<table id='formtable'>
 													<tr>

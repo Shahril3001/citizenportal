@@ -93,7 +93,7 @@
 										<tr>
 											<td><b>*Type:</b></td>
 											<td>
-												<select name='feedbackType' id='feedbackType'>
+												<select name='feedbackType' id='feedbackType' class='forminput'>
 													<option>Select a type...</option>
 													<option value='Suggestion'>Suggestion</option>
 													<option value='Complain'>Complain</option>

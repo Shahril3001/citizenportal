@@ -171,17 +171,17 @@
 											}
 										}
 										echo"</table>";
-									}else if ($num_count == 0){
-										echo "<p><b>Result:</b> There are no results were found.</p>
-										<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
-										<script>
-											function goBack(){
-												window.history.back();
-											}
-										</script>";
-									}else{
-										echo "<p>Something wrong on database.</p>";
-									}
+										}else if ($num_count == 0){
+											echo "<p><b>Result:</b> There are no results were found.</p>
+											<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+											<script>
+												function goBack(){
+													window.history.back();
+												}
+											</script>";
+										}else{
+											echo "<p>Something wrong on database.</p>";
+										}
 								?>
 						</div>
 				</div>

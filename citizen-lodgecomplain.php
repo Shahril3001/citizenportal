@@ -131,7 +131,7 @@
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
-															<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+															<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 														</td>
 													</tr>
 												</table>

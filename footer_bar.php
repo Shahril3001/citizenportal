@@ -4,16 +4,11 @@
 		if($role=="admin"){
 			$adminEmail=$_GET['adminEmail'];
 			echo"
-			<div class='footer-content'>
-				<p id='disclaimer'>Disclaimer: All content and information on the website is for informational and educational purposes only.</p>
-			</div>
 			<div class='footer-bottom'>
 			 <div class='footer-menu'>
 				<ul class='f-menu'>
-				 <li><a href=''>Sitemap</a></li>
-				 <li><a href=''>Privacy Policy</a></li>
-				 <li><a href=''>Disclaimer</a></li>
-				 <li><a href=''>Terms of Use</a></li>
+					<li><a href='#' onclick='myCreator()'>Group 4 (Amaal & Shahril)</a></li>
+					<li><a href='#' onclick='myDisclaimer()'>Disclaimer</a></li>
 				</ul>
 			 </div>
 			<div class='footer-trademark'>
@@ -33,15 +28,12 @@
 				<li><a href='#'><img src='icon/icons8-twitter-48.png'/></a></li>
 				<li><a href='#'><img src='icon/icons8-telegram-app-48.png'/></i></a></li>
 			 </ul>
-			 <p id='disclaimer'>Disclaimer: All content and information on the website is for informational and educational purposes only.</p>
 			</div>
 			<div class='footer-bottom'>
 			 <div class='footer-menu'>
 				<ul class='f-menu'>
-				 <li><a href=''>Sitemap</a></li>
-				 <li><a href=''>Privacy Policy</a></li>
-				 <li><a href=''>Disclaimer</a></li>
-				 <li><a href=''>Terms of Use</a></li>
+					<li><a href='#' onclick='myCreator()'>Group 4 (Amaal & Shahril)</a></li>
+					<li><a href='#' onclick='myDisclaimer()'>Disclaimer</a></li>
 				</ul>
 			 </div>
 			<div class='footer-trademark'>
@@ -63,15 +55,12 @@
 			<li><a href='#'><img src='icon/icons8-twitter-48.png'/></a></li>
 			<li><a href='#'><img src='icon/icons8-telegram-app-48.png'/></i></a></li>
 		 </ul>
-		 <p id='disclaimer'>Disclaimer: All content and information on the website is for informational and educational purposes only.</p>
 		</div>
 		<div class='footer-bottom'>
 			<div class='footer-menu' id='footer-mobile'>
 				<ul class='f-menu'>
-					<li><a href=''>Sitemap</a></li>
-					<li><a href=''>Privacy Policy</a></li>
-					<li><a href=''>Disclaimer</a></li>
-					<li><a href=''>Terms of Use</a></li>
+					<li><a href='#' onclick='myCreator()'>Group 4 (Amaal & Shahril)</a></li>
+					<li><a href='#' onclick='myDisclaimer()'>Disclaimer</a></li>
 				</ul>
 		 	</div>
 			<div class='footer-trademark' id='footer-mobile'>
@@ -80,4 +69,14 @@
 		</div>
 		";
 	}
+	echo"<script>
+	function myDisclaimer() {
+		alert('Disclaimer: All content and information on the website is for informational and educational purposes only.');
+	}
+	</script>";
+	echo"<script>
+	function myCreator() {
+		alert('CREATED BY:- SHAHRIL RADZIMAN BIN SILAU (B20210020) & FATIN AMAAL BATRISYIA BTE HJ MOHD HUSSAINI (B20210142)');
+	}
+	</script>";
 ?>

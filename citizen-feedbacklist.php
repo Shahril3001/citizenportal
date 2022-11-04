@@ -55,7 +55,10 @@
 									$feedbackquery = dbConn()->prepare('SELECT * FROM feedback WHERE citizenIC="'. $citizenIC .'"');
 									$feedbackquery->execute();
 									$feedbacklists = $feedbackquery->fetchAll(PDO::FETCH_OBJ);
-									echo"
+									$num_count = $feedbackquery->rowCount();
+									if ($num_count !=0)
+									{
+									echo"<p><b>Result:</b> There are $num_count complaint(s) shown below:</p>
 									<div class='row'>
 										<table id='listtable'>
 											<tr>
@@ -90,6 +93,17 @@
 											</tr>";
 											}
 											echo"</table>";
+											}else if ($num_count == 0){
+												echo "<p><b>Result:</b> There are no results were found.</p>
+												<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+												<script>
+													function goBack(){
+														window.history.back();
+													}
+												</script>";
+											}else{
+												echo "<p>Something wrong on database.</p>";
+											}
 									?>
 							</div>
 						</div>

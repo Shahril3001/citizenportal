@@ -83,7 +83,7 @@
 									$num_count = $serviceDeptquery->rowCount();
 									if ($num_count !=0)
 									{
-									echo"<p><b>Result:</b> There are $num_count department(s) and are shown below:</p>
+									echo"<p><b>Result:</b> There are $num_count department(s) shown below:</p>
 									<div class='row'>
 										<table id='listtable'>
 											<tr>

@@ -68,11 +68,7 @@
 											}else{
 												echo "<p>Required fields are marked with an asterisk (*). If you are complaining for yourself, please click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'> here.</a></p>";
 											}
-
-
-
-
-
+											
 											echo"
 											<form method='POST' enctype='multipart/form-data' action='citizen-lodgecomplainbehalf2.php?citizenIC=".$citizenIC."&role=".$role."'>
 												<table id='formtable'>
@@ -185,7 +181,7 @@
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
-															<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+															<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 														</td>
 													</tr>
 												</table>

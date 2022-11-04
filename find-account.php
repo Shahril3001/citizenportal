@@ -53,17 +53,22 @@
 								<th colspan="2">Find Account</th>
 							</tr>
 							<tr>
-								<td><b>Name:</b></td>
-								<td><input type='text' name='citizenName' class='forminput' placeholder='Name...' minlength='10'></td>
+								<td><b>*Name:</b></td>
+								<td><input type='text' name='citizenName' class='forminput' placeholder='Name...' minlength='10' required></td>
 							</tr>
 							<tr>
-								<td><b>IC Number:</b></td>
-								<td><input type='number' name='citizenIC' class='forminput' id='removeNumpointer' placeholder='IC Number...' minlength='8'></td>
+								<td><b>*IC Number:</b></td>
+								<td><input type='number' name='citizenIC' class='forminput' id='removeNumpointer' placeholder='IC Number...' minlength='8' required></td>
+							</tr>
+							<tr>
+								<td><b>*Email:</b></td>
+								<td><input type='email' name='citizenEmail' class='forminput' placeholder='Email...' required></td>
 							</tr>
 							<tr>
 								<td colspan="2"  id="buttonrow">
 									<input id="submitBtn" class="button" type="submit" name="Submit" value="Submit">
-									<input id="resetBtn" class="button" type="reset" name="reset" value="Reset"/></td>
+									<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
+								</td>
 							</tr>
 						</table>
 					</form>
