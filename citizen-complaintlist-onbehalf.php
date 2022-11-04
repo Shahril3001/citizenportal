@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Complaint</title>
+		<title>Aduan Darussalam | Complaint</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -50,8 +50,8 @@
 							<h2 class='statbox-title-h2'>Complaint (On Behalf)</h2>
 							<hr>
 							<?php
+								include 'connection.php';
 									$cloneID = 0;
-									include 'connection.php';
 									$complaintquery = dbConn()->prepare("SELECT * FROM complaintsbehalf WHERE citizenIC='$citizenIC' AND  complaintStatus<>'Dropped'");
 									$complaintquery->execute();
 									$complaintlists = $complaintquery->fetchAll(PDO::FETCH_OBJ);
@@ -95,16 +95,15 @@
 													<td>$cloneID</td>
 													<td class='justify-contents'>
 														<b>Subject:</b> $complaintSubject<br>
-														<b>Description:</b> $complaintDesc<br>
 														<b>Category:</b> $serviceCategory<br>
 														<b>Behalf Name:</b> $behalfName<br>
 														<b>Sender:</b> $citizenName ($citizenIC)<br>
 														<b>Date:</b> $date<br>
 													</td>
 													<td width='20%'>$complaintStatus</td>
-													<td width='10%'>
-														<a href='admin-viewcomplaint-b.php?citizenIC=".$citizenIC."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-														<a href='citizen-deletecomplaint-b.php?citizenIC=".$citizenIC."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+													<td width='14%'>
+														<a href='admin-viewcomplaint-b.php?citizenIC=".$citizenIC."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
+														<a href='citizen-deletecomplaint-b.php?citizenIC=".$citizenIC."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 													</td>
 												</tr>";
 											}

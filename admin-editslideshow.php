@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Service</title>
+		<title>Aduan Darussalam | Service</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -44,9 +44,6 @@
 
 				<main>
 					<div class="main-container">
-						<?php
-							include 'breadcrumbs.php';
-						?>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Slideshow</h1>
@@ -79,7 +76,7 @@
 													</tr>
 													<tr>
 														<td><b>*Slideshow Image:</b></td>
-															<td><p><input type='file' name='slideshowImg'>Old picture: <img src='$slideshowImg' alt='' height='50px' width='120px'></p></td>
+															<td><p><input type='file' name='slideshowImg'>Old picture: <img src='$slideshowImg' alt='' height='50px' width='120px'></p>*PNG/JPG/JPEG file only.</td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>

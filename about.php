@@ -46,7 +46,7 @@
 
 
 				<div class="main-container">
-					<h1 class="title-container">About Us</h1>
+					<h1 class="title-container">About</h1>
 					<img src='icon/icons8-history-64-1.png' class='statbox-title-img'/>
 					<h2 class='statbox-title-h2'>History Background</h2>
 					<hr>
@@ -74,8 +74,6 @@
 								</p>
 							</div>
 						</div>
-
-						<!-- MISSION & VISION -->
 						<img src='icon/icons8-goal-96.png' class='statbox-title-img'/>
 						<h2 class='statbox-title-h2'>Mission & Vision</h2>
 						<hr>
@@ -90,47 +88,8 @@
 									<img src='icon/icons8-vision-64.png' alt='' width='48px' height='48px'>
 						   		<p>Become a Public Service Main Choice Management Consultant</p>
 						  	</div>
-						</div>
-
-						  	<p>
-
-
-			       <!-- CORE VALUES -->
-						<img src='icon/icons8-celebrate-64.png' class='statbox-title-img'/>
-						<h2 class='statbox-title-h2'>Core Values</h2>
-						<hr>
-						<div class="aboutRow">
-						 		<div class="aboutGoal">
-						   		<h1>Integrity</h1>
-									<img src='icon/icons8-integrity-64.png' alt='' width='48px' height='48px'>
-						   		<p>Practicing an honest, trustworthy, ethical and professional attitude in carrying out duties and responsibilities</p>
-						  	</div>
-						  	<div class="aboutGoal">
-						   		<h1>Quality</h1>
-									<img src='icon/icons8-best-seller-48.png' alt='' width='48px' height='48px'>
-						   		<p>Provide services and produce work that meets the needs of stakeholders</p>
-						  	</div>
-						  	<div class="aboutGoal">
-						   		<h1>Drivers of Change</h1>
-									<img src='icon/icons8-improvement-50.png' alt='' width='48px' height='48px'>
-						   		<p>A catalyst for change towards improvement and excellence</p>
-						  	</div>
-						  	<div class="aboutGoal">
-						   		<h1>Caring</h1>
-									<img src='icon/icons8-citizen-64.png' alt='' width='48px' height='48px'>
-						   		<p>Practicing a caring attitude and taking care of the needs of stakeholders</p>
-						  	</div>
-						  </div>
-
-
 			       </div>
-
-			       </div>
-
 				</div>
-
-
-
 
 			</main>
 			<!--===============================================================================================-->

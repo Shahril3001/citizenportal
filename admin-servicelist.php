@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Service</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -66,7 +66,7 @@
 												<th width='20px'>#</th>
 												<th width='20%'>Icon</th>
 												<th>Detail</th>
-												<th width='10%'>Action</th>
+												<th width='14%'>Action</th>
 											</tr>";
 											foreach($servicelists as $servicelist){
 											$cloneID++;
@@ -84,8 +84,8 @@
 													<b>Description:</b> $categoryDesc
 												</td>
 												<td>
-													<a href='admin-editservice.php?adminEmail=".$adminEmail."&categoryID=".$categoryID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
-													<a href='admin-deleteservice.php?adminEmail=".$adminEmail."&categoryID=".$categoryID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+													<a href='admin-editservice.php?adminEmail=".$adminEmail."&categoryID=".$categoryID."&role=".$role."'><button class='button' id='editBtn'>&#10227; Edit</button></a>
+													<a href='admin-deleteservice.php?adminEmail=".$adminEmail."&categoryID=".$categoryID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 												</td>
 											</tr>";
 											}

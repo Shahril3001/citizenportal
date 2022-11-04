@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Feedback</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -87,9 +87,9 @@
 													<b>Type:</b> $feedbackType<br>
 												</td>
 												<td width='20%'>$dateF</td>
-												<td width='10%'>
-													<a href='admin-viewfeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-													<a href='admin-deletefeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+												<td width='14%'>
+													<a href='admin-viewfeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
+													<a href='admin-deletefeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 												</td>
 											</tr>";
 											}

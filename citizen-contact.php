@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Contact</title>
+		<title>Aduan Darussalam | Contact</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -75,23 +75,23 @@
 											<th colspan='2'>Feedback</th>
 										</tr>
 										<tr>
-											<td><b>Fullname:</b></td>
+											<td><b>*Fullname:</b></td>
 											<td><input type='text' name='citizenName' class='forminput' placeholder='Fullname...' value='$citizenName' readonly></td>
 										</tr>
 										<tr>
-											<td><b>IC Number:</b></td>
+											<td><b>*IC Number:</b></td>
 											<td><input type='number' name='citizenIC' class='forminput' id='removeNumpointer' placeholder='IC Number...' minlength='8' value='$citizenIC' readonly></td>
 										</tr>
 										<tr>
-											<td><b>Email:</b></td>
+											<td><b>*Email:</b></td>
 											<td><input type='email' name='emailF' class='forminput' placeholder='Email...' value='$citizenEmail' readonly></td>
 										</tr>
 										<tr>
-											<td><b>Subject:</b></td>
+											<td><b>*Subject:</b></td>
 											<td><input type='text' name='subjectF' class='forminput' placeholder='Subject...'></td>
 										</tr>
 										<tr>
-											<td><b>Feedback Type</b></td>
+											<td><b>*Type:</b></td>
 											<td>
 												<select name='feedbackType' id='feedbackType'>
 													<option>Select a type...</option>
@@ -102,7 +102,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td><b>Message:</b></td>
+											<td><b>*Message:</b></td>
 											<td><textarea name='commentF'  id='editor1' rows='5' cols='35%' placeholder='Comment..'></textarea></td>
 										</tr>
 										<tr>

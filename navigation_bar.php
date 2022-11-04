@@ -14,7 +14,7 @@
 											<div id='myDropdown' class='navmenu-navcontent'>
 												<a href='admin-slideshowlist.php?adminEmail=".$adminEmail."&role=".$role."'>Slideshow</a>
 												<a href='admin-departmentlist.php?adminEmail=".$adminEmail."&role=".$role."'>Department</a>
-												<a href='admin-servicelist.php?adminEmail=".$adminEmail."&role=".$role."'>Service</a>
+												<a href='admin-servicelist.php?adminEmail=".$adminEmail."&role=".$role."'>Services</a>
 											</div>
 										</li>
 									</div>
@@ -50,16 +50,8 @@
 								<ul>
 									<li><a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'>Dashboard</a></li>
 									<li><a href='citizen-myprofile.php?citizenIC=".$citizenIC."&role=".$role."'>My Profile</a></li>
-									<li><a href='citizen-services.php?citizenIC=".$citizenIC."&role=".$role."'>Service</a></li>
-
-									<div class='navmenu'>
-										<li><a href='javascript:void(0)' onclick='myDropnav()' class='dropbtn'>Complaint &#9660</a>
-											<div id='myDropdown' class='navmenu-navcontent'>
-										    <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'>Submit Your Complain</a>
-										    <a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>Complaining on Someone's Behalf</a>
-										  </div>
-										</li>
-									</div>
+									<li><a href='citizen-services.php?citizenIC=".$citizenIC."&role=".$role."'>Services</a></li>
+									<li><a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'>Contact</a></li>
 
 									<div class='navmenu'>
 										<li><a href='javascript:void(0)' onclick='myDropnav1()' class='dropbtn'>History &#9660</a>
@@ -71,7 +63,6 @@
 										</li>
 									</div>
 
-									<li><a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'>Contact</a></li>
 									<li><a href='logout-citizen.php?citizenIC=".$citizenIC."&role=".$role."'>Log Out</a></li>
 								</ul>
 							</nav>

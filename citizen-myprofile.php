@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Citizen</title>
+		<title>Aduan Darussalam | Profile</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -108,7 +108,7 @@
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
-															<input id='submitBtn' class='button' type='submit' name='Submit' value='Update'>
+															<input id='submitBtn' class='button' type='submit' name='Submit' value='&#10227; Update'>
 														</td>
 													</tr>
 												</table>

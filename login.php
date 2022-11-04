@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Contact</title>
+		<title>Aduan Darussalam | Login</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -57,12 +57,12 @@
 												<th colspan="2">Citizen</th>
 											</tr>
 											<tr>
-												<td><b>IC Number:</b></td>
-												<td><input type="text" name="citizenIC"></td>
+												<td><b>*IC Number:</b></td>
+												<td><input type="number" name="citizenIC" id='removeNumpointer'  placeholder='IC Number...' class='forminput' required min='7'></td>
 											</tr>
 											<tr>
-												<td><b>Password:</b></td>
-												<td><input type="password" name="citizenPassword"></td>
+												<td><b>*Password:</b></td>
+												<td><input type="password" name="citizenPassword" class='forminput'  placeholder='Password...' required></td>
 											</tr>
 											<tr>
 												<td style="border:none;" colspan="2"  id="buttonrow">
@@ -85,12 +85,12 @@
 												<th colspan="2">Employee</th>
 											</tr>
 											<tr>
-												<td><b>Name:</b></td>
-												<td><input type="text" name="adminName"></td>
+												<td><b>*Name:</b></td>
+												<td><input type="text" name="adminName" class='forminput'  placeholder='Name...' required></td>
 											</tr>
 											<tr>
-												<td><b>Password:</b></td>
-												<td><input type="password" name="adminPassword"></td>
+												<td><b>*Password:</b></td>
+												<td><input type="password" name="adminPassword" class='forminput' placeholder='Password...' required></td>
 											</tr>
 											<tr>
 												<td style="border:none;" colspan="2"  id="buttonrow">

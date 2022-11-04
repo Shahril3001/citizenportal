@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Registration</title>
+		<title>Aduan Darussalam | Registration</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -45,9 +45,6 @@
 
 				<main>
 					<div class="main-container">
-						<?php
-							include 'breadcrumbs.php';
-						?>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Registration</h1>
@@ -65,19 +62,19 @@
 													</tr>
 													<tr>
 														<td><b>*Name:</b></td>
-														<td><input type='text' name='citizenName' class='forminput' placeholder=' Name...' minlength='10'></td>
+														<td><input type='text' name='citizenName' class='forminput' placeholder=' Name...' minlength='10' required></td>
 													</tr>
 													<tr>
 														<td><b>*IC Number:</b></td>
-														<td><input type='number' name='citizenIC'  id='removeNumpointer' class='forminput' placeholder='IC Number...' minlength='8'></td>
+														<td><input type='number' name='citizenIC'  id='removeNumpointer' class='forminput' placeholder='IC Number...' minlength='8' required></td>
 													</tr>
 													<tr>
 														<td><b>*Email:</b></td>
-														<td><input type='email' name='citizenEmail' class='forminput' placeholder='Email...'></td>
+														<td><input type='email' name='citizenEmail' class='forminput' placeholder='Email...' required></td>
 													</tr>
 													<tr>
 														<td><b>*Phone:</b></td>
-														<td><input type='number' name='citizenPhone'  id='removeNumpointer' class='forminput' placeholder='Phone No...' minlength='7'></td>
+														<td><input type='number' name='citizenPhone'  id='removeNumpointer' class='forminput' placeholder='Phone No...' minlength='7' required></td>
 													</tr>
 
 													<tr>
@@ -86,11 +83,11 @@
 													</tr>
 													<tr>
 														<td><b>*Password:</b></td>
-														<td><input type='password' name='citizenPassword' placeholder='Password...' minlength='8'></td>
+														<td><input type='password' name='citizenPassword' placeholder='Password...' minlength='8' required></td>
 													</tr>
 													<tr>
 														<td><b>Confirm Password:</b></td>
-														<td><input type='password' name='citizenCPassword' placeholder='Password...' minlength='8'></td>
+														<td><input type='password' name='citizenCPassword' placeholder='Confirm Password...' minlength='8' required></td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Department</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -43,9 +43,6 @@
 
 				<main>
 					<div class="main-container">
-						<?php
-							include 'breadcrumbs.php';
-						?>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Department</h1>
@@ -92,12 +89,17 @@
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
-															<center>";
+															<center><p>";
 																if(!isset($_GET['role'])){
 																	echo"<a href='login.php'><input id='viewBtn' class='button' type='button' name='back' value='Login'></a>";
 																}
 																echo"
-																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
+																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+																<script>
+																	function goBack(){
+																		window.history.back();
+																	}
+																</script>
 															</center>
 														</td>
 													</tr>

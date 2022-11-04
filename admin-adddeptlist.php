@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Home</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -45,9 +45,6 @@
 
 				<main>
 					<div class="main-container">
-						<?php
-							include 'breadcrumbs.php';
-						?>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Department</h1>
@@ -65,12 +62,12 @@
 													</tr>
 													<tr>
 														<td><b>Title:</b></td>
-														<td><input type='text' name='listTitle'  class='forminput' placeholder='Your Title...'></td>
+														<td><input type='text' name='listTitle'  class='forminput' placeholder='Your Title...' required></td>
 													</tr>
 													<tr>
 														<td><b>Category Service:</b></td>
-														<td><select name='listCategory' id='listCategory'>";
-																echo"<option>Select a category...</option>";
+														<td><select name='listCategory' id='listCategory' required>";
+																echo"<option value=''>Select a category...</option>";
 																include 'connection.php';
 																$servicequery = dbConn()->prepare("SELECT * FROM service_category");
 																$servicequery->execute();

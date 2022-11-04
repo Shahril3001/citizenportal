@@ -45,13 +45,18 @@
 				<div class="main-container">
 					<h1 class="title-container">Department</h1>
 					<img src='icon/icons8-department-48.png' class='statbox-title-img'/>
+					<?php
+						echo"
+						<a href='admin-adddeptlist.php?adminEmail=".$adminEmail."&role=".$role."'><button class='button' id='statbox-addBtn'>Add (+)</button></a>
+						";
+					?>
 					<h2 class='statbox-title-h2'>Department</h2>
 					<hr>
 					<?php
 							include 'connection.php';
 								echo"
 								<div id='deptCategory'>
-									<form method='POST' enctype='multipart/form-data' action='citizen-finddepartment.php?citizenIC=".$citizenIC."&role=".$role."'>
+									<form method='POST' enctype='multipart/form-data' action='admin-finddepartment.php?adminEmail=".$adminEmail."&role=".$role."'>
 									<input type='text' name='listTitle' placeholder='Title...' class='deptCategoryelement'>
 									<select name='listCategory' class='deptCategoryelement'>
 									<option>Select a category...</option>";
@@ -70,25 +75,28 @@
 									</form>
 								</div>
 								";
+
 								$cloneID = 0;
-								if(isset($_GET['categoryName'])){
-									$categoryName=$_GET['categoryName'];
-									$serviceDeptquery = dbConn()->prepare("SELECT * FROM service_list where	listCategory LIKE '%".$categoryName."%'");
+								$listTitle = $_POST['listTitle'];
+								$listCategory = $_POST['listCategory'];
+								if(empty($listTitle)){
+									$serviceDeptquery = dbConn()->prepare("SELECT * FROM service_list where	listCategory LIKE '%".$listCategory."%'");
+									$serviceDeptquery->execute();
 								}else{
-										$serviceDeptquery = dbConn()->prepare('SELECT * FROM service_list');
+									$serviceDeptquery = dbConn()->prepare("SELECT * FROM service_list where listTitle LIKE '%".$listTitle."%' OR listCategory LIKE '%".$listCategory."%'");
+									$serviceDeptquery->execute();
 								}
-								$serviceDeptquery->execute();
 								$serviceDeptlists = $serviceDeptquery->fetchAll(PDO::FETCH_OBJ);
 								$num_count = $serviceDeptquery->rowCount();
 								if ($num_count !=0)
 								{
-								echo"
+								echo"<p><b>Result:</b> There is $num_count that match your search and are shown below:</p>
 								<div class='row'>
 									<table id='listtable'>
 										<tr>
 											<th width='20px'>#</th>
 											<th>Detail</th>
-											<th width='15%'>Action</th>
+											<th width='14%'>Action</th>
 										</tr>";
 										foreach($serviceDeptlists as $serviceDeptlist){
 											$cloneID++;
@@ -104,15 +112,15 @@
 												<td class='justify-contents'>
 													<b>Title:</b> $listTitle<br>
 													<b>Category:</b> $listCategory<br>
-													<b>Description:</b> ".substr($listDesc,0,250)."..... <i><a href='citizen-viewdeptlist.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'>(More)</a></i>
+													<b>Description:</b> ".substr($listDesc,0,250)."..... <i><a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'>(More)</a></i>
 												</td>
 												<td>
-													<a href='citizen-lodgecomplain.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='selfreportBtn'>Self Report</button></a>
-													<a href='citizen-lodgecomplainbehalf.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='onbehalfBtn'>On Behalf</button></a>
-													<a href='citizen-viewdeptlist.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
+													<a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
+													<a href='admin-editdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='editBtn'>&#10227; Edit</button></a>
+													<a href='admin-deletedeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 												</td>
 											</tr>";
-										}
+											}
 										echo"</table>";
 									}else if ($num_count == 0){
 										echo "<p><b>Result:</b> There are no results were found.</p>
@@ -121,7 +129,7 @@
 											function goBack(){
 												window.history.back();
 											}
-										</script></p>";
+										</script>";
 									}else{
 										echo "<p>Something wrong on database.</p>";
 									}

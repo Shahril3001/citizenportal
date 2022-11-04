@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Department</title>
+		<title>Aduan Darussalam | Department</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -45,34 +45,32 @@
 				<div class="main-container">
 					<h1 class="title-container">Department</h1>
 					<img src='icon/icons8-department-48.png' class='statbox-title-img'/>
-					<?php
-						include 'connection.php';
 
-						echo"
-						<div id='deptCategory'>
-							<form method='POST' enctype='multipart/form-data' action='citizen-finddepartment.php?citizenIC=".$citizenIC."&role=".$role."'>
-							<input type='text' name='listTitle' placeholder='Title...'>
-							<select name='listCategory'>
-							<option>Select a category...</option>";
-								$servicequery = dbConn()->prepare("SELECT * FROM service_category");
-								$servicequery->execute();
-								$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
-
-								foreach($servicelists as $servicelist){
-									$categoryID  = $servicelist->categoryID;
-									$categoryName  = $servicelist->categoryName;
-									echo"<option value='$categoryName'>$categoryName</option>";
-								}
-							echo"</select>";
-							echo"
-							<input id='returnBtn' class='button' type='submit' name='Submit' value='Search'>
-							</form>
-						</div>
-						";
-					?>
 					<h2 class='statbox-title-h2'>Department</h2>
 					<hr>
-						<?php
+					<?php
+						include 'connection.php';
+								echo"
+								<div id='deptCategory'>
+									<form method='POST' enctype='multipart/form-data' action='citizen-finddepartment.php?citizenIC=".$citizenIC."&role=".$role."'>
+									<input type='text' name='listTitle' placeholder='Title...' class='deptCategoryelement'>
+									<select name='listCategory' class='deptCategoryelement'>
+									<option>Select a category...</option>";
+										$servicequery = dbConn()->prepare("SELECT * FROM service_category");
+										$servicequery->execute();
+										$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
+
+										foreach($servicelists as $servicelist){
+											$categoryID  = $servicelist->categoryID;
+											$categoryName  = $servicelist->categoryName;
+											echo"<option value='$categoryName'>$categoryName</option>";
+										}
+									echo"</select>";
+									echo"
+									<input id='returnBtn' class='button' type='submit' name='Submit' value='&#x1F50E; Search'>
+									</form>
+								</div>
+								";
 								$cloneID = 0;
 								$listTitle = $_POST['listTitle'];
 								$listCategory = $_POST['listCategory'];
@@ -114,15 +112,21 @@
 												<td>
 													<a href='citizen-lodgecomplain.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='selfreportBtn'>Self Report</button></a>
 													<a href='citizen-lodgecomplainbehalf.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='onbehalfBtn'>On Behalf</button></a>
-													<a href='citizen-viewdeptlist.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
+													<a href='citizen-viewdeptlist.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
 												</td>
 											</tr>";
 											}
 										echo"</table>";
 									}else if ($num_count == 0){
-									echo "<p><b>Result:</b> There are no results were found.</p>";
+										echo "<p><b>Result:</b> There are no results were found.</p>
+										<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+										<script>
+											function goBack(){
+												window.history.back();
+											}
+										</script></p>";
 									}else{
-									echo "<p>Something wrong on database.</p>";
+										echo "<p>Something wrong on database.</p>";
 									}
 								?>
 						</div>

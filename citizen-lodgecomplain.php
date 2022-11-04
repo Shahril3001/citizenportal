@@ -68,16 +68,16 @@
 													</tr>
 													<tr>
 														<td><b>*Subject:</b></td>
-														<td><input type='text' name='complaintSubject' class='forminput' placeholder=' Subject...'></td>
+														<td><input type='text' name='complaintSubject' class='forminput' placeholder=' Subject...' required></td>
 													</tr>
 													<tr>
 														<td><b>*Complaint:</b></td>
-														<td><textarea name='complaint' name='complaint' id='editor1' rows='5' cols='50%' placeholder=' Complaint...' minlength='5'></textarea></td>
+														<td><textarea name='complaint' name='complaint' id='editor1' rows='5' cols='50%' placeholder=' Complaint...' minlength='5' required></textarea></td>
 													</tr>
 
 													<tr>
 														<td><b>Complaint Department:</b></td>
-														<td><select name='listID' id='listID'>";
+														<td><select name='listID' id='listID' class='forminput' required>";
 																include 'connection.php';
 																if(isset($_GET['listID'])){
 																	$selectservicelistquery = dbConn()->prepare("SELECT * FROM service_list WHERE  listID='$listID'");
@@ -110,22 +110,22 @@
 
 													<tr>
 														<td><b>*Location of Accident / Event:</b></td>
-														<td><input type='text' name='location' class='forminput' placeholder=' Location...' minlength='5' size='50'></td>
+														<td><input type='text' name='location' class='forminput' placeholder=' Location...' minlength='5' size='50' required></td>
 													</tr>
 
 													<tr>
 														<td><b>*Date of Accident / Event:</b></td>
-														<td><input type='date' name='date' placeholder=' Date...' size='50'></td>
+														<td><input type='date' name='date' placeholder=' Date...' size='50' required></td>
 													</tr>
 
 													<tr>
-														<td><b>Image:</b></td>
-														<td><input type='file' name='complaintImage'> *Limited to 10MB and PNG/JPG file only.</td>
+														<td><b>*Image:</b></td>
+														<td><input type='file' name='complaintImage' required> *PNG/JPG/JPEG file only.</td>
 													</tr>
 
 													<tr>
-														<td><b>Relevant Document:</b></td>
-														<td><input type='file' name='complaintDocument'> *Limited to 10MB and RAR/DOC/PDF file only.</td>
+														<td><b>*Relevant Document:</b></td>
+														<td><input type='file' name='complaintDocument' required> *RAR/DOC/DOCX/PDF file only.</td>
 													</tr>
 
 													<tr>

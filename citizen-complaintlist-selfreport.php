@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Complaint</title>
+		<title>Aduan Darussalam | Complaint</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -94,15 +94,14 @@
 													<td>$cloneID</td>
 													<td class='justify-contents'>
 														<b>Subject:</b> $complaintSubject<br>
-														<b>Description:</b> $complaintDesc<br>
 														<b>Category:</b> $serviceCategory<br>
 														<b>Sender:</b> $citizenName ($citizenIC)<br>
 														<b>Date:</b> $date<br>
 													</td>
 													<td width='20%'>$complaintStatus</td>
-													<td width='10%'>
-														<a href='admin-viewcomplaint-s.php?citizenIC=".$citizenIC."&complaintID=".$complaintID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-														<a href='citizen-deletecomplaint-s.php?citizenIC=".$citizenIC."&complaintID=".$complaintID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+													<td width='14%'>
+														<a href='admin-viewcomplaint-s.php?citizenIC=".$citizenIC."&complaintID=".$complaintID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
+														<a href='citizen-deletecomplaint-s.php?citizenIC=".$citizenIC."&complaintID=".$complaintID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 													</td>
 												</tr>";
 											}

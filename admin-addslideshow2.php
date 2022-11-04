@@ -30,25 +30,41 @@
 			else{
 				$target_dir="data/img/slideshow/";
 				$target_dir=$target_dir. basename($_FILES["slideshowImg"]["name"]);
-				move_uploaded_file($_FILES["slideshowImg"]["tmp_name"],$target_dir);
-				$imageup=$target_dir;
-
-				$query = dbConn()->prepare("INSERT INTO slideshow VALUE(null, '".$imageup."', '".$slideshowCaption."', '".$adminEmail."', '".$date."')");
-				// Success
-				if($query -> execute()){
-					echo "<div class='pos'>";
-					echo "<img src='icon/icons8-success-64.png'/>";
-					echo "<h2>Success!</h2>";
-					echo "<p id='valid'>Slideshow is successfully added.</p>
-					<p>Click <a href='admin-slideshowlist.php?adminEmail=".$adminEmail."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
-					";
-					echo "</div>";
-				}
-				// Error
-				else{
+				$fileimg_extension = pathinfo($target_dir, PATHINFO_EXTENSION);
+				$fileimg_extension = strtolower($fileimg_extension);
+				$valid_extension = array("png","jpeg","jpg");
+				if(in_array($fileimg_extension, $valid_extension)) {
+					move_uploaded_file($_FILES["slideshowImg"]["tmp_name"],$target_dir);
+					$imageup=$target_dir;
+					$query = dbConn()->prepare("INSERT INTO slideshow VALUE(null, '".$imageup."', '".$slideshowCaption."', '".$adminEmail."', '".$date."')");
+					// Success
+					if($query -> execute()){
+						echo "<div class='pos'>";
+						echo "<img src='icon/icons8-success-64.png'/>";
+						echo "<h2>Success!</h2>";
+						echo "<p id='valid'>Slideshow is successfully added.</p>
+						<p>Click <a href='admin-slideshowlist.php?adminEmail=".$adminEmail."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
+						";
+						echo "</div>";
+					}
+					// Error
+					else{
+						echo "<div class='pos'>";
+						echo "<img src='icon/icons8-error-96.png'/>";
+						echo "<h2>Invalid Value!</h2>";
+						echo "<p id='invalid'>Unable to submit. Please try again.</p>
+						<p>Please click <input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>.</p>
+						<script>
+							function goBack(){
+								window.history.back();
+							}
+						</script></p>";
+						echo "</div>";
+					}
+				}else{
 					echo "<div class='pos'>";
 					echo "<img src='icon/icons8-error-96.png'/>";
-					echo "<h2>Invalid Value!</h2>";
+					echo "<h2>Invalid Image File!</h2>";
 					echo "<p id='invalid'>Unable to submit. Please try again.</p>
 					<p>Please click <input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>.</p>
 					<script>

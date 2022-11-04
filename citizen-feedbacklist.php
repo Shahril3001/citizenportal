@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Feedback</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -80,15 +80,12 @@
 											<tr>
 												<td>$cloneID</td>
 												<td class='justify-contents'>
-													<b>Fullname:</b> $citizenName<br>
-													<b>IC Number:</b> $citizenIC<br>
-													<b>Email:</b> <a href='mailto:$emailF'>$emailF</a><br>
 													<b>Subject:</b> $subjectF<br>
 													<b>Type:</b> $feedbackType<br>
 												</td>
 												<td width='20%'>$dateF</td>
-												<td width='10%'>
-													<a href='admin-viewfeedback.php?citizenIC=".$citizenIC."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
+												<td width='14%'>
+													<a href='admin-viewfeedback.php?citizenIC=".$citizenIC."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
 												</td>
 											</tr>";
 											}

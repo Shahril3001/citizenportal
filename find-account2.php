@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Login</title>
+		<title>Aduan Darussalam | Find Account</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -51,60 +51,75 @@
 						$citizenName = $_POST['citizenName'];
 						$citizenIC = $_POST['citizenIC'];
 						include 'connection.php';
-						$query = dbConn()->prepare("SELECT * FROM citizen where citizenName LIKE '%".$citizenName."%' AND citizenIC LIKE '%".$citizenIC."%'");
-						$query->execute();
-						$citizenlists = $query->fetchAll(PDO::FETCH_OBJ);
-						$num_count = $query->rowCount();
-						if ($num_count !=0)
-						{
-						echo"<p><b>Result:</b> There is $num_count that match your search and are shown below:</p></br>
-						<div class='row'>";
-						foreach($citizenlists as $citizenlist){
-							$citizenID = $citizenlist->citizenID;
-							$citizenIC = $citizenlist->citizenIC;
-							$citizenName = $citizenlist->citizenName;
-							$citizenPhone = $citizenlist->citizenPhone;
-							$citizenEmail = $citizenlist->citizenEmail;
-							$citizenAddress = $citizenlist->citizenAddress;
-							$citizenPassword = $citizenlist->citizenPassword;
-							echo"<table id='formtable'>
-								<tr>
-									<th colspan='2'>Profile</th>
-								</tr>
-								<tr>
-									<td width='240px'><b>Name:</b></td>
-									<td>$citizenName</td>
-								</tr>
-								<tr>
-									<td width='240px'><b>IC Number:</b></td>
-									<td>$citizenIC</td>
-								</tr>
-								<tr>
-									<td><b>Phone:</b></td>
-									<td>$citizenPhone</td>
-								</tr>
-								<tr>
-									<td><b>Email:</b></td>
-									<td>$citizenEmail</td>
-								</tr>
-								<tr>
-									<td><b>Address:</b></td>
-									<td>$citizenAddress</td>
-								</tr>
-								<tr>
-									<td><b>Password:</b></td>
-									<td>$citizenPassword</td>
-								</tr>
-								<tr>
-									<td style='border:none;' colspan='2'  id='buttonrow'><a href='login.php'><button id='buttonclick' class='button'>Login</button></a></td>
-								</tr>
-								</table>";
-
-						}
-						}else if ($num_count == 0){
-						echo "<p><b>Result:</b> There are no results were found.</p>";
+						if(empty($citizenName) || empty($citizenIC)) {
+							echo "<p><b>Result:</b> There are no results were found due to empty some of inputs.</p>
+							<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+							<script>
+								function goBack(){
+									window.history.back();
+								}
+							</script></p>";
 						}else{
-						echo "<p>Something wrong on database.</p>";
+							$query = dbConn()->prepare("SELECT * FROM citizen where citizenName LIKE '%".$citizenName."%' AND citizenIC LIKE '%".$citizenIC."%'");
+							$query->execute();
+							$citizenlists = $query->fetchAll(PDO::FETCH_OBJ);
+							$num_count = $query->rowCount();
+							if ($num_count !=0)
+							{
+							echo"<p><b>Result:</b> There is $num_count that match your search and are shown below:</p></br>
+							<div class='row'>";
+							foreach($citizenlists as $citizenlist){
+								$citizenID = $citizenlist->citizenID;
+								$citizenIC = $citizenlist->citizenIC;
+								$citizenName = $citizenlist->citizenName;
+								$citizenPhone = $citizenlist->citizenPhone;
+								$citizenEmail = $citizenlist->citizenEmail;
+								$citizenAddress = $citizenlist->citizenAddress;
+								$citizenPassword = $citizenlist->citizenPassword;
+								echo"<table id='formtable'>
+									<tr>
+										<th colspan='2'>Profile</th>
+									</tr>
+									<tr>
+										<td width='240px'><b>Name:</b></td>
+										<td>$citizenName</td>
+									</tr>
+									<tr>
+										<td width='240px'><b>IC Number:</b></td>
+										<td>$citizenIC</td>
+									</tr>
+									<tr>
+										<td><b>Phone:</b></td>
+										<td>$citizenPhone</td>
+									</tr>
+									<tr>
+										<td><b>Email:</b></td>
+										<td>$citizenEmail</td>
+									</tr>
+									<tr>
+										<td><b>Address:</b></td>
+										<td>$citizenAddress</td>
+									</tr>
+									<tr>
+										<td><b>Password:</b></td>
+										<td>$citizenPassword</td>
+									</tr>
+									<tr>
+										<td style='border:none;' colspan='2'  id='buttonrow'><a href='login.php'><button id='buttonclick' class='button'>Login</button></a></td>
+									</tr>
+									</table>";
+
+							}
+							}else if ($num_count == 0){
+							echo "<p><b>Result:</b> There are no results were found.</p><p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+							<script>
+								function goBack(){
+									window.history.back();
+								}
+							</script></p>";
+							}else{
+							echo "<p>Something wrong on database.</p>";
+							}
 						}
 						?>
 					</div>

@@ -4,6 +4,9 @@
 		if($role=="admin"){
 			$adminEmail=$_GET['adminEmail'];
 			echo"
+			<div class='footer-content'>
+				<p id='disclaimer'>Disclaimer: All content and information on the website is for informational and educational purposes only.</p>
+			</div>
 			<div class='footer-bottom'>
 			 <div class='footer-menu'>
 				<ul class='f-menu'>
@@ -30,6 +33,7 @@
 				<li><a href='#'><img src='icon/icons8-twitter-48.png'/></a></li>
 				<li><a href='#'><img src='icon/icons8-telegram-app-48.png'/></i></a></li>
 			 </ul>
+			 <p id='disclaimer'>Disclaimer: All content and information on the website is for informational and educational purposes only.</p>
 			</div>
 			<div class='footer-bottom'>
 			 <div class='footer-menu'>
@@ -59,6 +63,7 @@
 			<li><a href='#'><img src='icon/icons8-twitter-48.png'/></a></li>
 			<li><a href='#'><img src='icon/icons8-telegram-app-48.png'/></i></a></li>
 		 </ul>
+		 <p id='disclaimer'>Disclaimer: All content and information on the website is for informational and educational purposes only.</p>
 		</div>
 		<div class='footer-bottom'>
 			<div class='footer-menu' id='footer-mobile'>
