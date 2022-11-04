@@ -158,7 +158,7 @@
 														<b>Title:</b> $serviceTitle<br>
 														<b>Category:</b> $serviceCategory<br>
 														<b>Behalf Name:</b> $behalfName<br>
-														<b>Sender:</b> $citizenName ($citizenIC)<br>
+														<b>Sender:</b> <a href='admin-viewcitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'>$citizenName ($citizenIC)</a><br>
 														<b>Date:</b> $date<br>
 													</td>
 													<td width='20%'>$complaintStatus</td>

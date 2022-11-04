@@ -90,6 +90,7 @@
 												</td>
 												<td>$lastLogin</td>
 												<td>
+													<a href='admin-viewcitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
 													<a href='admin-editcitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='editBtn'>&#10227; Edit</button></a>
 													<a href='admin-deletecitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 												</td>

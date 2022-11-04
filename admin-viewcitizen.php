@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Aduan Darussalam | Feedback</title>
+		<title>Aduan Darussalam | Citizen</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -34,7 +34,7 @@
 				<div id="mySidenav" class="side-nav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<!-- - -->
 					<?php
-					include 'side.php';
+						include 'side.php';
 					?>
 					<!-- - -->
 				</div>
@@ -45,62 +45,62 @@
 					<div class="main-container">
 						<!--===============================================================================================-->
 						<div>
-							<h1 class="title-container">Feedback</h1>
-							<img src='icon/icons8-feedback-96.png' class='statbox-title-img'/>
-							<h2 class='statbox-title-h2'>Feedback List</h2>
+							<h1 class="title-container">Citizen</h1>
+							<img src='icon/icons8-citizen-64.png' class='statbox-title-img'/>
+							<h2 class='statbox-title-h2'>View Citizen</h2>
 							<hr>
-							<?php
-									$cloneID = 0;
-									include 'connection.php';
-									$feedbackquery = dbConn()->prepare('SELECT * FROM feedback');
-									$feedbackquery->execute();
-									$feedbacklists = $feedbackquery->fetchAll(PDO::FETCH_OBJ);
-									echo"
-									<div class='row'>
-										<table id='listtable'>
-											<tr>
-												<th width='20px'>#</th>
-												<th>Detail</th>
-												<th>Date</th>
-												<th>Action</th>
-											</tr>";
-											foreach($feedbacklists as $feedbacklist){
-											$cloneID++;
-											$feedbackID  = $feedbacklist->feedbackID ;
-											$citizenName = $feedbacklist->citizenName;
-											$citizenIC = $feedbacklist->citizenIC;
-											$subjectF = $feedbacklist->subjectF;
-											$feedbackType = $feedbacklist->feedbackType;
-											$emailF = $feedbacklist->emailF;
-											$commentF = $feedbacklist->commentF;
-											$dateF = $feedbacklist->dateF;
-											$dateF = date('d M Y H:i:sa',strtotime($dateF));
+							<div class="task-container">
+								<?php
+										$citizenIC=$_GET['citizenIC'];
+										include 'connection.php';
 
-											$citizenquery = dbConn()->prepare('SELECT * FROM citizen WHERE citizenName="'. $citizenName .'"');
+											$citizenquery = dbConn()->prepare('SELECT * FROM citizen WHERE citizenIC="'. $citizenIC .'"');
 											$citizenquery->execute();
 											$citizenlists = $citizenquery->fetchAll(PDO::FETCH_OBJ);
 											foreach($citizenlists as $citizenlist){
+											$citizenName = $citizenlist->citizenName;
 											$citizenIC = $citizenlist->citizenIC;
+											$citizenEmail = $citizenlist->citizenEmail;
+											$citizenPhone = $citizenlist->citizenPhone;
+											$citizenAddress = $citizenlist->citizenAddress;
 
-											echo "
-											<tr>
-												<td>$cloneID</td>
-												<td class='justify-contents'>
-													<b>Fullname:</b> <a href='admin-viewcitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'>$citizenName</a><br>
-													<b>Email:</b> <a href='mailto:$emailF'>$emailF</a><br>
-													<b>Subject:</b> $subjectF<br>
-													<b>Type:</b> $feedbackType<br>
-												</td>
-												<td width='20%'>$dateF</td>
-												<td width='14%'>
-													<a href='admin-viewfeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
-													<a href='admin-deletefeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
-												</td>
-											</tr>";
-											}
-										}
-										echo"</table>";
-									?>
+										echo "
+											<p>Citizen details.</p>
+											<form>
+												<table id='formtable'>
+													<tr>
+														<th colspan='2'>View Citizen</th>
+													</tr>
+													<tr>
+														<td width='30%'><b>Name:</b></td>
+														<td>$citizenName</td>
+													</tr>
+													<tr>
+														<td><b>IC Number:</b></td>
+														<td>$citizenIC</td>
+													</tr>
+													<tr>
+														<td><b>Email:</b></td>
+														<td>$citizenEmail</td>
+													</tr>
+													<tr>
+														<td><b>Phone:</b></td>
+														<td>$citizenPhone</td>
+													</tr>
+													<tr>
+														<td><b>Address:</b></td>
+														<td>$citizenAddress</td>
+													</tr>
+													<tr>
+														<td style='border:none;' colspan='2'  id='buttonrow'>
+															<center><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></center>
+														</td>
+													</tr>
+												</table>
+											</form>
+										";
+									}
+								?>
 							</div>
 						</div>
 					</div>
