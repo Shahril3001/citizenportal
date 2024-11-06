@@ -1,2 +1,2 @@
-# citizenportal
-WebDevAsg1
+# Aduan Darussalam (Web Development Assignment 1
+Aduan Darussalam is a website that allows the citizens of Brunei Darussalam to submit their concerns regarding available departments and governments. There are two major users of this website; admin and citizens. While citizens without accounts are still able to use the website, they are required to make an account in order to submit a complaint. With this website, citizens are able to view and add their complaints. On the other hand, admins are able to create, retrieve, update and delete citizen and complaints details. In addition, they are also able to generate reports that list all complaints by department.
