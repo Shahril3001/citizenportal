@@ -103,6 +103,7 @@
 											}
 										}
 										echo"</table>";
+<<<<<<< HEAD
 										}else if ($num_count == 0){
 											echo "<p><b>Result:</b> There are no results were found.</p>
 											<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
@@ -114,6 +115,8 @@
 										}else{
 											echo "<p>Something wrong on database.</p>";
 										}
+=======
+>>>>>>> a9d6fc70cc6840c51e3805ce251cf3cadaea37c4
 									?>
 							</div>
 						</div>
