@@ -21,7 +21,7 @@
 		$citizenCPassword=$_POST['citizenCPassword'];
 
 			// isEmpty field
-			if(empty($citizenName) || empty($citizenIC) || empty($citizenEmail) || empty($citizenPhone) || empty($citizenAddress) || empty($citizenPassword)) {
+			if(empty($citizenName) || empty($citizenIC) || empty($citizenEmail) || empty($citizenPhone) || empty($citizenPassword)) {
 				echo "<div class='pos'>";
 				echo "<img src='icon/icons8-error-96.png'/>";
 				echo "<h2>Invalid Value!</h2>";

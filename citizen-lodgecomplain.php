@@ -54,8 +54,13 @@
 									<br>
 
 									<?php
-										echo "
-											<p>Required fields are marked with an asterisk (*). If you are on someone's behalf, please click <a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>here.</a></p>
+											if(isset($_GET['listID'])){
+												$listID=$_GET['listID'];
+												echo "<p>Required fields are marked with an asterisk (*). If you are on someone's behalf, please click <a href='citizen-lodgecomplainbehalf.php?listID=".$listID."&citizenIC=".$citizenIC."&role=".$role."'>here.</a></p>";
+											}else{
+												echo "<p>Required fields are marked with an asterisk (*). If you are on someone's behalf, please click <a href='citizen-lodgecomplainbehalf.php?citizenIC=".$citizenIC."&role=".$role."'>here.</a></p>";
+											}
+											echo"
 											<form method='POST' enctype='multipart/form-data' action='citizen-lodgecomplain2.php?citizenIC=".$citizenIC."&role=".$role."'>
 												<table id='formtable'>
 													<tr>
@@ -63,54 +68,70 @@
 													</tr>
 													<tr>
 														<td><b>*Subject:</b></td>
-														<td><input type='text' name='complaintSubject' class='forminput' placeholder=' Subject...'></td>
+														<td><input type='text' name='complaintSubject' class='forminput' placeholder=' Subject...' required></td>
 													</tr>
 													<tr>
 														<td><b>*Complaint:</b></td>
-														<td><textarea name='complaint' name='complaint' id='editor1' rows='5' cols='50%' placeholder=' Complaint...' minlength='5'></textarea></td>
+														<td><textarea name='complaint' name='complaint' id='editor1' rows='5' cols='50%' placeholder=' Complaint...' minlength='5' required></textarea></td>
 													</tr>
 
 													<tr>
-														<td><b>*Location of Accident / Event:</b></td>
-														<td><input type='text' name='location' class='forminput' placeholder=' Location...' minlength='5' size='50'></td>
-													</tr>
-
-													<tr>
-														<td><b>*Date of Accident / Event:</b></td>
-														<td><input type='date' name='date' placeholder=' Date...' size='50'></td>
-													</tr>
-
-													<tr>
-														<td><b>Category Service:</b></td>
-														<td><select name='listCategory' id='listCategory'>";
-																echo"<option>Select a category...</option>";
+														<td><b>Complaint Department:</b></td>
+														<td><select name='listID' id='listID' class='forminput' required>";
 																include 'connection.php';
-																$servicequery = dbConn()->prepare("SELECT * FROM service_category");
-																$servicequery->execute();
-																$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
+																if(isset($_GET['listID'])){
+																	$selectservicelistquery = dbConn()->prepare("SELECT * FROM service_list WHERE  listID='$listID'");
+																	$selectservicelistquery->execute();
+																	$selectservicelists = $selectservicelistquery->fetchAll(PDO::FETCH_OBJ);
+																	foreach($selectservicelists as $selectservicelist){
+																		$listID  = $selectservicelist->listID;
+																		$listTitle   = $selectservicelist->listTitle;
+																		$listCategory    = $selectservicelist->listCategory;
+																	  echo"<option value='$listID'>$listCategory | $listTitle</option>";
+																	}
+																	echo"<option>Select a department...</option>";
+																}else{
+																	echo"<option>Select a department...</option>";
+																}
+
+																$servicelistquery = dbConn()->prepare("SELECT * FROM service_list ORDER BY listCategory ASC");
+																$servicelistquery->execute();
+																$servicelists = $servicelistquery->fetchAll(PDO::FETCH_OBJ);
 
 																foreach($servicelists as $servicelist){
-																	$categoryID  = $servicelist->categoryID;
-																	$categoryName  = $servicelist->categoryName;
-																  	echo"<option value='$categoryName'>$categoryName</option>";
+																	$listID  = $servicelist->listID;
+																	$listTitle   = $servicelist->listTitle;
+																	$listCategory    = $servicelist->listCategory;
+																  echo"<option value='$listID'>$listCategory | $listTitle</option>";
 																}
 																echo"</select>
 														</td>
 													</tr>
+
 													<tr>
-														<td><b>Image:</b></td>
-														<td><input type='file' name='complaintImage'> *Limited to 10MB and PNG/JPG file only.</td>
+														<td><b>*Location of Accident / Event:</b></td>
+														<td><input type='text' name='location' class='forminput' placeholder=' Location...' minlength='5' size='50' required></td>
 													</tr>
 
 													<tr>
-														<td><b>Relevant Document:</b></td>
-														<td><input type='file' name='complaintDocument'> *Limited to 10MB and RAR/DOC/PDF file only.</td>
+														<td><b>*Date of Accident / Event:</b></td>
+														<td><input type='date' name='date' placeholder=' Date...' size='50' required></td>
+													</tr>
+
+													<tr>
+														<td><b>*Image:</b></td>
+														<td><input type='file' name='complaintImage' required> *PNG/JPG/JPEG file only.</td>
+													</tr>
+
+													<tr>
+														<td><b>*Relevant Document:</b></td>
+														<td><input type='file' name='complaintDocument' required> *RAR/DOC/DOCX/PDF file only.</td>
 													</tr>
 
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
 															<input id='submitBtn' class='button' type='submit' name='Submit' value='Submit'>
-															<input id='resetBtn' class='button' type='reset' name='reset' value='Reset'/>
+															<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>
 														</td>
 													</tr>
 												</table>

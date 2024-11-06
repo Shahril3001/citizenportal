@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Service</title>
+		<title>Aduan Darussalam | Service</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -45,9 +45,6 @@
 
 				<main>
 					<div class="main-container">
-						<?php
-							include 'breadcrumbs.php';
-						?>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Service</h1>
@@ -69,7 +66,7 @@
 													</tr>
 													<tr>
 														<td><b>Category Icon:</b></td>
-														<td><input type='file' name='categoryImg'></td>
+														<td><input type='file' name='categoryImg'>*PNG/JPG/JPEG file only.</td>
 													</tr>
 													<tr>
 														<td><b>Description:</b></td>

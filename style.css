@@ -307,6 +307,12 @@ main{
   text-align: left;
 }
 
+@media screen and (max-width: 768px) {
+    .statbox-title-h2 {
+        font-size: 1.5rem;
+    }
+}
+
 /** **/
 .statbox-title {
   font-size:20px;
@@ -318,10 +324,21 @@ main{
   border-radius:10px;
   border:solid 1px #DADADA;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-  height:18em;
   overflow: hidden;
   margin:10px;
   padding:5px;
+}
+
+@media screen and (max-width:1920px){
+    .statbox-item {
+      height:25em;
+    }
+}
+
+@media screen and (max-width:1366px){
+    .statbox-item {
+      height:18em;
+    }
 }
 
 .statbox-item:nth-child(4n + 1){
@@ -413,15 +430,14 @@ main{
 
 @media (max-width:768px) {
   .statbox-item{
-    width: 27%;
-    height:10em;
+    width: 90%;
+    height:18em;
   }
   .statbox-pie{
     --w:70%;
-    --b:15px;
+    --b:25px;
     font-size: 12px;
   }
-
 }
 
 .category{
@@ -479,11 +495,11 @@ footer{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem 0 3rem 0;
+  margin: 1rem 0;
 }
 
 .socials li{
-  margin: 0 10px;
+  margin: 0 10px 50px 10px;
 }
 
 .socials img{
@@ -493,6 +509,31 @@ footer{
   padding: 3px;
   border-radius: 50%;
 }
+
+@media (max-width:768px) {
+  .footer-content h3{
+    font-size: 1.5rem;
+  }
+  .footer-content p{
+    font-size: 11px;
+  }
+  .socials{
+    margin-left:-45px;
+  }
+  .socials li{
+    margin: 0 5px;
+  }
+  .socials img{
+    width:80%;
+    height:80%;
+  }
+}
+
+#disclaimer{
+  font-size: 9px;
+  color:#FFB848;
+}
+
 
 .socials li:hover{
   filter: brightness(120%) saturate(120%);
@@ -649,12 +690,23 @@ tr,td, th{
   padding-left:20px;
 }
 
+@media (max-width:768px) {
+  #formtable td{
+    padding:10px;
+    font-size: 11px;
+  }
+}
+
 #formtable th{
   color:white;
   padding: 10px;
   background-color: #FAB400;
   border-radius:10px 10px 0 0;
   text-align:center;
+}
+
+.findaccounttable{
+  margin:0 20px;
 }
 
 .forminput{
@@ -666,6 +718,13 @@ tr,td, th{
     width: 100%;
   }
 }
+
+@media (max-width:768px) {
+  .title-container{
+    font-size: 2.0rem;
+  }
+}
+
 
 .logintab{
   background-color: #25262A;
@@ -682,6 +741,12 @@ tr,td, th{
   cursor: pointer;
 }
 
+@media (max-width:768px) {
+  .logintab{
+    padding: 10px 22px;
+  }
+}
+
 .logintab:hover{
   background-color: #FAB400;
 }
@@ -694,10 +759,34 @@ tr,td, th{
   margin-right: auto;
 }
 
+@media (max-width:768px) {
+  .logincontainer{
+    width:90%;
+  }
+}
+
 .task-container{
   text-align: left;
   margin-left: auto;
   margin-right: auto;
+}
+
+#deptCategory{
+  right: 10px;
+  margin-bottom: 10px;
+}
+
+.deptCategoryelement{
+  width: 20%;
+}
+
+
+@media (max-width:768px) {
+  .deptCategoryelement{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -714,6 +803,34 @@ tr,td, th{
   border: 1px solid #DADADA;
 }
 
+@media screen and (max-width:1920px){
+    #listtable .button {
+      width:70%;
+    }
+}
+
+@media screen and (max-width:1366px){
+    #listtable .button {
+      width:90%;
+    }
+}
+
+@media screen and (max-width:768px){
+    #listtable .button {
+      width:auto;
+    }
+}
+
+@media (max-width:768px) {
+  #listtable td{
+    padding:10px;
+    font-size: 11px;
+  }
+  #listtable th{
+    font-size: 12px;
+  }
+}
+
 #listtable th{
   color:white;
   background-color: #1A2526;
@@ -723,6 +840,15 @@ tr,td, th{
 
 #viewBtn {
   background-color: #2255A4;
+}
+
+#selfreportBtn{
+  background-color: #FFB848;
+}
+
+
+#printBtn, #onbehalfBtn {
+  background-color: #3A019C;
 }
 
 #returnBtn {
@@ -735,6 +861,14 @@ tr,td, th{
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+#statbox-printBtn {
+  float: right;
+  text-align: center;
+  height: 3em;
+  background-color: #3A019C;
+}
+
+
 #statbox-addBtn {
   float: right;
   text-align: center;
@@ -743,7 +877,7 @@ tr,td, th{
 }
 
 #submitBtn {
-  background-color: #007BFF;
+  background-color: #2255A4;
 }
 
 #resetBtn, #cancelBtn, #backBtn, #deleteBtn{
@@ -802,7 +936,6 @@ select {
 
 .box-item {
   display:inline-block;
-  width: 30%;
   border-radius:10px;
   border:solid 1px #DADADA;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
@@ -810,6 +943,18 @@ select {
   overflow: hidden;
   margin:10px;
   padding:5px;
+}
+
+@media screen and (max-width:1920px){
+    .box-item {
+      width: 32%;
+    }
+}
+
+@media screen and (max-width:1366px){
+    .box-item {
+      width: 30%;
+    }
 }
 
 .box-item div{
@@ -846,7 +991,7 @@ select {
 
 @media screen and (max-width: 768px) {
   .box-item{
-    width: 45.5%;
+    width: 90%;
     height:17em;
   }
 }
@@ -884,6 +1029,13 @@ select {
   line-height: 1.3em;border-radius: 5px;
   text-decoration: none;border:none;text-transform: uppercase;
   font-weight: bold;width: auto;overflow: visible; margin: 10px;
+}
+
+@media (max-width:768px) {
+  .button{
+    font-size: 0.55em;
+    padding: 8px 15px;
+  }
 }
 
 /* Hover state animation applied here */
@@ -1130,11 +1282,22 @@ keyframes active {
     padding: 2.5em 0;
     display: flex;
     margin: 1em auto;
-    width: 1200px;
-    height: 500px;
+    width: auto;
     border:solid 1px #DADADA;
     border-radius: 10px;
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+@media screen and (max-width:1920px){
+    #slideshow {
+      height: 700px;
+    }
+}
+
+@media screen and (max-width:1366px){
+    #slideshow {
+      height: 500px;
+    }
 }
 
 #slides {
@@ -1325,7 +1488,6 @@ keyframes active {
   float: left;
   width: 47.5%;
   text-align: justify;
-  height:auto;
   margin:1em;
   padding: 1.5em;
   border:solid 1px #DADADA;
@@ -1345,6 +1507,18 @@ keyframes active {
 .aboutColumn:nth-child(4n + 3){
   background-color:#FAB400;
   color:#F8F8F8;
+}
+
+@media screen and (max-width:1920px){
+    .aboutColumn {
+      height:320px;
+    }
+}
+
+@media screen and (max-width:1366px){
+    .aboutColumn {
+      height:auto;
+    }
 }
 
 @media screen and (max-width:768px){
@@ -1371,8 +1545,59 @@ keyframes active {
   box-shadow: 0 5px 5px rgba(244, 142, 26, 1);
 }
 
+@media screen and (max-width:1920px){
+    .aboutRow {
+      width: 100%;
+    }
+}
+
 @media screen and (max-width:768px){
     .aboutGoal {
       width: 90%;
+    }
+}
+
+/* ------------- ROLE ----------- */
+
+.roleRow {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  clear: both;
+}
+
+.roleRow h1{
+    margin-bottom: 0.5em;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.roleBox {
+  float: left;
+  width: 47.5%;
+  height:250px;
+  margin:1em;
+  padding: 1.5em;
+  border:solid 1px #DADADA;
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  z-index: -1;
+}
+
+.roleBox:hover {
+  -webkit-animation: hover 1200ms linear 2 alternate;
+  animation: hover 1200ms linear 2 alternate;
+  box-shadow: 0 5px 5px rgba(244, 142, 26, 1);
+}
+
+@media screen and (max-width:768px){
+    .roleBox {
+      width: 90%;
+      height:290px;
+    }
+    .roleRow h1{
+      margin-bottom: 0.5em;
+      font-size: 20px;
+      font-weight: 900;
     }
 }

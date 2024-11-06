@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Citizen</title>
+		<title>Aduan Darussalam | Citizen</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -78,7 +78,7 @@
 													</tr>
 													<tr>
 														<td><b>*Name:</b></td>
-														<td><input type='text' class='forminput' name='citizenName' placeholder='Name...' value='$citizenName'></td>
+														<td><input type='text' class='forminput' name='citizenName' placeholder='Name...' value='$citizenName' required></td>
 													</tr>
 													<tr>
 														<td><b>IC Number:</b></td>
@@ -90,7 +90,7 @@
 													</tr>
 													<tr>
 														<td><b>*Phone:</b></td>
-														<td><input type='number' name='citizenPhone'  class='forminput' id='removeNumpointer' placeholder='Phone No...' value='$citizenPhone' minlength='7'></td>
+														<td><input type='number' name='citizenPhone'  class='forminput' id='removeNumpointer' placeholder='Phone No...' value='$citizenPhone' minlength='7' required></td>
 													</tr>
 													<tr>
 														<td><b>*Address:</b></td>
@@ -100,11 +100,11 @@
 													</tr>
 													<tr>
 														<td><b>*Password:</b></td>
-														<td><input type='password' name='citizenPassword' placeholder='Password...' value='$citizenPassword' minlength='8'></td>
+														<td><input type='password' name='citizenPassword' placeholder='Password...' value='$citizenPassword' minlength='8' required></td>
 													</tr>
 													<tr>
 														<td><b>Confirm Password:</b></td>
-														<td><input type='password' name='citizenCPassword' placeholder='Password...' value='$citizenPassword' minlength='8'></td>
+														<td><input type='password' name='citizenCPassword' placeholder='Password...' value='$citizenPassword' minlength='8' required></td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Department</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -43,9 +43,6 @@
 
 				<main>
 					<div class="main-container">
-						<?php
-							include 'breadcrumbs.php';
-						?>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Department</h1>
@@ -67,13 +64,6 @@
 											$listDesc = $serviceDeptlist->listDesc;
 											$listGuideline = $serviceDeptlist->listGuideline;
 
-											$servicequery = dbConn()->prepare("SELECT * FROM service_category WHERE categoryID='$listCategory'");
-											$servicequery->execute();
-											$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
-
-											foreach($servicelists as $servicelist){
-											$categoryName  = $servicelist->categoryName ;
-
 										echo "
 											<p>Department details.</p>
 											<form>
@@ -82,30 +72,40 @@
 														<th colspan='2'>View Department</th>
 													</tr>
 													<tr>
-														<td width='30%'><b>Title</b></td>
+														<td width='30%'><b>Title:</b></td>
 														<td>$listTitle</td>
 													</tr>
 													<tr>
-														<td><b>Category</b></td>
-														<td>$categoryName</td>
+														<td><b>Category:</b></td>
+														<td>$listCategory</td>
 													</tr>
 													<tr>
-														<td><b>Description</b></td>
+														<td><b>Description:</b></td>
 														<td>$listDesc</td>
 													</tr>
 													<tr>
-														<td><b>Guideline Description</b></td>
+														<td><b>Guideline Description:</b></td>
 														<td>$listGuideline</td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>
-															<center><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></center>
+															<center><p>";
+																if(!isset($_GET['role'])){
+																	echo"<a href='login.php'><input id='viewBtn' class='button' type='button' name='back' value='Login'></a>";
+																}
+																echo"
+																<input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+																<script>
+																	function goBack(){
+																		window.history.back();
+																	}
+																</script>
+															</center>
 														</td>
 													</tr>
 												</table>
 											</form>
 										";
-										}
 									}
 								?>
 							</div>

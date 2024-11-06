@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Home</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -130,14 +130,20 @@
 									$conditionquery->execute();
 									$conditionnum_count = $conditionquery->rowCount();
 
-
 									$overallquery = dbConn()->prepare("SELECT * FROM complaints WHERE citizenIC='$citizenIC'");
 									$overallquery->execute();
 									$overallnum_count = $overallquery->rowCount();
 
-									$counttotal= $conditionnum_count/$overallnum_count * 100;
-
-									return number_format($counttotal);
+									if ($conditionnum_count==0 && $overallnum_count==0)
+									{
+										$conditionnum_count = 0;
+										$overallnum_count = 1;
+										$counttotal= $conditionnum_count/$overallnum_count * 100;
+										return number_format($counttotal);
+									}else{
+										$counttotal= $conditionnum_count/$overallnum_count * 100;
+										return number_format($counttotal);
+									}
 								}
 							?>
 							<div class='statbox-item'>
@@ -175,9 +181,16 @@
 									$overallquery->execute();
 									$overallnum_count = $overallquery->rowCount();
 
-									$counttotal= $conditionnum_count/$overallnum_count * 100;
-
-									return number_format($counttotal);
+									if ($conditionnum_count==0 && $overallnum_count==0)
+									{
+										$conditionnum_count = 0;
+										$overallnum_count = 1;
+										$counttotal= $conditionnum_count/$overallnum_count * 100;
+										return number_format($counttotal);
+									}else{
+										$counttotal= $conditionnum_count/$overallnum_count * 100;
+										return number_format($counttotal);
+									}
 								}
 							?>
 							<div class='statbox-item'>
@@ -216,9 +229,16 @@
 								$overallquery->execute();
 								$overallnum_count = $overallquery->rowCount();
 
-								$counttotal= $conditionnum_count/$overallnum_count * 100;
-
-								return number_format($counttotal);
+								if ($conditionnum_count==0 && $overallnum_count==0)
+								{
+									$conditionnum_count = 0;
+									$overallnum_count = 1;
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+									return number_format($counttotal);
+								}else{
+									$counttotal= $conditionnum_count/$overallnum_count * 100;
+									return number_format($counttotal);
+								}
 							}
 							?>
 							<div class='statbox-item'>
@@ -242,7 +262,7 @@
 									echo "<div class='statbox-pie' style='--p:". countTotal($feedbackType) .";'>". countTotal($feedbackType) ."%</div>";
 								?>
 							</div>
-
+							<button id='printBtn' class='button' onclick='window.print()'>&#9113; Print this page</button>
 						</div>
 						<div>
 					</div>

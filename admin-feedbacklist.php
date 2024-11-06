@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Feedback</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -55,7 +55,10 @@
 									$feedbackquery = dbConn()->prepare('SELECT * FROM feedback');
 									$feedbackquery->execute();
 									$feedbacklists = $feedbackquery->fetchAll(PDO::FETCH_OBJ);
-									echo"
+									$num_count = $feedbackquery->rowCount();
+									if ($num_count !=0)
+									{
+									echo"<p><b>Result:</b> There are $num_count feedback(s) shown below:</p>
 									<div class='row'>
 										<table id='listtable'>
 											<tr>
@@ -76,24 +79,41 @@
 											$dateF = $feedbacklist->dateF;
 											$dateF = date('d M Y H:i:sa',strtotime($dateF));
 
+											$citizenquery = dbConn()->prepare('SELECT * FROM citizen WHERE citizenName="'. $citizenName .'"');
+											$citizenquery->execute();
+											$citizenlists = $citizenquery->fetchAll(PDO::FETCH_OBJ);
+											foreach($citizenlists as $citizenlist){
+											$citizenIC = $citizenlist->citizenIC;
+
 											echo "
 											<tr>
 												<td>$cloneID</td>
 												<td class='justify-contents'>
-													<b>Fullname:</b> $citizenName<br>
-													<b>IC Number:</b> $citizenIC<br>
+													<b>Fullname:</b> <a href='admin-viewcitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'>$citizenName</a><br>
 													<b>Email:</b> <a href='mailto:$emailF'>$emailF</a><br>
 													<b>Subject:</b> $subjectF<br>
 													<b>Type:</b> $feedbackType<br>
 												</td>
 												<td width='20%'>$dateF</td>
-												<td width='10%'>
-													<a href='admin-viewfeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-													<a href='admin-deletefeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+												<td width='14%'>
+													<a href='admin-viewfeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
+													<a href='admin-deletefeedback.php?adminEmail=".$adminEmail."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 												</td>
 											</tr>";
 											}
-											echo"</table>";
+										}
+										echo"</table>";
+										}else if ($num_count == 0){
+											echo "<p><b>Result:</b> There are no results were found.</p>
+											<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+											<script>
+												function goBack(){
+													window.history.back();
+												}
+											</script>";
+										}else{
+											echo "<p>Something wrong on database.</p>";
+										}
 									?>
 							</div>
 						</div>

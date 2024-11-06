@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Complaint</title>
+		<title>Aduan Darussalam | Complaint</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -47,15 +47,47 @@
 						<div>
 							<h1 class="title-container">Complaint</h1>
 							<img src='icon/icons8-complain-64-1.png' class='statbox-title-img'/>
+							<button class='button' id='statbox-printBtn' onclick='window.print()'>&#9113; Print This Page</button></a>
 							<h2 class='statbox-title-h2'>Complaint (On Behalf)</h2>
 							<hr>
 							<?php
+								include 'connection.php';
+									echo"
+									<div id='deptCategory'>
+										<form method='POST' enctype='multipart/form-data' action='admin-findcomplaintlist-onbehalf.php?adminEmail=".$adminEmail."&role=".$role."'>
+										<select name='complaintStatus' id='complaintStatus' class='deptCategoryelement'>
+											<option>Select a status...</option>
+											<option value='Open'>Open</option>
+											<option value='Closed'>Closed</option>
+											<option value='Dropped'>Dropped</option>
+										</select>
+
+										<select name='serviceCategory' class='deptCategoryelement'>
+										<option value=''>Select a category...</option>";
+											$servicequery = dbConn()->prepare("SELECT * FROM service_category");
+											$servicequery->execute();
+											$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
+
+											foreach($servicelists as $servicelist){
+												$categoryID  = $servicelist->categoryID;
+												$categoryName  = $servicelist->categoryName;
+												echo"<option value='$categoryName'>$categoryName</option>";
+											}
+										echo"</select>";
+										echo"
+										<input id='returnBtn' class='button' type='submit' name='Submit' value='&#x1F50E; Search'>
+										</form>
+									</div>
+									";
+
 									$cloneID = 0;
-									include 'connection.php';
 									$complaintquery = dbConn()->prepare('SELECT * FROM complaintsbehalf');
 									$complaintquery->execute();
 									$complaintlists = $complaintquery->fetchAll(PDO::FETCH_OBJ);
-									echo"
+									$num_count = $complaintquery->rowCount();
+									if ($num_count !=0)
+									{
+									echo"<p><b>Result:</b> There are $num_count complaint(s) shown below:</p>
 									<div class='row'>
 										<table id='listtable'>
 											<tr>
@@ -74,6 +106,7 @@
 												$date = $complaintlist->date;
 												$date = date('d M Y',strtotime($date));
 
+												$serviceTitle = $complaintlist->serviceTitle;
 												$serviceCategory = $complaintlist->serviceCategory;
 												$complaintImage = $complaintlist->complaintImage;
 												$document = $complaintlist->document;
@@ -88,6 +121,7 @@
 												$citizenlists = $citizenquery->fetchAll(PDO::FETCH_OBJ);
 												foreach($citizenlists as $citizenlist){
 												$cloneID++;
+												$citizenIC = $citizenlist->citizenIC;
 												$citizenName = $citizenlist->citizenName;
 
 												echo "
@@ -95,21 +129,33 @@
 													<td>$cloneID</td>
 													<td class='justify-contents'>
 														<b>Subject:</b> $complaintSubject<br>
+														<b>Title:</b> $serviceTitle<br>
 														<b>Category:</b> $serviceCategory<br>
 														<b>Behalf Name:</b> $behalfName<br>
-														<b>Sender:</b> $citizenName ($citizenIC)<br>
+														<b>Sender:</b> <a href='admin-viewcitizen.php?adminEmail=".$adminEmail."&citizenIC=".$citizenIC."&role=".$role."'>$citizenName ($citizenIC)</a><br>
 														<b>Date:</b> $date<br>
 													</td>
 													<td width='20%'>$complaintStatus</td>
-													<td width='10%'>
-														<a href='admin-viewcomplaint-b.php?adminEmail=".$adminEmail."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-														<a href='admin-editcomplaint-b.php?adminEmail=".$adminEmail."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='editBtn'>Update</button></a>
-														<a href='admin-deletecomplaint-b.php?adminEmail=".$adminEmail."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+													<td width='14%'>
+														<a href='admin-viewcomplaint-b.php?adminEmail=".$adminEmail."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
+														<a href='admin-editcomplaint-b.php?adminEmail=".$adminEmail."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='editBtn'>&#10227; Update</button></a>
+														<a href='admin-deletecomplaint-b.php?adminEmail=".$adminEmail."&behalfComplaintID=".$behalfComplaintID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 													</td>
 												</tr>";
 											}
 										}
-											echo"</table>";
+										echo"</table>";
+										}else if ($num_count == 0){
+											echo "<p><b>Result:</b> There are no results were found.</p>
+											<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+											<script>
+												function goBack(){
+													window.history.back();
+												}
+											</script>";
+										}else{
+											echo "<p>Something wrong on database.</p>";
+										}
 									?>
 							</div>
 						</div>

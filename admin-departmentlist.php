@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Department</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -54,18 +54,42 @@
 							<h2 class='statbox-title-h2'>Department List</h2>
 							<hr>
 							<?php
+								include 'connection.php';
+									echo"
+									<div id='deptCategory'>
+										<form method='POST' enctype='multipart/form-data' action='admin-finddepartment.php?adminEmail=".$adminEmail."&role=".$role."'>
+										<input type='text' name='listTitle' placeholder='Title...' class='deptCategoryelement'>
+										<select name='listCategory' class='deptCategoryelement'>
+										<option>Select a category...</option>";
+											$servicequery = dbConn()->prepare("SELECT * FROM service_category");
+											$servicequery->execute();
+											$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
+
+											foreach($servicelists as $servicelist){
+												$categoryID  = $servicelist->categoryID;
+												$categoryName  = $servicelist->categoryName;
+												echo"<option value='$categoryName'>$categoryName</option>";
+											}
+										echo"</select>";
+										echo"
+										<input id='returnBtn' class='button' type='submit' name='Submit' value='&#x1F50E; Search'>
+										</form>
+									</div>
+									";
 									$cloneID = 0;
-									include 'connection.php';
-									$serviceDeptquery = dbConn()->prepare('SELECT * FROM service_list');
+									$serviceDeptquery = dbConn()->prepare("SELECT * FROM service_list");
 									$serviceDeptquery->execute();
 									$serviceDeptlists = $serviceDeptquery->fetchAll(PDO::FETCH_OBJ);
-									echo"
+									$num_count = $serviceDeptquery->rowCount();
+									if ($num_count !=0)
+									{
+									echo"<p><b>Result:</b> There are $num_count department(s) shown below:</p>
 									<div class='row'>
 										<table id='listtable'>
 											<tr>
 												<th width='20px'>#</th>
 												<th>Detail</th>
-												<th width='10%'>Action</th>
+												<th width='14%'>Action</th>
 											</tr>";
 											foreach($serviceDeptlists as $serviceDeptlist){
 												$cloneID++;
@@ -75,30 +99,33 @@
 												$listDesc = $serviceDeptlist->listDesc;
 												$listGuideline = $serviceDeptlist->listGuideline;
 
-												$servicequery = dbConn()->prepare("SELECT * FROM service_category WHERE categoryID='$listCategory'");
-												$servicequery->execute();
-												$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
-
-												foreach($servicelists as $servicelist){
-												$categoryName  = $servicelist->categoryName ;
-
 												echo "
 												<tr>
 													<td>$cloneID</td>
 													<td class='justify-contents'>
 														<b>Title:</b> $listTitle<br>
-														<b>Category:</b> $categoryName<br>
+														<b>Category:</b> $listCategory<br>
 														<b>Description:</b> ".substr($listDesc,0,250)."..... <i><a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'>(More)</a></i>
 													</td>
 													<td>
-														<a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
-														<a href='admin-editdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
-														<a href='admin-deletedeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+														<a href='admin-viewdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
+														<a href='admin-editdeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='editBtn'>&#10227; Edit</button></a>
+														<a href='admin-deletedeptlist.php?adminEmail=".$adminEmail."&listID=".$listID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 													</td>
 												</tr>";
-												}
 											}
 											echo"</table>";
+										}else if ($num_count == 0){
+											echo "<p><b>Result:</b> There are no results were found.</p>
+											<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+											<script>
+												function goBack(){
+													window.history.back();
+												}
+											</script>";
+										}else{
+											echo "<p>Something wrong on database.</p>";
+										}
 									?>
 							</div>
 						</div>

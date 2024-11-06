@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Slideshow</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -66,7 +66,7 @@
 												<th width='20px'>#</th>
 												<th width='20%'>Image</th>
 												<th>Detail</th>
-												<th width='10%'>Action</th>
+												<th width='14%'>Action</th>
 											</tr>";
 											foreach($slideshows as $slideshow){
 											$cloneID++;
@@ -86,8 +86,8 @@
 													<b>Added By:</b> $addedBy<br>
 												</td>
 												<td>
-													<a href='admin-editslideshow.php?adminEmail=".$adminEmail."&slideshowID=".$slideshowID."&role=".$role."'><button class='button' id='editBtn'>Edit</button></a>
-													<a href='admin-deleteslideshow.php?adminEmail=".$adminEmail."&slideshowID=".$slideshowID."&role=".$role."'><button class='button' id='deleteBtn'>Delete</button></a>
+													<a href='admin-editslideshow.php?adminEmail=".$adminEmail."&slideshowID=".$slideshowID."&role=".$role."'><button class='button' id='editBtn'>&#10227; Edit</button></a>
+													<a href='admin-deleteslideshow.php?adminEmail=".$adminEmail."&slideshowID=".$slideshowID."&role=".$role."'><button class='button' id='deleteBtn'>&#128465; Delete</button></a>
 												</td>
 											</tr>";
 											}

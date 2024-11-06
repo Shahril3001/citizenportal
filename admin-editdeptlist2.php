@@ -22,7 +22,7 @@
 		$listGuideline=$_POST['listGuideline'];
 
 			// isEmpty field
-			if(empty($listTitle) || empty($listCategory) || empty($listDesc) || empty($listGuideline)) {
+			if(empty($listTitle) || empty($listCategory)) {
 				echo "<div class='pos'>";
 				echo "<img src='icon/icons8-error-96.png'/>";
 				echo "<h2>Invalid Value!</h2>";

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Home</title>
+		<title>Aduan Darussalam | Feedback</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -55,7 +55,10 @@
 									$feedbackquery = dbConn()->prepare('SELECT * FROM feedback WHERE citizenIC="'. $citizenIC .'"');
 									$feedbackquery->execute();
 									$feedbacklists = $feedbackquery->fetchAll(PDO::FETCH_OBJ);
-									echo"
+									$num_count = $feedbackquery->rowCount();
+									if ($num_count !=0)
+									{
+									echo"<p><b>Result:</b> There are $num_count complaint(s) shown below:</p>
 									<div class='row'>
 										<table id='listtable'>
 											<tr>
@@ -80,19 +83,27 @@
 											<tr>
 												<td>$cloneID</td>
 												<td class='justify-contents'>
-													<b>Fullname:</b> $citizenName<br>
-													<b>IC Number:</b> $citizenIC<br>
-													<b>Email:</b> <a href='mailto:$emailF'>$emailF</a><br>
 													<b>Subject:</b> $subjectF<br>
 													<b>Type:</b> $feedbackType<br>
 												</td>
 												<td width='20%'>$dateF</td>
-												<td width='10%'>
-													<a href='admin-viewfeedback.php?citizenIC=".$citizenIC."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>View</button></a>
+												<td width='14%'>
+													<a href='admin-viewfeedback.php?citizenIC=".$citizenIC."&feedbackID=".$feedbackID."&role=".$role."'><button class='button' id='viewBtn'>&#x1f441; View</button></a>
 												</td>
 											</tr>";
 											}
 											echo"</table>";
+											}else if ($num_count == 0){
+												echo "<p><b>Result:</b> There are no results were found.</p>
+												<p><input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'></p>
+												<script>
+													function goBack(){
+														window.history.back();
+													}
+												</script>";
+											}else{
+												echo "<p>Something wrong on database.</p>";
+											}
 									?>
 							</div>
 						</div>

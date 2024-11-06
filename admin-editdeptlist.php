@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Department</title>
+		<title>Aduan Darussalam | Department</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -44,9 +44,6 @@
 
 				<main>
 					<div class="main-container">
-						<?php
-							include 'breadcrumbs.php';
-						?>
 						<!--===============================================================================================-->
 						<div>
 							<h1 class="title-container">Department</h1>
@@ -76,21 +73,20 @@
 													</tr>
 													<tr>
 														<td><b>Title:</b></td>
-														<td><input type='text' name='listTitle' class='forminput' placeholder='Title...' value='$listTitle'></td>
+														<td><input type='text' name='listTitle' class='forminput' placeholder='Title...' value='$listTitle' required></td>
 													</tr>
 													<tr>
 														<td><b>Category Service:</b></td>
-														<td><select name='listCategory' id='listCategory'>";
+														<td><select name='listCategory' id='listCategory' required>";
 																echo"<option value='$listCategory'>Select a category...</option>";
 																$servicequery = dbConn()->prepare("SELECT * FROM service_category");
 																$servicequery->execute();
 																$servicelists = $servicequery->fetchAll(PDO::FETCH_OBJ);
 
 																foreach($servicelists as $servicelist){
-																	$categoryID  = $servicelist->categoryID;
 																	$categoryName  = $servicelist->categoryName;
 
-																  echo"<option value='$categoryID'>$categoryName</option>";
+																  echo"<option value='$categoryName'>$categoryName</option>";
 																}
 																echo"</select>
 														</td>

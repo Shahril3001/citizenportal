@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | Staff</title>
+		<title>Aduan Darussalam | Staff</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -75,24 +75,24 @@
 														<th colspan='2'>Edit Staff</th>
 													</tr>
 													<tr>
-														<td><b>*Name</b></td>
-														<td><input type='text' name='adminName' class='forminput' placeholder='Name...' value='$adminName'></td>
+														<td><b>*Name:</b></td>
+														<td><input type='text' name='adminName' class='forminput' placeholder='Name...' value='$adminName' required></td>
 													</tr>
 													<tr>
-														<td><b>Email</b></td>
+														<td><b>Email:</b></td>
 														<td><input type='email' class='forminput' placeholder='Email...' value='$adminEmail' readonly></td>
 													</tr>
 													<tr>
-														<td><b>*Phone</b></td>
-														<td><input type='number' name='adminPhone'  class='forminput' id='removeNumpointer' placeholder='Phone No...' value='$adminPhone' minlength='7'></td>
+														<td><b>*Phone:</b></td>
+														<td><input type='number' name='adminPhone'  class='forminput' id='removeNumpointer' placeholder='Phone No...' value='$adminPhone' minlength='7' required></td>
 													</tr>
 													<tr>
-														<td><b>*Password</b></td>
-														<td><input type='password' name='adminPassword' placeholder='Password...' value='$adminPassword' minlength='8'></td>
+														<td><b>*Password:</b></td>
+														<td><input type='password' name='adminPassword' placeholder='Password...' value='$adminPassword' minlength='8' required></td>
 													</tr>
 													<tr>
-														<td><b>Confirm Password</b></td>
-														<td><input type='password' name='adminCPassword' placeholder='Password...' value='$adminPassword' minlength='8'></td>
+														<td><b>Confirm Password:</b></td>
+														<td><input type='password' name='adminCPassword' placeholder='Password...' value='$adminPassword' minlength='8' required></td>
 													</tr>
 													<tr>
 														<td style='border:none;' colspan='2'  id='buttonrow'>

@@ -17,11 +17,11 @@
 		$complaint=$_POST['complaint'];
 		$location=$_POST['location'];
 		$date=$_POST["date"];
-		$listCategory=$_POST['listCategory'];
+		$listID=$_POST['listID'];
 		$complaintDate=date("Y-m-d h:i:sa");
 
 			// isEmpty field
-			if(empty($complaintSubject) || empty($complaint) || empty($location) || empty($date) || empty($listCategory)) {
+			if(empty($complaintSubject) || empty($complaint) || empty($location) || empty($date) || empty($listID)) {
 				echo "<div class='pos'>";
 				echo "<img src='icon/icons8-error-96.png'/>";
 				echo "<h2>Invalid Value!</h2>";
@@ -37,40 +37,69 @@
 			else{
 				$target_dir="complaint/image/";
 				$target_dir=$target_dir. basename($_FILES["complaintImage"]["name"]);
-				move_uploaded_file($_FILES["complaintImage"]["tmp_name"],$target_dir);
-				$imageup=$target_dir;
+				$fileimg_extension = pathinfo($target_dir, PATHINFO_EXTENSION);
+				$fileimg_extension = strtolower($fileimg_extension);
+				$validimg_extension = array("png","jpeg","jpg");
 
 				$target_dir1="complaint/document/";
 				$target_dir1=$target_dir1. basename($_FILES["complaintDocument"]["name"]);
-				move_uploaded_file($_FILES["complaintDocument"]["tmp_name"],$target_dir1);
-				$documentup=$target_dir1;
+				$filedoc_extension = pathinfo($target_dir1, PATHINFO_EXTENSION);
+				$filedoc_extension = strtolower($filedoc_extension);
+				$validdoc_extension = array("rar","docx","doc","pdf");
 
-					$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaintSubject."', '".$complaint."', '".$location."', '".$date."', '".$listCategory."','".$imageup."', '".$documentup."','".$citizenIC."','Open','".$complaintDate."')");
-					// Success
-					if($query -> execute()){
+				if(in_array($fileimg_extension, $validimg_extension) && in_array($filedoc_extension, $validdoc_extension)) {
+						move_uploaded_file($_FILES["complaintImage"]["tmp_name"],$target_dir);
+						$imageup=$target_dir;
+						move_uploaded_file($_FILES["complaintDocument"]["tmp_name"],$target_dir1);
+						$documentup=$target_dir1;
+
+						$servicelistquery = dbConn()->prepare("SELECT * FROM service_list WHERE listID='$listID'");
+						$servicelistquery->execute();
+						$servicelists = $servicelistquery->fetchAll(PDO::FETCH_OBJ);
+
+						foreach($servicelists as $servicelist){
+							$listTitle   = $servicelist->listTitle;
+							$listCategory    = $servicelist->listCategory;
+
+							$query = dbConn()->prepare("INSERT INTO complaints VALUE(null, '".$complaintSubject."', '".$complaint."', '".$location."', '".$date."', '".$listTitle."', '".$listCategory."', '".$imageup."', '".$documentup."','".$citizenIC."','Open','".$complaintDate."')");
+						}// Success
+						if($query -> execute()){
+							echo "<div class='pos'>";
+							echo "<img src='icon/icons8-success-64.png'/>";
+							echo "<h2>Success!</h2>";
+							echo "<p id='valid'>Complaint is successfully added.</p>
+							<p>Click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
+							";
+							echo "</div>";
+						}
+						else{
+							echo "<div class='pos'>";
+							echo "<img src='icon/icons8-error-96.png'/>";
+							echo "<h2>Invalid Value!</h2>";
+							echo "<p id='invalid'>Unable to submit. Please try again.</p>
+							<p>Please click <input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>.</p>
+							<script>
+								function goBack(){
+									window.history.back();
+								}
+							</script></p>";
+							echo "</div>";
+						}
+					}else{
 						echo "<div class='pos'>";
-						echo "<img src='icon/icons8-success-64.png'/>";
-						echo "<h2>Success!</h2>";
-						echo "<p id='valid'>Complaint is successfully added.</p>
-						<p>Click <a href='citizen-lodgecomplain.php?citizenIC=".$citizenIC."&role=".$role."'><input id='returnBtn' class='button' type='button' name='return' value='Return'></a> to return.</p>
-						";
+						echo "<img src='icon/icons8-error-96.png'/>";
+						echo "<h2>Invalid File!</h2>";
+						echo "<p id='invalid'>Unable to submit. Please try again.</p>
+						<p>Please click <input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>.</p>
+						<script>
+							function goBack(){
+								window.history.back();
+							}
+						</script></p>";
 						echo "</div>";
 					}
-				else{
-					echo "<div class='pos'>";
-					echo "<img src='icon/icons8-error-96.png'/>";
-					echo "<h2>Password doesn't match.</h2>";
-					echo "<p id='invalid'>Unable to submit. Please try again.</p>
-					<p>Please click <input id='backBtn' class='button' type='button' name='back' value='Back' onclick='goBack()'>.</p>
-					<script>
-						function goBack(){
-							window.history.back();
-						}
-					</script></p>";
-					echo "</div>";
-				}
-}
-}
+			}
+		}
 		echo "</center>";
 	?>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
-		<title>Citizen Portal Brunei | About</title>
+		<title>Aduan Darussalam | About</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--===============================================================================================-->
@@ -89,6 +89,33 @@
 						   		<p>Become a Public Service Main Choice Management Consultant</p>
 						  	</div>
 			       </div>
+						 <!-- CORE VALUES -->
+						<img src='icon/icons8-celebrate-64.png' class='statbox-title-img'/>
+
+						<h2 class='statbox-title-h2'>Core Values</h2>
+						<hr>
+						<div class="aboutRow">
+						 		<div class="aboutGoal">
+						   		<h1>Integrity</h1>
+									<img src='icon/icons8-integrity-64.png' alt='' width='48px' height='48px'>
+						   		<p>Practicing an honest, trustworthy, ethical and professional attitude in carrying out duties and responsibilities</p>
+						  	</div>
+						  	<div class="aboutGoal">
+						   		<h1>Quality</h1>
+									<img src='icon/icons8-best-seller-58.png' alt='' width='48px' height='48px'>
+						   		<p>Provide services and produce work that meets the needs of stakeholders</p>
+						  	</div>
+						  	<div class="aboutGoal">
+						   		<h1>Drivers of Change</h1>
+									<img src='icon/icons8-improvement-96.png' alt='' width='48px' height='48px'>
+						   		<p>A catalyst for change towards improvement and excellence</p>
+						  	</div>
+						  	<div class="aboutGoal">
+						   		<h1>Caring</h1>
+									<img src='icon/icons8-citizen-64.png' alt='' width='48px' height='48px'>
+						   		<p>Practicing a caring attitude and taking care of the needs of stakeholders</p>
+						  	</div>
+						  </div>
 				</div>
 
 			</main>
