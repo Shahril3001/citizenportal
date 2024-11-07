@@ -33,10 +33,7 @@
 			echo"
 			<a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-home-48.png' class='side-nav-icon' />Dashboard</a>
 			<a href='citizen-myprofile.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-test-account-96.png' class='side-nav-icon' />My Profile</a>
-<<<<<<< HEAD
-			<a href='citizen-department.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-department-48.png' class='side-nav-icon' />Services</a>
-=======
->>>>>>> a9d6fc70cc6840c51e3805ce251cf3cadaea37c4
+			<a href='citizen-department.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-department-48.png' class='side-nav-icon' />Department</a>
 			<a href='citizen-services.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-services-64.png' class='side-nav-icon' />Services</a>
 			<a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'><img src='icon/icons8-mailboxes-64.png' class='side-nav-icon' />Contact</a>
 

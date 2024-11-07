@@ -50,10 +50,7 @@
 								<ul>
 									<li><a href='citizen-index.php?citizenIC=".$citizenIC."&role=".$role."'>Dashboard</a></li>
 									<li><a href='citizen-myprofile.php?citizenIC=".$citizenIC."&role=".$role."'>My Profile</a></li>
-<<<<<<< HEAD
 									<li><a href='citizen-department.php?citizenIC=".$citizenIC."&role=".$role."'>Department</a></li>
-=======
->>>>>>> a9d6fc70cc6840c51e3805ce251cf3cadaea37c4
 									<li><a href='citizen-services.php?citizenIC=".$citizenIC."&role=".$role."'>Services</a></li>
 									<li><a href='citizen-contact.php?citizenIC=".$citizenIC."&role=".$role."'>Contact</a></li>
 
